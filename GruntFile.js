@@ -6,6 +6,17 @@ module.exports = function(grunt) {
 		jshint: {
 			all: ['./src/**/*.js']
 		},
+		
+		less: {
+			dev: {
+				options: {
+					paths: ["style"]
+				},
+			    files: {
+			    	'dist/app.css': 'style/app.less'
+			    }
+			}
+		},
 
 		webpack: {
 			options: webpackConfig,
@@ -29,8 +40,8 @@ module.exports = function(grunt) {
 
 		watch: {
 			scripts: {
-				files: ['src/**/*.js', 'src/**/*.html'],
-				tasks: ['jshint', 'webpack:dev'],
+				files: ['src/**/*.js', 'src/**/*.html', 'style/**/*.less'],
+				tasks: ['jshint', 'less:dev', 'webpack:dev'],
 				options: {
 					spawn: false,
 				},
@@ -41,6 +52,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-webpack');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-less');
 
 	grunt.registerTask('build', ['watch']);
 };

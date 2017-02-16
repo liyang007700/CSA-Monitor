@@ -18,10 +18,5 @@ module.exports = {
 			test: /\.html$/,
             loader: "html-loader"
 		}]
-	},
-	resolve: {
-	  alias: {
-	    'vue$': 'vue/dist/vue.common.js'
-	  }
 	}
 }
