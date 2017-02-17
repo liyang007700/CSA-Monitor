@@ -1,7 +1,21 @@
 <!-- Application root -->
-<div id="m-app">
-	<app-header></app-header>
-	<app-left-nav></app-left-nav>
-	<app-footer></app-footer>
-	<router-view></router-view>
+<div id="m-app" class="pure-g">
+	<div id="m-header-wrapper" class="pure-u-1-1">
+		<div id="m-header">
+			<app-header></app-header>
+		</div>
+	</div>
+	<div id="m-left-nav" class="pure-u">
+		<app-left-nav></app-left-nav>
+	</div>
+	<div id="m-main-wrapper" class="pure-u-1-1">
+		<div id="m-main">
+			<router-view></router-view>
+		</div>
+	</div>
+	<div id="m-footer-wrapper" class="pure-u-1-1">
+		<div id="m-footer">
+			<app-footer></app-footer>
+		</div>
+	</div>
 </div>

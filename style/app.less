@@ -1,3 +1,49 @@
 body{
-	color: #999999;
+	color: #333333;
+	
+	#m-app{
+		padding-left: 150px;
+		
+		#m-left-nav{
+    		position: fixed;
+		    top: 0;
+		    left: 0;
+		    height: 100%;
+		    width: 58px;
+		    overflow: hidden;
+		    background-color: #26323e;
+		    z-index: 1031;
+		    -webkit-transition: all .1s ease-out;
+		    width: 150px;
+    		
+    		*{
+    			color: #FFFFFF;
+    		}
+		}
+		
+		#m-main-wrapper{
+			background-color: #e1e8ee;
+		}
+		
+		#m-header,
+		#m-main,
+		#m-footer{
+			padding: 2em;
+			width: 80%;
+			margin: 0 auto;
+		}
+		
+		#m-header,
+		#m-footer{
+			padding: 0 2em;
+		}
+		
+		#m-main{
+			.m-box{
+				padding: 2em;
+				background-color: #FFFFFF;
+				border-radius: 6px;
+			}
+		}
+	}
 }
