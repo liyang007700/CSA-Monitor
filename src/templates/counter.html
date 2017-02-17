@@ -1,0 +1,7 @@
+<div style="background-color: #eeeeee; display: inline-block; padding: 2px 1em;">
+	<h4>子组件</h4>
+	<button v-on:click="counter += 1">{{ counter }}</button>
+	<span>父组件传来的数据：{{ counterMessage }}</span>
+	<p><button @click="showAlert">子组件按钮</button></p>
+	<p><button @click="toParent">子组件传递数据到父组件</button></p>
+</div>

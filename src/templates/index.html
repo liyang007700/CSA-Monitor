@@ -4,4 +4,8 @@
 	<p><input v-model="message"></p>
 	<p>{{ message }}</p>
 	<p><button @click="showMsg">点我</button></p>
+	<div id="example-2">
+		<!-- 子组件 -->
+		<counter v-on:show="_showChild" v-bind:counterMessage="message"></counter>
+	</div>
 </div>
