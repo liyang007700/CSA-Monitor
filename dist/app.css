@@ -105,6 +105,10 @@ body #m-app #m-header,
 body #m-app #m-footer {
   padding: 0 2em;
 }
+body #m-app #m-footer p {
+  font-size: 12px;
+  color: #999999;
+}
 body #m-app #m-header {
   font-size: 13px;
 }

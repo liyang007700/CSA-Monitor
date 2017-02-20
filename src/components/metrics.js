@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
-import template from '../templates/settings.html';
+import template from '../templates/metrics.html';
 
-const componentSettings = {
+const componentMetrics = {
 	template: template,
 	data: function () {
 		return {
-			settingsImageUrl: 'images/demo-settings.jpg'
+			metricsImageUrl: 'images/demo-metrics.png'
 		};
 	},
 	methods: {
@@ -17,4 +17,4 @@ const componentSettings = {
 	}
 };
 
-export {componentSettings};
+export {componentMetrics};
