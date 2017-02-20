@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import template from '../templates/index.html';
+import {services} from '../services';
 
 // import child components
 import '../components/counter';
@@ -27,6 +28,7 @@ const componentIndex = {
 	mounted: function(){
 		// el created and rendered to the page
 		console.info('Index router rendered');
+		services.getUser();
 	}
 };
 
