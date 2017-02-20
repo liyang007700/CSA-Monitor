@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 		watch: {
 			scripts: {
 				files: ['src/**/*.js', 'src/**/*.html', 'style/**/*.less'],
-				tasks: ['jshint', 'less:dev', 'webpack:dev'],
+				tasks: ['jshint', 'less:dev', 'webpack:prod'],
 				options: {
 					spawn: false,
 				},

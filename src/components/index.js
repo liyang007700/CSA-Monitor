@@ -28,7 +28,11 @@ const componentIndex = {
 	mounted: function(){
 		// el created and rendered to the page
 		console.info('Index router rendered');
-		services.getUser();
+		services.getUser(() => {
+			console.info('SUCCESS');
+		}, () => {
+			console.info('FAIL');
+		});
 	}
 };
 

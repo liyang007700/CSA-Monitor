@@ -3,12 +3,14 @@
 
 let services = {};
 
-services.getUser = () => {
+services.getUser = (success, fail) => {
 	console.info('Get user info service');
 	Vue.http.get('/getUser').then(response => {
 		this.someData = response.body;
+		success();
 	}, response => {
 		console.warn('Get user info service: ['+ response.status +'] ' + response.statusText);
+		fail();
 	});
 };
 

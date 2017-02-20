@@ -1,8 +1,36 @@
+@font-face {
+	font-family: "iconfont";
+	src: url('../style/font_c1pwkyigzr8me7b9/iconfont.eot'); /* IE9*/
+	src: url('../style/font_c1pwkyigzr8me7b9/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('../style/font_c1pwkyigzr8me7b9/iconfont.woff') format('woff'), /* chrome, firefox */
+	url('../style/font_c1pwkyigzr8me7b9/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+	url('../style/font_c1pwkyigzr8me7b9/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+ 	font-family:"iconfont" !important;
+	font-size:16px;
+	font-style:normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}
+        
 body{
 	color: #333333;
+	font-size: 15px;
+	
+	*{
+		font-family: Montserrat,Lato,Helvetica Neue,Helvetica,Arial,sans-serif;
+		letter-spacing: .6px;
+	}
+	
+	a{
+		color: #3e8fc6;
+	}
 	
 	#m-app{
-		padding-left: 150px;
+		padding-left: 58px;
 		
 		#m-left-nav{
     		position: fixed;
@@ -14,10 +42,45 @@ body{
 		    background-color: #26323e;
 		    z-index: 1031;
 		    -webkit-transition: all .1s ease-out;
-		    width: 150px;
     		
     		*{
     			color: #FFFFFF;
+    		}
+    		
+    		ul{
+    			padding: 0;
+    			margin: 0;
+    			li{
+    				a{
+    					display: block;
+    					padding: 12px 19px;
+    					color: #bde3ff;
+    					text-decoration: none;
+    					
+    					i.iconfont{
+	    					font-size: 22px;
+	    					color: #bde3ff;
+	    				}
+	    				
+	    				&:hover{
+	    					background-color: #384d61;
+	    					color: #FFFFFF;
+	    					
+	    					i.iconfont{
+	    						color: #FFFFFF;
+	    					}
+	    				}
+    				}
+    				
+    				&.active{
+    					background-color: #3e8fc6;
+    					color: #FFFFFF;
+	    					
+    					i.iconfont{
+    						color: #FFFFFF;
+    					}
+    				}
+    			}
     		}
 		}
 		
@@ -36,6 +99,19 @@ body{
 		#m-header,
 		#m-footer{
 			padding: 0 2em;
+		}
+		
+		#m-header{
+			font-size: 13px;
+			ul{
+				padding: 0;
+				list-style: none;
+				li{
+					display: inline-block;
+					a{
+					}
+				}
+			}
 		}
 		
 		#m-main{
