@@ -25,16 +25,16 @@ body a {
   color: #3e8fc6;
 }
 body #m-app {
-  padding-left: 58px;
+  padding-left: 100px;
 }
 body #m-app #m-left-nav {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  width: 58px;
+  width: 100px;
   overflow: hidden;
-  background-color: #26323e;
+  background-color: #1c1c1c;
   z-index: 1031;
   -webkit-transition: all 0.1s ease-out;
 }
@@ -47,27 +47,49 @@ body #m-app #m-left-nav ul {
 }
 body #m-app #m-left-nav ul li a {
   display: block;
-  padding: 12px 19px;
-  color: #bde3ff;
+  padding: 12px 0;
+  color: #666666;
   text-decoration: none;
+  text-align: center;
 }
 body #m-app #m-left-nav ul li a i.iconfont {
   font-size: 22px;
-  color: #bde3ff;
+  color: #666666;
 }
 body #m-app #m-left-nav ul li a:hover {
-  background-color: #384d61;
+  background-color: #111111;
   color: #FFFFFF;
 }
 body #m-app #m-left-nav ul li a:hover i.iconfont {
-  color: #FFFFFF;
+  color: #3ea8f7;
 }
-body #m-app #m-left-nav ul li.active {
+body #m-app #m-left-nav ul li a:hover span {
+  color: #AAAAAA;
+}
+body #m-app #m-left-nav ul li a.router-link-active {
   background-color: #3e8fc6;
   color: #FFFFFF;
 }
-body #m-app #m-left-nav ul li.active i.iconfont {
+body #m-app #m-left-nav ul li a.router-link-active i.iconfont {
   color: #FFFFFF;
+}
+body #m-app #m-left-nav ul li a.router-link-active span {
+  color: #FFFFFF;
+}
+body #m-app #m-left-nav ul li a span {
+  display: block;
+  color: #666666;
+  font-size: 12px;
+  margin-top: 4px;
+}
+body #m-app #m-left-nav ul li.m-logo {
+  margin: 0 auto 2em;
+}
+body #m-app #m-left-nav ul li.m-logo a {
+  background-color: transparent;
+}
+body #m-app #m-left-nav ul li.m-logo a i.iconfont {
+  font-size: 30px;
 }
 body #m-app #m-main-wrapper {
   background-color: #e1e8ee;

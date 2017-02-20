@@ -9,6 +9,7 @@ Vue.component('app-left-nav', {
 		};
 	},
 	methods: {
+		
 	},
 	created: function(){
 		
