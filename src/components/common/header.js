@@ -5,7 +5,7 @@ Vue.component('app-header', {
 	template: headerTemplate,
 	data: function () {
 		return {
-			
+			currentNav: 'DASHBOARD'
 		};
 	},
 	methods: {
