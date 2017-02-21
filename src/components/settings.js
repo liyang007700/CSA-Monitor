@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import template from '../templates/settings.html';
+import {Dialog} from '../widgets/dialog';
 
 const componentSettings = {
 	template: template,
@@ -14,6 +15,7 @@ const componentSettings = {
 		
 	},
 	mounted: function(){
+		Dialog.show();
 	}
 };
 
