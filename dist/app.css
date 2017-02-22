@@ -20,6 +20,7 @@ body {
 body * {
   font-family: Montserrat, Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
   letter-spacing: .6px;
+  box-sizing: border-box;
 }
 body a {
   color: #3e8fc6;
@@ -118,10 +119,38 @@ body #m-app #m-header ul {
 body #m-app #m-header ul li {
   display: inline-block;
 }
-body #m-app #m-main .m-box {
-  padding: 2em;
-  background-color: #FFFFFF;
-  border-radius: 6px;
+body #m-app #m-main.m-index {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body #m-app #m-main.m-index .m-box {
+  margin: 0;
+  padding: 0;
+  background-color: #e1e8ee;
+}
+body #m-app #m-main.m-index .m-box .pure-u-1-2 {
+  width: 48%;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+body #m-app #m-main.m-index .m-box .pure-u-1-2 h1 {
+  margin: 15px 0px 2px 0px;
+  font-size: 20px;
+  font-weight: normal;
+}
+body #m-app #m-main.m-index .m-box .pure-u-1-2 p {
+  margin: 0px;
+  font-size: 16px;
+  font-family: Sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.4);
+}
+body #m-app #m-main.m-index .m-box .pure-u-1-2 .chart {
+  height: 400px;
 }
 /* ----- Dialog start ----- */
 .m-dialog {
