@@ -8,12 +8,15 @@ Widgets
 ----
 We will create several small widgets for this tool, includ:
 
-#### Dialog
-```
+## Dialog
+``` javascript
 import {Dialog} from '../widgets/dialog';
 Dialog.init({
-  title: 'TEST NOTIFICATION',
-  body: '<i>GET /test-slow-crash-gateway</i>'
+  title: 'TEST TITLE',
+  body: '<i>THIS DIALOG BODY</i>'
 }).show();
+
+// Dynamic update dialog title, body etc.
+Dialog.title = 'TITLE UPDATE';
 
 ```
