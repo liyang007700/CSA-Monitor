@@ -1,27 +1,26 @@
 <div class="m-box pure-g">
-	<div class = "pure-u-1-2">
-		<h1 style = "margin:10px 0px;">THROUGHPUT</h1>
-		<p style = "font-size: 16px; font-family: Sans-serif; font-weight: bold; font-style: italic; color: rgba(0,0,0,.4);">How many requests were fulfilled per hour?</p>
-		<!--
-		<p><input v-model="message"></p>
-		<p>{{ message }}</p>
-		<p><button @click="showMsg">点我</button></p>
-		<div id="example-2">
-			<counter v-on:show="_showChild" v-bind:counterMessage="message"></counter>
-		</div>-->
-		<div id = "Dash1" style = "height:300px; backgroundColor: "></div>
-	</div>
-	<div class = "pure-u-1-2">
-		<h1 style = "margin:10px 0px;">RESPONSE TIME</h1>
-		<p style = "font-size: 16px; font-family: Sans-serif; font-weight: bold; font-style: italic; color: rgba(0,0,0,.4);">How long does it take for the service to respond?</p>
-		<!--
-		<p><input v-model="message"></p>
-		<p>{{ message }}</p>
-		<p><button @click="showMsg">点我</button></p>
-		<div id="example-2">
-			<counter v-on:show="_showChild" v-bind:counterMessage="message"></counter>
-		</div>-->
-		<div id = "Dash2" style = "height:300px; backgroundColor: "></div>
-	</div>
-
+		<div class = "pure-u-1-2">
+			<h1>THROUGHPUT</h1>
+			<p>How many requests were fulfilled per hour?</p>
+			<!--
+			<p><input v-model="message"></p>
+			<p>{{ message }}</p>
+			<p><button @click="showMsg">点我</button></p>
+			<div id="example-2">
+				<counter v-on:show="_showChild" v-bind:counterMessage="message"></counter>
+			</div>-->
+			<div id = "Dash1" class="chart"></div>
+		</div>
+		<div class = "pure-u-1-2">
+			<h1>RESPONSE TIME</h1>
+			<p>How long does it take for the service to respond?</p>
+			<!--
+			<p><input v-model="message"></p>
+			<p>{{ message }}</p>
+			<p><button @click="showMsg">点我</button></p>
+			<div id="example-2">
+				<counter v-on:show="_showChild" v-bind:counterMessage="message"></counter>
+			</div>-->
+			<div id = "Dash2" class="chart"></div>
+		</div>
 </div>

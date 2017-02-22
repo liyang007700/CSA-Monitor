@@ -23,6 +23,7 @@ body{
 	*{
 		font-family: Montserrat,Lato,Helvetica Neue,Helvetica,Arial,sans-serif;
 		letter-spacing: .6px;
+		box-sizing: border-box;
 	}
 
 	a{
@@ -147,13 +148,38 @@ body{
 		}
 
 		#m-main{
-			.m-box{
-				padding: 2em;
-				background-color: #FFFFFF;
-				border-radius: 6px;
-			}
-			
 			&.m-index{
+				width:100%;
+				margin:0;
+				padding:0;
+				.m-box{
+					margin:0;
+					padding:0;
+					background-color: #e1e8ee;
+					.pure-u-1-2 {
+						width:48%;
+						margin:20px auto;
+						padding:10px;
+						border-radius: 5px;
+						background-color: #fff;
+						h1 {
+							margin:15px 0px 2px 0px;
+							font-size: 20px;
+							font-weight: normal;
+						}
+						p {
+							margin: 0px;
+							font-size: 16px;
+							font-family: Sans-serif;
+							font-weight: bold;
+							font-style: italic;
+							color: rgba(0,0,0,.4);
+						}
+						.chart {
+							height:400px;
+						}
+					}
+				}
 			}
 		}
 	}
