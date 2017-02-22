@@ -532,8 +532,12 @@ const componentIndex = {
 					type: 'continuous',
 					min: 0,
 					max: 1000,
-					show: false,
+					align: 'right',
 					range: [0, 800],
+					calculable: true,
+					realtime: true,
+					text: ['high, low'],
+					show: false,
 					inRange: {
 						color: ['#33cc33', '#ff6600', '#800000']
 					}
