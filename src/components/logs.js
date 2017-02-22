@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
-import template from '../templates/errors.html';
+import template from '../templates/logs.html';
 
-const componentErrors = {
+const componentLogs = {
 	template: template,
 	data: function () {
 		return {
@@ -17,4 +17,4 @@ const componentErrors = {
 	}
 };
 
-export {componentErrors};
+export {componentLogs};

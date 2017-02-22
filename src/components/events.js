@@ -1,11 +1,11 @@
 /*jshint esversion: 6 */
-import template from '../templates/alerting.html';
+import template from '../templates/events.html';
 
-const componentAlerting = {
+const componentEvents = {
 	template: template,
 	data: function () {
 		return {
-			alertingImageUrl: 'images/demo-alerting.png'
+			alertingImageUrl: 'images/demo-events.png'
 		};
 	},
 	methods: {
@@ -17,4 +17,4 @@ const componentAlerting = {
 	}
 };
 
-export {componentAlerting};
+export {componentEvents};
