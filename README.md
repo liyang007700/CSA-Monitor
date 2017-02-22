@@ -8,7 +8,7 @@ Widgets
 ----
 We will create several small widgets for this tool, includ:
 
-## Dialog
+#### Dialog
 ``` javascript
 import {Dialog} from '../widgets/dialog';
 Dialog.init({
