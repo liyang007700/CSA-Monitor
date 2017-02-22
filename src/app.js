@@ -18,12 +18,18 @@ const app = new Vue({
 			template: appTemplate,
 			data: function () {
 				return {
-					
+					mMainClass: 'm-' + this.$route.path.substring(1)
 				};
 			},
 			methods: {
+			},
+			beforeUpdate: function(){
+				this.$data.mMainClass = 'm-' + this.$route.path.substring(1);
 			}
 		}
+	},
+	data: {
+		
 	},
 	router
 }).$mount('app');
