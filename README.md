@@ -9,12 +9,12 @@ Widgets
 We will create several small widgets for this tool, includ:
 
 ### Dialog:
->. Add dialog tag in html
+\#1. Add dialog tag in html
 ``` html
 <m-dialog></m-dialog>
 ```
 
->. Import 'Dialog' component, set init config and show it.
+\#2. Import 'Dialog' component, set init config and show it.
 ``` javascript
 import {Dialog} from '../widgets/dialog';
 Dialog.init({
