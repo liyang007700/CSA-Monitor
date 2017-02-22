@@ -1,10 +1,11 @@
 <div class="m-dialog" v-if="showDialog">
+	<div class="m-dialog-mask"></div>
 	<div class="m-comtent">
 		<div class="m-header">
 			<h2>{{title}}</h2>
-			<span class="close"><i class="icon iconfont">&#xe613;</i></span>
+			<span class="close" title="close" v-on:click="close"><i class="icon iconfont">&#xe613;</i></span>
 		</div>
-		<div class="m-body">
+		<div class="m-body" v-html="body">
 		</div>
 	</div>
 </div>
