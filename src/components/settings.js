@@ -15,7 +15,10 @@ const componentSettings = {
 		
 	},
 	mounted: function(){
-		Dialog.show();
+		/*Dialog.init({
+			title: 'TEST NOTIFICATION',
+			body: '<i>GET /test-slow-crash-gateway</i>'
+		}).show();*/
 	}
 };
 

@@ -8,16 +8,25 @@ Vue.component('m-dialog', {
 	data: function () {
 		return {
 			showDialog: false,
-			title: 'DIALOG TITLE'
+			title: 'DIALOG TITLE',
+			body: 'BODY CONTENTS'
 		};
 	},
 	methods: {
-		
+		close: function(){
+			this.$data.showDialog = false;
+		}
 	},
 	created: function(){
 		
 	},
 	mounted: function(){
+		Dialog.init = (conf) => {
+			this.$data.title = conf.title;
+			this.$data.body = conf.body;
+			return Dialog;
+		};
+		
 		Dialog.show = () => {
 			this.$data.showDialog = true;
 		};
@@ -25,6 +34,25 @@ Vue.component('m-dialog', {
 		Dialog.hide = () => {
 			this.$data.showDialog = false;
 		};
+		
+		(() => {
+			/**
+			 * Summary: Make dynamic update dialog title, body, etc.
+			 * Usage: Dialog.title = 'Dynamic title';
+			 */
+			
+			let _set = (prop) => {
+				return (val) => {
+					this.$data[prop] = val;
+				};
+			};
+			
+			for(let prop in this.$data){
+				Object.defineProperty(Dialog, prop, {
+					set: _set(prop)
+				});
+			}
+		})();
 	}
 });
 

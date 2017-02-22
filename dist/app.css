@@ -35,7 +35,6 @@ body #m-app #m-left-nav {
   width: 100px;
   overflow: hidden;
   background-color: #1c1c1c;
-  z-index: 1031;
   -webkit-transition: all 0.1s ease-out;
 }
 body #m-app #m-left-nav * {
@@ -124,3 +123,59 @@ body #m-app #m-main .m-box {
   background-color: #FFFFFF;
   border-radius: 6px;
 }
+/* ----- Dialog start ----- */
+.m-dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.m-dialog .m-dialog-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  opacity: .95;
+  background: #26323e;
+}
+.m-dialog .m-comtent {
+  width: 600px;
+  margin: 30px auto;
+  z-index: 1060;
+  position: relative;
+}
+.m-dialog .m-comtent .m-header,
+.m-dialog .m-comtent .m-body {
+  padding: 10px 20px;
+}
+.m-dialog .m-comtent .m-header {
+  background-color: #8D6E63;
+}
+.m-dialog .m-comtent .m-header h2 {
+  color: #FFFFFF;
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+.m-dialog .m-comtent .m-header .close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: .8;
+}
+.m-dialog .m-comtent .m-header .close:hover {
+  opacity: 1;
+}
+.m-dialog .m-comtent .m-body {
+  background-color: #FFFFFF;
+  font-size: 14px;
+}
+/* ----- Dialog end ----- */
