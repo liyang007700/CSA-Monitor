@@ -574,7 +574,8 @@ const componentIndex = {
 					name: 'RequestCount',
 					nameGap: 20,
 					nameTextStyle: {
-						color: 'rgba(204, 0, 0, 1)'
+						color: 'rgba(204, 0, 0, 1)',
+						fontSize: 16
 					},
 					type: 'value',
 					axisLine: {
@@ -680,13 +681,14 @@ const componentIndex = {
 					data: month.time
 				}],
 				yAxis: [{
-					offset: 0,
+					offset: -4,
 					min: 0,
 					max: 2000,
 					name: 'RequestDelay(ms)',
 					nameGap: 20,
 					nameTextStyle: {
-						color: 'rgba(204, 0, 0, 1)'
+						color: 'rgba(204, 0, 0, 1)',
+						fontSize: 16
 					},
 					type: 'value',
 					axisLine: {
