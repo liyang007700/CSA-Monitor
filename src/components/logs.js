@@ -5,7 +5,7 @@ const componentLogs = {
 	template: template,
 	data: function () {
 		return {
-			errorsImageUrl: 'images/demo-errors.png'
+			errorsImageUrl: 'images/demo-logs.png'
 		};
 	},
 	methods: {
