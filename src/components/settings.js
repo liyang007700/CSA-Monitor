@@ -1,6 +1,8 @@
 /*jshint esversion: 6 */
 import template from '../templates/settings.html';
-import {Dialog} from '../widgets/dialog';
+import {Dialog} from '../plugins/dialog';
+import {Tooltip} from '../plugins/tooltip';
+Vue.use(Tooltip);
 
 const componentSettings = {
 	template: template,
