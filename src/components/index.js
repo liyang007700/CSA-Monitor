@@ -513,6 +513,11 @@ const componentIndex = {
 					position: ['40%', '0%'],
 					backgroundColor: 'rgba(153,0,204,1)'
 				},
+				grid: {
+					show: true,
+					zlevel: 444,
+					containLabel: true
+				},
 				dataZoom: [{
 					type: 'inside',
 					realtime: true,
@@ -579,16 +584,17 @@ const componentIndex = {
 					},
 					type: 'value',
 					axisLine: {
-						show: false
+						show: true
 					},
 					axisTick: {
 						show: false
 					},
 					axisLabel: {
+						show:true,
 						formatter: '{value} rpm'
 					},
 					splitLine: {
-						show: false
+						show: true
 					}
 				}],
 				series: [{
