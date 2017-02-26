@@ -11,9 +11,10 @@ const componentCalendar = {
 	methods: {
     },
 	created: function(){
-		
+
 	},
 	mounted: function(){
+		console.log("calender mounted!");
 	}
 };
 

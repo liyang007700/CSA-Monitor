@@ -143,10 +143,11 @@ body #m-app #m-main.m-index .m-box .pure-u-1-2 h1 {
 }
 body #m-app #m-main.m-index .m-box .pure-u-1-2 p {
   margin: 0px;
-  font-size: 12px;
+  font-size: 16px;
   font-family: Sans-serif;
+  font-weight: bold;
   font-style: italic;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.4);
 }
 body #m-app #m-main.m-index .m-box .pure-u-1-2 .chart {
   height: 400px;
