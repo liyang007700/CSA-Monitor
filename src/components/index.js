@@ -12,11 +12,7 @@ const componentIndex = {
 	template: template,
 	data: function() {
 		return {
-			message: '你好：',
-			chart: {
-				myChart1: 1,
-				myChart2: 2
-			}
+			message: '你好：'
 		};
 	},
 	methods: {
@@ -30,13 +26,17 @@ const componentIndex = {
 		},
 		renderChart: function() {
 			// init echarts instance
-			var chart1 = echarts.init(document.getElementById('Dash1'));
-			var chart2 = echarts.init(document.getElementById('Dash2'));
+			var dash1 = document.getElementById('Dash1');
+			var chart1 = echarts.init(dash1);
+			var dash2 = document.getElementById('Dash2');
+			var chart2 = echarts.init(dash2);
+
+			console.log("charts initial");
 			// connect tow install
 			chart1.group = 'group1';
 			chart2.group = 'group1';
 			echarts.connect('group1');
-
+			console.log("charts connect");
 			var month = {
 				"time": ["2017-01-10 0:00:00", "2017-01-10 1:00:00",
 					"2017-01-10 2:00:00",
@@ -625,6 +625,7 @@ const componentIndex = {
 						show: false
 					},
 					axisLabel: {
+						show:true,
 						formatter: '{value} rpm'
 					},
 					splitLine: {
@@ -923,6 +924,7 @@ const componentIndex = {
 			// render instance
 			chart1.setOption(optionRequests);
 			chart2.setOption(optionTime);
+			console.log("charts render");
 			// bind event
 			chart1.on('click', function(params) {
 				chart1 = null;
@@ -931,11 +933,9 @@ const componentIndex = {
 			chart2.on('click', function(params) {
 				chart2 = null;
 			});
-
 		},
 		destroyChart: function() {
-			echarts.dispose(this.chart.myChart1);
-			echarts.dispose(this.chart.myChart2);
+			console.log("charts destroy");
 			//this.chart.myChart1.dispose();
 			//this.chart.myChart2.clear();
 			//this.chart.myChart2.dispose();
@@ -947,26 +947,11 @@ const componentIndex = {
 	mounted: function() {
 		// el created and rendered to the page
 		console.info('Index router rendered');
-		/*
-		services.getUser(() => {
-			console.info('SUCCESS');
-		}, () => {
-			console.info('FAIL');
-		});*/
-		console.log(this.chart.myChart1);
-		console.log(this.chart.myChart2);
-		console.log('mounted!');
 		this.renderChart();
 	},
 	beforeDestroy: function() {
-			//echarts = null;
-			//console.log(this.chart.myChart1);
-			//console.log(this.chart.myChart2);
+			this.destroyChart();
 		}
-		/*,
-			beforeUpdate: function() {
-				this.renderChart();
-			}*/
 };
 
 export {
