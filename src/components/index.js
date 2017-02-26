@@ -799,13 +799,13 @@ const componentIndex = {
 				}],
 				visualMap: [{
 					type: 'continuous',
-					//min: 0,
-					//max: 2000,
+					min: 0,
+					max: 500,
 					show: false,
-					//range: [0, 2000],
+					range: [0, 500],
 					inRange: {
 						//color: ['#33cc33', '#ff6600', '#800000']
-						color: ['#8CD211', '#FDD600', '#E71D32']
+						color: ['#8CD211', '#FF5003', '#E71D32']
 					},
 					seriesIndex: [0]
 				}],
