@@ -98,7 +98,7 @@ body #m-app #m-header,
 body #m-app #m-main,
 body #m-app #m-footer {
   padding: 2em;
-  width: 94%;
+  width: 96%;
   margin: 0 auto;
 }
 body #m-app #m-header,
@@ -130,7 +130,7 @@ body #m-app #m-main.m-index .m-box {
   background-color: #e1e8ee;
 }
 body #m-app #m-main.m-index .m-box .pure-u-1-2 {
-  width: 48%;
+  width: 46%;
   margin: 20px auto;
   padding: 10px;
   border-radius: 5px;
@@ -143,13 +143,13 @@ body #m-app #m-main.m-index .m-box .pure-u-1-2 h1 {
 }
 body #m-app #m-main.m-index .m-box .pure-u-1-2 p {
   margin: 0px;
-  font-size: 16px;
+  font-size: 12px;
   font-family: Sans-serif;
-  font-weight: bold;
   font-style: italic;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.6);
 }
 body #m-app #m-main.m-index .m-box .pure-u-1-2 .chart {
+  width: 660px;
   height: 400px;
 }
 /* ----- Dialog start ----- */

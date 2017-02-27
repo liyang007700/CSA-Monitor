@@ -610,7 +610,7 @@ const componentIndex = {
 					data: month.time
 				}],
 				yAxis: [{
-					offset: 0,
+					offset: -5,
 					name: 'RequestCount',
 					nameGap: 20,
 					nameTextStyle: {
@@ -625,7 +625,7 @@ const componentIndex = {
 						show: false
 					},
 					axisLabel: {
-						show:true,
+						show: true,
 						formatter: '{value} rpm'
 					},
 					splitLine: {
@@ -950,8 +950,11 @@ const componentIndex = {
 		this.renderChart();
 	},
 	beforeDestroy: function() {
-			this.destroyChart();
-		}
+		this.destroyChart();
+	},
+	destroyed: function() {
+		console.log("destroyed");
+	}
 };
 
 export {
