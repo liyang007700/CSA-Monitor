@@ -2,8 +2,8 @@
 import {componentIndex} from './components/index';
 import {componentCalendar} from './components/calendar';
 import {componentMetrics} from './components/metrics';
-import {componentErrors} from './components/errors';
-import {componentAlerting} from './components/alerting';
+import {componentLogs} from './components/logs';
+import {componentEvents} from './components/events';
 import {componentSettings} from './components/settings';
 
 const routes = [
@@ -20,12 +20,12 @@ const routes = [
 		component: componentMetrics
 	},
 	{
-		path: '/errors',
-		component: componentErrors
+		path: '/logs',
+		component: componentLogs
 	},
 	{
-		path: '/alerting',
-		component: componentAlerting
+		path: '/events',
+		component: componentEvents
 	},
 	{
 		path: '/settings',

@@ -1,9 +1,9 @@
 <ul>
-	<li class="m-logo" title="logo"><router-link to="/" replace><i class="icon iconfont">&#xe72c;</i></router-link></li>
-	<li><router-link to="/index" replace><i class="icon iconfont">&#xe7dd;</i><span>Network</span></router-link></li>
-	<li><router-link to="/calendar" replace><i class="icon iconfont">&#xe60f;</i><span>Calendar</span></router-link></li>
-	<li><router-link to="/metrics" replace><i class="icon iconfont">&#xe6cc;</i><span>Metrics</span></router-link></li>
-	<li><router-link to="/errors" replace><i class="icon iconfont">&#xe769;</i><span>Errors</span></router-link></li>
-	<li><router-link to="/alerting" replace><i class="icon iconfont">&#xe6ae;</i><span>Alerting</span></router-link></li>
-	<li><router-link to="/settings" replace><i class="icon iconfont">&#xe6db;</i><span>Settings</span></router-link></li>
+	<li class="m-logo" title="logo"><router-link to="/"><i class="icon iconfont">&#xe72c;</i></router-link></li>
+	<li v-tooltip="{title: 'In overview, you can check THROUGHPUT<br />and RESPONSE TIME.', position: 'right'}"><router-link to="/index"><i class="icon iconfont">&#xe7dd;</i><span>Overview</span></router-link></li>
+	<li v-tooltip="{title: 'In calendar, you can add your demo date,<br /> project deployment date etc.', position: 'right'}"><router-link to="/calendar"><i class="icon iconfont">&#xe60f;</i><span>Calendar</span></router-link></li>
+	<li><router-link to="/metrics"><i class="icon iconfont">&#xe6cc;</i><span>Metrics</span></router-link></li>
+	<li><router-link to="/logs"><i class="icon iconfont">&#xe769;</i><span>Logs</span></router-link></li>
+	<li><router-link to="/events"><i class="icon iconfont">&#xe6ae;</i><span>Events</span></router-link></li>
+	<li><router-link to="/settings"><i class="icon iconfont">&#xe6db;</i><span>Settings</span></router-link></li>
 </ul>

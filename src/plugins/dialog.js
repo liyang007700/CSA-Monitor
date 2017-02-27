@@ -49,6 +49,7 @@ Vue.component('m-dialog', {
 			
 			for(let prop in this.$data){
 				Object.defineProperty(Dialog, prop, {
+					configurable: true,
 					set: _set(prop)
 				});
 			}

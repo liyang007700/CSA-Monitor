@@ -4,7 +4,6 @@
 import './components/common/header';
 import './components/common/leftNav';
 import './components/common/footer';
-
 import appTemplate from './templates/app.html';
 import {
 	routes

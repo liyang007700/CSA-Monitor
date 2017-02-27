@@ -22,6 +22,54 @@ body * {
   letter-spacing: .6px;
   box-sizing: border-box;
 }
+body .pure-u-1,
+body .pure-u-1-1,
+body .pure-u-1-2,
+body .pure-u-1-3,
+body .pure-u-2-3,
+body .pure-u-1-4,
+body .pure-u-3-4,
+body .pure-u-1-5,
+body .pure-u-2-5,
+body .pure-u-3-5,
+body .pure-u-4-5,
+body .pure-u-5-5,
+body .pure-u-1-6,
+body .pure-u-5-6,
+body .pure-u-1-8,
+body .pure-u-3-8,
+body .pure-u-5-8,
+body .pure-u-7-8,
+body .pure-u-1-12,
+body .pure-u-5-12,
+body .pure-u-7-12,
+body .pure-u-11-12,
+body .pure-u-1-24,
+body .pure-u-2-24,
+body .pure-u-3-24,
+body .pure-u-4-24,
+body .pure-u-5-24,
+body .pure-u-6-24,
+body .pure-u-7-24,
+body .pure-u-8-24,
+body .pure-u-9-24,
+body .pure-u-10-24,
+body .pure-u-11-24,
+body .pure-u-12-24,
+body .pure-u-13-24,
+body .pure-u-14-24,
+body .pure-u-15-24,
+body .pure-u-16-24,
+body .pure-u-17-24,
+body .pure-u-18-24,
+body .pure-u-19-24,
+body .pure-u-20-24,
+body .pure-u-21-24,
+body .pure-u-22-24,
+body .pure-u-23-24,
+body .pure-u-24-24 {
+  padding: 0 8px;
+}
 body a {
   color: #3e8fc6;
 }
@@ -98,7 +146,7 @@ body #m-app #m-header,
 body #m-app #m-main,
 body #m-app #m-footer {
   padding: 2em;
-  width: 96%;
+  width: 94%;
   margin: 0 auto;
 }
 body #m-app #m-header,
@@ -113,43 +161,32 @@ body #m-app #m-header {
   font-size: 13px;
 }
 body #m-app #m-header ul {
-  padding: 0;
   list-style: none;
 }
 body #m-app #m-header ul li {
   display: inline-block;
 }
-body #m-app #m-main.m-index {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-body #m-app #m-main.m-index .m-box {
+body #m-app #m-main .m-box {
   margin: 0;
   padding: 0;
   background-color: #e1e8ee;
-}
-body #m-app #m-main.m-index .m-box .pure-u-1-2 {
-  width: 46%;
   margin: 20px auto;
   padding: 10px;
   border-radius: 5px;
   background-color: #fff;
 }
-body #m-app #m-main.m-index .m-box .pure-u-1-2 h1 {
+body #m-app #m-main.m-index .pure-u-1-2 h1 {
   margin: 15px 0px 2px 0px;
   font-size: 20px;
   font-weight: normal;
 }
-body #m-app #m-main.m-index .m-box .pure-u-1-2 p {
+body #m-app #m-main.m-index .pure-u-1-2 p {
   margin: 0px;
-  font-size: 12px;
-  font-family: Sans-serif;
+  font-size: 16px;
   font-style: italic;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.4);
 }
-body #m-app #m-main.m-index .m-box .pure-u-1-2 .chart {
-  width: 660px;
+body #m-app #m-main.m-index .pure-u-1-2 .chart {
   height: 400px;
 }
 /* ----- Dialog start ----- */
@@ -208,3 +245,45 @@ body #m-app #m-main.m-index .m-box .pure-u-1-2 .chart {
   font-size: 14px;
 }
 /* ----- Dialog end ----- */
+/* ----- Tooltip start ----- */
+.m-tooltip {
+  position: fixed;
+  color: #FFFFFF;
+  padding: 7px 12px;
+  z-index: 1020;
+  max-width: 50%;
+  opacity: 0;
+  -moz-transition: opacity 1s cubic-bezier(0, 0, 0, 1);
+  -webkit-transition: opacity 1s cubic-bezier(0, 0, 0, 1);
+  -o-transition: opacity 1s cubic-bezier(0, 0, 0, 1);
+  transition: opacity 1s cubic-bezier(0, 0, 0, 1);
+}
+.m-tooltip span {
+  line-height: 16px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.m-tooltip:after {
+  content: '';
+  display: inline-block;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+}
+.m-tooltip.top:after {
+  bottom: -20px;
+  left: 10px;
+  border-top: 10px solid #1c1c1c;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+.m-tooltip.right:after {
+  top: 10px;
+  left: -20px;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #1c1c1c;
+  border-bottom: 10px solid transparent;
+}
+/* ----- Tooltip end ----- */
