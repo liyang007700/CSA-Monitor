@@ -626,7 +626,7 @@ const componentIndex = {
 					},
 					axisLabel: {
 						show: true,
-						formatter: '{value} rpm'
+						formatter: '{value}rpm'
 					},
 					splitLine: {
 						show: true
@@ -757,7 +757,7 @@ const componentIndex = {
 				legend: {
 					show: true,
 					itemGap: 20,
-					left: '30%',
+					left: '20%',
 					top: '5%',
 					data: ["AverageResponseTime", "ExceptionCount"]
 				},

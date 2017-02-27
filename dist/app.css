@@ -169,11 +169,44 @@ body #m-app #m-header ul li {
 body #m-app #m-main .m-box {
   margin: 0;
   padding: 0;
-  background-color: #e1e8ee;
   margin: 20px auto;
   padding: 10px;
   border-radius: 5px;
   background-color: #fff;
+}
+body #m-app #m-main .u-dashBtn {
+  padding-left: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+body #m-app #m-main .u-dashBtn fieldset {
+  border: none;
+  margin: 0;
+  padding: 10px 0px;
+}
+body #m-app #m-main .u-dashBtn fieldset label {
+  padding: 0 5px;
+  border-left: 2px solid #00B4A0;
+  font-size: 16px;
+}
+body #m-app #m-main .u-dashBtn fieldset select {
+  width: 200px;
+  height: 36px;
+}
+body #m-app #m-main .u-dashBtn .u-btnGroup {
+  padding: 10px 0;
+}
+body #m-app #m-main .u-dashBtn .u-btnGroup .u-btn-clicked {
+  padding: 5px 10px;
+  border: none;
+  color: white;
+  background-color: #323232;
+}
+body #m-app #m-main .u-dashBtn .u-btnGroup .u-btn-unClicked {
+  padding: 5px 10px;
+  border: none;
+  color: #464646;
+  background-color: #E0E0E0;
 }
 body #m-app #m-main.m-index .pure-u-1-2 h1 {
   margin: 15px 0px 2px 0px;
