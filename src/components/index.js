@@ -8,7 +8,6 @@ from '../services';
 // import child components
 import '../components/counter';
 import month from '../data/month.json';
-//import {chart_config} from '../config/echart_config';
 
 const componentIndex = {
 	template: template,
@@ -416,7 +415,7 @@ const componentIndex = {
 							}
 						},
 						data: [{
-							yAxis: 500
+							yAxis: 5000
 						}]
 					}
 				}, {
@@ -453,12 +452,6 @@ const componentIndex = {
 				chart2 = null;
 			});
 		},
-		destroyChart: function() {
-			console.log("charts destroy");
-			//this.chart.myChart1.dispose();
-			//this.chart.myChart2.clear();
-			//this.chart.myChart2.dispose();
-		}
 	},
 	created: function() {
 		//this.renderChart();
@@ -466,13 +459,13 @@ const componentIndex = {
 	mounted: function() {
 		// el created and rendered to the page
 		console.info('Index router rendered');
+		/*
+		services.getUser(function() {
+			console.log("success");
+		}, function() {
+			console.log("fail");
+		});*/
 		this.renderChart();
-	},
-	beforeDestroy: function() {
-		this.destroyChart();
-	},
-	destroyed: function() {
-		console.log("destroyed");
 	}
 };
 
