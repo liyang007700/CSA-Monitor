@@ -15,6 +15,7 @@ const componentCalendar = {
 				Fri: "Fri 3",
 				Sat: "Sat 4",
 				Sun: "Sun 5"
+
 			},
 			items: [{
 				hour: "1AM",
