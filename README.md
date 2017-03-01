@@ -10,23 +10,50 @@ Plugins
 We will create several small plugins for this tool, include:
 
 ### Dialog:
-\#1. Add dialog tag in html
+##### APIs:
+##### Props
+| Option   | type   | Description                                           |
+| :------- | :----  | :---                                                  |
+| title    | String |  Set the dialog title, html code are supported        |
+| body     | String |  Set the dialog content body, html code are supported |
+
+##### Slot
+| Slot name | Description                                                                                |
+|:---       |:----                                                                                       |
+| body      | Set the dialog content body, this is useful when add child components or attach vue events |
+**Note:** If set `body` slot, that `body` prop will not work.
+
+\#1.1 Add dialog tag in html, without slot.
 ``` html
 <m-dialog></m-dialog>
 ```
 
-\#2. Import 'Dialog' plugin, set init config and show it.
+\#1.2. Import 'Dialog' plugin, pass `title`, `body` props.
 ``` javascript
 import {Dialog} from '../plugins/dialog';
-Dialog.init({
-  title: 'TEST TITLE',
-  body: '<i>THIS DIALOG BODY</i>'
-}).show();
-
-// Dynamic update dialog title, body etc.
-Dialog.title = 'TITLE UPDATE';
+data: function () {
+  return {
+      title: 'Dialog 1',
+      body: 'Dialog 1 body content'
+  };
+}
 
 ```
+\#2.1 Add dialog tag in html, with slot.
+``` html
+<div slot="body">
+  <button v-on:click="closeDialog">Click to close this dialog</button>
+</div>
+```
+\#2.2 define `closeDialog` method.
+``` javascript
+methods: {
+  closeDialog: function(){
+    Dialog.hide();
+  }
+}
+```
+
 
 ### Tooltip:
 \#1. Import 'Tooltip' plugin, use it as a plugin.
