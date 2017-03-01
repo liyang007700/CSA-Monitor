@@ -326,13 +326,17 @@ body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-red {
   margin-left: 10px;
   width: 50px;
   height: 50px;
-  background-color: red;
+  border: 1px solid #E71D32;
+  border-radius: 25px;
+  background-color: #E71D32;
 }
 body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-black {
   float: left;
   margin-left: 10px;
   width: 50px;
   height: 50px;
+  border: 1px solid black;
+  border-radius: 25px;
   background-color: black;
 }
 body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-green {
@@ -340,21 +344,27 @@ body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-green {
   margin-left: 10px;
   width: 50px;
   height: 50px;
-  background-color: green;
+  border: 1px solid #5AA700;
+  border-radius: 25px;
+  background-color: #5AA700;
 }
 body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-blue {
   float: left;
   margin-left: 10px;
   width: 50px;
   height: 50px;
-  background-color: blue;
+  border: 1px solid #4178BE;
+  border-radius: 25px;
+  background-color: #4178BE;
 }
 body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-yellow {
   float: left;
   margin-left: 10px;
   width: 50px;
   height: 50px;
-  background-color: yellow;
+  border: 1px solid #EFC100;
+  border-radius: 25px;
+  background-color: #EFC100;
 }
 body #m-app #m-main.m-calendar .u-caldr-hint .u-caldr-hint-text {
   float: left;
