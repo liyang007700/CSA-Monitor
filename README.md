@@ -12,19 +12,19 @@ We will create several small plugins for this tool, include:
 ### Dialog:
 #### APIs:
 -
-##### Props
+##### Props:
 | Option   | type   | Description                                           |
 | :------- | :----  | :---                                                  |
 | title    | String |  Set the dialog title, html code are supported        |
 | body     | String |  Set the dialog content body, html code are supported |
 
-##### Slot
+##### Slot:
 | Slot name | Description                                                                                |
 |:---       |:----                                                                                       |
 | body      | Set the dialog content body, this is useful when add child components or attach vue events |
 **Note:** If set `body` slot, that `body` prop will not work.
 
-##### Dialog static methods
+##### Dialog static methods:
 | Name | Description    |
 |:---  |:---            | 
 | show | display dialog |
