@@ -51,6 +51,10 @@ data: function () {
       title: 'Dialog 1',
       body: 'Dialog 1 body content'
   };
+},
+mounted: function(){
+  // After mounted show the dialog, or set click a button show it.
+  Dialog.show();
 }
 
 ```
@@ -66,6 +70,10 @@ methods: {
   closeDialog: function(){
     Dialog.hide();
   }
+},
+mounted: function(){
+  // After mounted show the dialog, or set click a button show it.
+  Dialog.show();
 }
 ```
 
