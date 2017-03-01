@@ -18,6 +18,15 @@ const componentCalendar = {
 
 			},
 			items: [{
+				hour: "12AM",
+				Mon: "",
+				Tue: "",
+				Wed: "",
+				Thu: "",
+				Fri: "",
+				Sat: "",
+				Sun: "",
+			}, {
 				hour: "1AM",
 				Mon: "",
 				Tue: "",
