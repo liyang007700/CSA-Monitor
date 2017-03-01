@@ -10,7 +10,8 @@ Plugins
 We will create several small plugins for this tool, include:
 
 ### Dialog:
-##### APIs:
+#### APIs:
+-
 ##### Props
 | Option   | type   | Description                                           |
 | :------- | :----  | :---                                                  |
@@ -22,6 +23,20 @@ We will create several small plugins for this tool, include:
 |:---       |:----                                                                                       |
 | body      | Set the dialog content body, this is useful when add child components or attach vue events |
 **Note:** If set `body` slot, that `body` prop will not work.
+
+##### Dialog static methods
+| Name | Description    |
+|:---  |:---            | 
+| show | display dialog |
+| hide | hide dialog    |
+
+Exp: 
+``` javascript
+Dialog.show();
+
+```
+
+-
 
 \#1.1 Add dialog tag in html, without slot.
 ``` html
