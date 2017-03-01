@@ -19,7 +19,9 @@ const componentTests = {
 		        { text: 'Build something awesome', fulltext: 'Build something awesome - 2017 3rd version' }
 		    ],
 		    currentView: 'home',
-		    currentDialog: 'dialog1'
+		    currentDialog: 'dialog1',
+		    title: '',
+		    body: ''
 		};
 	},
 	methods: {
@@ -31,16 +33,16 @@ const componentTests = {
 			});
 		},
 		showDialog: function(){
-			Dialog.init({
-				title: 'TEST TITLE',
-				body: '<i>THIS DIALOG BODY</i>'
-			}).show();
+			this.title = 'Dialog 1';
+			this.currentDialog = 'dialog1';
+			this.body = 'Turpis cursus facilisis etiam pulvinar est feugiat pulvinar, porttitor ad curabitur curae hac sit, ad aliquam etiam lorem magna vestibulum ante nunc in et nibh venenatis placerat arcu.';
+			Dialog.show();
 		},
 		closeDialog: function(){
 			Dialog.hide();
 		},
 		updateDialog: function(){
-			Dialog.title = '我是修改后是标题';
+			this.title = 'Dialog 2';
 			this.currentDialog = 'dialog2';
 			
 			Dialog.show();
