@@ -8,6 +8,7 @@ from '../services';
 // import child components
 import '../components/counter';
 import month from '../data/month.json';
+//import {chart_config} from '../config/echart_config';
 
 const componentIndex = {
 	template: template,
@@ -27,19 +28,18 @@ const componentIndex = {
 			//alert('我是子组件触发改变的');
 		},
 		renderChart: function() {
-			//console.log(echart_config);
+
 			// init echarts instance
 			var dash1 = document.getElementById('Dash1');
 			var chart1 = echarts.init(dash1);
 			var dash2 = document.getElementById('Dash2');
 			var chart2 = echarts.init(dash2);
 
-			console.log("charts initial");
 			// connect tow install
 			chart1.group = 'group1';
 			chart2.group = 'group1';
 			echarts.connect('group1');
-			console.log("charts connect");
+
 			var optionRequests = {
 				//backgroundColor: '#364554',
 				// 提示框组件
@@ -406,18 +406,19 @@ const componentIndex = {
 					symbol: 'circle',
 					symbolSize: 5,
 					hoverAnimation: true,
-					data: this.month.AverageResponseTime,
-					markLine: {
-						silent: true,
-						lineStyle: {
-							normal: {
-								color: '#D74108',
-							}
-						},
-						data: [{
-							yAxis: 5000
-						}]
-					}
+					data: this.month.AverageResponseTime
+						/*
+						markLine: {
+							silent: true,
+							lineStyle: {
+								normal: {
+									color: '#D74108',
+								}
+							},
+							data: [{
+								yAxis: 500
+							}]
+						}*/
 				}, {
 					name: 'ExceptionCount',
 					type: 'line',
@@ -439,10 +440,12 @@ const componentIndex = {
 					}
 				}]
 			};
+
 			// render instance
 			chart1.setOption(optionRequests);
 			chart2.setOption(optionTime);
 			console.log("charts render");
+
 			// bind event
 			chart1.on('click', function(params) {
 				chart1 = null;
@@ -452,6 +455,12 @@ const componentIndex = {
 				chart2 = null;
 			});
 		},
+		destroyChart: function() {
+			console.log("charts destroy");
+			//this.chart.myChart1.dispose();
+			//this.chart.myChart2.clear();
+			//this.chart.myChart2.dispose();
+		}
 	},
 	created: function() {
 		//this.renderChart();
@@ -459,13 +468,13 @@ const componentIndex = {
 	mounted: function() {
 		// el created and rendered to the page
 		console.info('Index router rendered');
-		/*
-		services.getUser(function() {
-			console.log("success");
-		}, function() {
-			console.log("fail");
-		});*/
 		this.renderChart();
+	},
+	beforeDestroy: function() {
+		this.destroyChart();
+	},
+	destroyed: function() {
+		console.log("destroyed");
 	}
 };
 

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro');
 @font-face {
   font-family: "iconfont";
   src: url('../style/font_c1pwkyigzr8me7b9/iconfont.eot');
@@ -166,6 +167,10 @@ body #m-app #m-header ul {
 body #m-app #m-header ul li {
   display: inline-block;
 }
+body #m-app #m-main {
+  /*                       style for index.html                     */
+  /* -------------------------------------------------------------- */
+}
 body #m-app #m-main .m-box {
   margin: 0;
   padding: 0;
@@ -174,35 +179,45 @@ body #m-app #m-main .m-box {
   border-radius: 5px;
   background-color: #fff;
 }
-body #m-app #m-main .u-dashBtn {
+body #m-app #m-main.m-index {
+  /*                      style for selection                   */
+  /* ---------------------------------------------------------- */
+  /*                      style for echarts                     */
+  /* ---------------------------------------------------------- */
+}
+body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn {
   padding-left: 10px;
   border-radius: 5px;
   background-color: #fff;
 }
-body #m-app #m-main .u-dashBtn fieldset {
+body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn fieldset {
   border: none;
   margin: 0;
   padding: 10px 0px;
 }
-body #m-app #m-main .u-dashBtn fieldset label {
+body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn fieldset label {
   padding: 0 5px;
   border-left: 2px solid #00B4A0;
   font-size: 16px;
 }
-body #m-app #m-main .u-dashBtn fieldset select {
+body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn fieldset select {
   width: 200px;
   height: 36px;
 }
-body #m-app #m-main .u-dashBtn .u-btnGroup {
+body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn fieldset select optgroup {
+  padding-left: 10px;
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn .u-btnGroup {
   padding: 10px 0;
 }
-body #m-app #m-main .u-dashBtn .u-btnGroup .u-btn-clicked {
+body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn .u-btnGroup .u-btn-clicked {
   padding: 5px 10px;
   border: none;
   color: white;
   background-color: #323232;
 }
-body #m-app #m-main .u-dashBtn .u-btnGroup .u-btn-unClicked {
+body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn .u-btnGroup .u-btn-unClicked {
   padding: 5px 10px;
   border: none;
   color: #464646;
@@ -221,6 +236,185 @@ body #m-app #m-main.m-index .pure-u-1-2 p {
 }
 body #m-app #m-main.m-index .pure-u-1-2 .chart {
   height: 400px;
+}
+body #m-app #m-main.m-calendar {
+  font-family: 'Source Sans Pro', sans-serif, Montserrat, Lato, Helvetica Neue, Helvetica, Arial;
+}
+body #m-app #m-main.m-calendar .u-caldr-select {
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px #999;
+}
+body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-month {
+  font-family: 'Source Sans Pro';
+  text-align: left;
+  line-height: 78px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #4178be;
+}
+body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-day .boxCenter {
+  width: 260px;
+  margin: 30px auto;
+}
+body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-day .boxCenter i.iconfont {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-day .boxCenter span {
+  font-family: 'Source Sans Pro';
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px 10px 0 10px;
+}
+body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-button .buttonGrp {
+  position: relative;
+  height: 30px;
+  margin: 25px auto;
+}
+body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-button .buttonGrp #month {
+  font-family: 'Open Sans';
+  display: block;
+  height: 30px;
+  width: 84px;
+  float: left;
+  border: 1px solid black;
+  box-shadow: 0 0 1px 1px #999;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-left: 130px;
+  color: black;
+  background-color: white;
+}
+body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-button .buttonGrp #week {
+  font-family: 'Open Sans';
+  display: block;
+  height: 30px;
+  width: 84px;
+  float: left;
+  border: 1px solid black;
+  box-shadow: 0 0 1px 1px #999;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  background-color: black;
+}
+body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-button .buttonGrp #today {
+  font-family: 'Open Sans';
+  display: block;
+  height: 30px;
+  width: 84px;
+  float: right;
+  border: 1px solid #999;
+  box-shadow: 0 0 1px 1px #999;
+  border-radius: 5px;
+  margin-right: 20px;
+  color: #999;
+  background-color: white;
+}
+body #m-app #m-main.m-calendar .u-caldr-hint {
+  height: 70px;
+  margin: 10px 0px;
+  padding: 10px 0;
+  border-radius: 1px solid #ECECEC;
+  border-radius: 5px;
+  background-color: #ECECEC;
+}
+body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-red {
+  float: left;
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+}
+body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-black {
+  float: left;
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+}
+body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-green {
+  float: left;
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+}
+body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-blue {
+  float: left;
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+}
+body #m-app #m-main.m-calendar .u-caldr-hint #u-caldr-hint-yellow {
+  float: left;
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+}
+body #m-app #m-main.m-calendar .u-caldr-hint .u-caldr-hint-text {
+  float: left;
+  min-width: 160px;
+  margin-left: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-family: 'Source Sans Pro';
+  font-size: 16px;
+  font-weight: bold;
+}
+body #m-app #m-main.m-calendar .u-caldr-date {
+  display: flex;
+  height: 40px;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+}
+body #m-app #m-main.m-calendar .u-caldr-date .u-caldr-body-hour {
+  display: inline-block;
+  width: 4%;
+  height: 100%;
+}
+body #m-app #m-main.m-calendar .u-caldr-date .u-caldr-body-week {
+  display: inline-block;
+  width: 96%;
+  height: 100%;
+}
+body #m-app #m-main.m-calendar .u-caldr-date .u-caldr-body-week .weekday {
+  display: inline-block;
+  width: 14.285714%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+body #m-app #m-main.m-calendar .u-caldr-body {
+  display: flex;
+  height: 80px;
+  background-color: #ECECEC;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-hour {
+  display: inline-block;
+  width: 4%;
+  height: 100%;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  text-align: center;
+  line-height: 80px;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week {
+  display: inline-block;
+  width: 96%;
+  height: 100%;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday {
+  display: inline-block;
+  width: 14.285714%;
+  height: 80px;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
 }
 /* ----- Dialog start ----- */
 .m-dialog {

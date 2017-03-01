@@ -1,7 +1,61 @@
 <div class="pure-u-1-1">
 	<div class="m-box">
+		<!--
 		<p>
 			<img v-bind:src="calImageUrl" style="width: 100%;" />
-		</p>
+		</p>-->
+		<h2>CSA Production Event Calendar</h2>
+		<div class="u-caldr-select pure-g">
+			<div class="pure-u-1-3 u-caldr-select-month">
+				March 2017
+			</div>
+			<div class="pure-u-1-3 u-caldr-select-day">
+				<div class="boxCenter">
+					<i class="iconfont icon">&#xe636;</i>
+					<span>Wednesday,MAR 1,2017</span>
+					<i class="iconfont icon">&#xe632;</i>
+				</div>
+			</div>
+			<div class="pure-u-1-3 u-caldr-select-button">
+				<div class="buttonGrp clearfix">
+					<button id="month">Month</button>
+					<button id="week">Week</button>
+					<button id="today">Today</button>
+				</div>
+			</div>
+		</div>
+		<div class="u-caldr-hint clearfix">
+
+			<div id="u-caldr-hint-red"></div>
+			<div class="u-caldr-hint-text">CSA planned outage</div>
+
+			<div id="u-caldr-hint-black"></div>
+			<div class="u-caldr-hint-text">CSA unplanned outage</div>
+
+			<div id="u-caldr-hint-green"></div>
+			<div class="u-caldr-hint-text">Module release, no overall outage</div>
+
+			<div id="u-caldr-hint-blue"></div>
+			<div class="u-caldr-hint-text">Demo</div>		
+
+			<div id="u-caldr-hint-yellow"></div>
+			<div class="u-caldr-hint-text">Other type activities</div>
+
+		</div>
+		<div class="u-caldr-date" :week="week">
+			<div class="u-caldr-body-hour"></div>
+			<div class="u-caldr-body-week">
+				<div class="pure-g">
+					<div class="weekday">{{ week.Mon }}</div>
+					<div class="weekday">{{ week.Tue }}</div>
+					<div class="weekday">{{ week.Wed }}</div>
+					<div class="weekday">{{ week.Thu }}</div>
+					<div class="weekday">{{ week.Fri }}</div>
+					<div class="weekday">{{ week.Sat }}</div>
+					<div class="weekday">{{ week.Sun }}</div>
+				</div>
+			</div>
+		</div>
+		<calendar-row :item="item" v-for="item in items"></calendar-row>
 	</div>
 </div>
