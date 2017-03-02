@@ -79,10 +79,9 @@ mounted: function(){
 
 
 ### Tooltip:
-\#1. Import 'Tooltip' plugin, use it as a plugin.
+\#1. Import 'Tooltip'.
 ``` javascript
 import {Tooltip} from '../plugins/tooltip';
-Vue.use(Tooltip);
 ```
 
 \#2. Add v-tooltip directive to html tags.
