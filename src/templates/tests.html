@@ -15,7 +15,25 @@
 		</component>
 	</div>
 	<m-dialog :title="title" :body="body">
-		 <component slot="body" v-bind:is="currentDialog">
+		<component slot="body" v-bind:is="currentDialog">
 		</component>
 	</m-dialog>
+	<m-tabs :tabsLabel="tabsLabel">
+		<m-tab>
+			Feugiat senectus conubia ultrices magna eu, enim primis ultricies laoreet faucibus eleifend, dapibus vulputate justo eleifend habitasse cursus tincidunt interdum potenti vitae volutpat fringilla etiam curabitur vehicula, adipiscing felis sem adipiscing ullamcorper primis augue faucibus mattis luctus vel vitae massa facilisis, neque taciti massa praesent sodales ligula, condimentum integer mollis vulputate.
+		</m-tab>
+		<m-tab>
+			<p>Elementum massa libero convallis <i><s>congue aliquam pellentesque erat ornare</s></i> aenean velit ad cubilia, fermentum amet ullamcorper potenti euismod vel luctus id sollicitudin justo curabitur venenatis pellentesque ullamcorper proin nulla donec faucibus, cursus augue eros nisl vehicula sem, tellus risus molestie litora nibh etiam ut justo cras sociosqu curae augue nunc ad tempus per, purus auctor class porttitor tellus lobortis urna.</p>
+			<p>Lobortis <u>s vestibulum dictumst rutrum velit, vitae dictum</u> velit enim taciti malesuada in egestas, a aliquam metus pulvinar aliquam molestie suspendisse habitant suspendisse ut cubilia a aliquet aenean cubilia vulputate hac sollicitudin, dictumst placerat aliquam orci est semper fames nullam porta morbi aliquam egestas nisi dictum augue ut.</p>
+		</m-tab>
+	</m-tabs>
+	<p>------</p>
+	<m-tabs :tabsLabel="['Web前端', 'Web服务']">
+		<m-tab>
+			<p>一段文字，<u v-tooltip="{title: '你好啊，欢迎使用', position: 'top'}">鼠标滑过</u>。</p>
+		</m-tab>
+		<m-tab>
+			<button v-on:click="showDialog">弹窗</button>
+		</m-tab>
+	</m-tabs>
 </div>

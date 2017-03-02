@@ -567,3 +567,31 @@ body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday.other {
   border-bottom: 10px solid transparent;
 }
 /* ----- Tooltip end ----- */
+/* ----- Tabs start ----- */
+.m-tabs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.m-tabs ul.m-tab li {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #CCCCCC;
+  margin-right: 2px;
+  cursor: pointer;
+  background-color: #757575;
+  color: #FFFFFF;
+}
+.m-tabs ul.m-tab li.active {
+  background-color: #FFFFFF;
+  color: #333333;
+  border-bottom: 1px solid #FFFFFF;
+}
+.m-tabs .m-tab-content {
+  display: none;
+  background-color: #FFFFFF;
+  border: 1px solid #CCC;
+  margin-top: -1px;
+  padding: 5px 12px;
+}
+/* ----- Tabs end ----- */
