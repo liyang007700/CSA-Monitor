@@ -1,8 +1,8 @@
 /*jshint esversion: 6 */
 import template from '../templates/tests.html';
 import {Dialog} from '../plugins/dialog';
+import '../plugins/tabs';
 import {Tooltip} from '../plugins/tooltip';
-Vue.use(Tooltip);
 
 // 1. 使用一个空的 Vue 实例作为中央事件总线
 let bus = new Vue();
@@ -21,7 +21,9 @@ const componentTests = {
 		    currentView: 'home',
 		    currentDialog: 'dialog1',
 		    title: '',
-		    body: ''
+		    body: '',
+		    tabsLabel: ['标签一', '标签二'],
+		    tabsLabel2: ['Web前端', 'Web服务']
 		};
 	},
 	methods: {
