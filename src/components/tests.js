@@ -22,8 +22,7 @@ const componentTests = {
 		    currentDialog: 'dialog1',
 		    title: '',
 		    body: '',
-		    tabsLabel: ['标签一', '标签二'],
-		    tabsLabel2: ['Web前端', 'Web服务']
+		    tabsLabel: ['标签一', '标签二']
 		};
 	},
 	methods: {
