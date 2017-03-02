@@ -2,13 +2,13 @@
 	<div class="u-caldr-body-hour">{{ item.hour }}</div>
 	<div class="u-caldr-body-week">
 		<div class="pure-g">
-			<div class="weekday">{{ item.Mon }}</div>
-			<div class="weekday">{{ item.Tue }}</div>
-			<div class="weekday">{{ item.Wed }}</div>
-			<div class="weekday">{{ item.Thu }}</div>
-			<div class="weekday">{{ item.Fri }}</div>
-			<div class="weekday">{{ item.Sat }}</div>
-			<div class="weekday">{{ item.Sun }}</div>
+			<div class="weekday" :class="item.Mon.class">{{ item.Mon.text }}</div>
+			<div class="weekday" :class="item.Tue.class">{{ item.Tue.text }}</div>
+			<div class="weekday" :class="item.Wed.class">{{ item.Wed.text }}</div>
+			<div class="weekday" :class="item.Thu.class">{{ item.Thu.text }}</div>
+			<div class="weekday" :class="item.Fri.class">{{ item.Fri.text }}</div>
+			<div class="weekday" :class="item.Sat.class">{{ item.Sat.text }}</div>
+			<div class="weekday" :class="item.Sun.class">{{ item.Sun.text }}</div>
 		</div>
 	</div>
 </div>

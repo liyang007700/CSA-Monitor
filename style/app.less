@@ -272,19 +272,12 @@ body{
 				}
 			}
 			&.m-calendar {
-				font-family: 'Source Sans Pro',sans-serif,Montserrat,Lato,Helvetica Neue,Helvetica,Arial;
 				.u-caldr-select {
-					border: 1px solid black;
-					border-radius: 5px;
-					box-shadow: 0 0 1px 1px #999;
 					.pure-u-1-3 {
 						&.u-caldr-select-month {
-							font-family: 'Source Sans Pro';
 							text-align:left;
 							line-height: 78px;
-							font-size: 24px;
-							font-weight: bold;
-							color: #4178be;
+							font-size: 21px;
 						}
 						&.u-caldr-select-day {
 							.boxCenter {
@@ -296,7 +289,6 @@ body{
 			    					color: #000;
 			    				}
 								span{
-									font-family: 'Source Sans Pro';
 									font-size: 16px;
 									font-weight: bold;
 									padding:4px 10px 0 10px;
@@ -305,48 +297,39 @@ body{
 						}
 						&.u-caldr-select-button {
 							.buttonGrp {
-								position: relative;
 								height:30px;
 								margin: 25px auto;
 								#month {
-									font-family: 'Open Sans';
 									display: block;
 									height:30px;
-									width:84px;
+									width:25%;
 									float: left;
 									border: 1px solid black;
-									box-shadow: 0 0 1px 1px #999;
 									border-top-left-radius: 5px;
 									border-bottom-left-radius: 5px;
-									margin-left: 130px;
-
+									margin-left: 15%;
 									color: black;
 									background-color: white;
 								}
 								#week {
-									font-family: 'Open Sans';
 									display: block;
 									height:30px;
-									width:84px;
+									width:25%;
 									float: left;
 									border: 1px solid black;
-									box-shadow: 0 0 1px 1px #999;
 									border-top-right-radius: 5px;
 									border-bottom-right-radius: 5px;
-
 									color: white;
 									background-color: black;
 								}
 								#today {
-									font-family: 'Open Sans';
 									display: block;
 									height:30px;
-									width:84px;
+									width:25%;
 									float: right;
 									border: 1px solid #999;
-									box-shadow: 0 0 1px 1px #999;
 									border-radius: 5px;
-									margin-right: 20px;
+									margin-right: 5%;
 									color: #999;
 									background-color: white;
 								}
@@ -355,116 +338,177 @@ body{
 					}
 				}
 				.u-caldr-hint {
-					height:70px;
-					margin: 10px 0px;
-					padding: 10px 0;
-					border-radius: 1px solid #ECECEC;
-					border-radius: 5px;
-					background-color: #ECECEC;
+					display: flex;
+					width: ;
+					margin: 0px auto 20px auto;
 					#u-caldr-hint-red {
-						float:left;
-						margin-left:10px;
-						width:50px;
-						height:50px;
-						border: 1px solid #E71D32;
-						border-radius: 25px;
-						background-color: #E71D32;
+						flex-direction: column;
+						height: 18px;
+						margin-right: 30px;
+						.colorBlock {
+							display: inline-block;
+							width: 30px;
+							height: 18px;
+							text-indent: -9999px;
+							background-color: #e91e63;
+						}
+						.u-caldr-hint-text {
+							display: inline-block;
+							height: 18px;
+							font-size: 12px;
+							font-weight: bold;
+							line-height: 18px;
+						}
 					}
 					#u-caldr-hint-black {
-						float:left;
-						margin-left:10px;
-						width:50px;
-						height:50px;
-						border: 1px solid black;
-						border-radius: 25px;
-						background-color: black;
+						flex-direction: column;
+						margin-right: 30px;
+						.colorBlock {
+							display: inline-block;
+							width: 30px;
+							height: 18px;
+							text-indent: -9999px;
+							background-color: #000;
+						}
+						.u-caldr-hint-text {
+							display: inline-block;
+							height: 18px;
+							font-size: 12px;
+							line-height: 18px;
+							font-weight: bold;
+						}
 					}
 					#u-caldr-hint-green {
-						float:left;
-						margin-left:10px;
-						width:50px;
-						height:50px;
-						border: 1px solid #5AA700;
-						border-radius: 25px;
-						background-color: #5AA700;
+						flex-direction: column;
+						margin-right: 30px;
+						.colorBlock {
+							display: inline-block;
+							width: 30px;
+							height: 18px;
+							text-indent: -9999px;
+							background-color: #42b347;
+						}
+						.u-caldr-hint-text {
+							display: inline-block;
+							height: 18px;
+							font-size: 12px;
+							line-height: 18px;
+							font-weight: bold;
+						}
 					}
 					#u-caldr-hint-blue {
-						float:left;
-						margin-left:10px;
-						width:50px;
-						height:50px;
-						border: 1px solid #4178BE;
-						border-radius: 25px;
-						background-color: #4178BE;
+						flex-direction: column;
+						margin-right: 30px;
+						.colorBlock {
+							display: inline-block;
+							width: 30px;
+							height: 18px;
+							text-indent: -9999px;
+							background-color: #03a9f4;
+						}
+						.u-caldr-hint-text {
+							display: inline-block;
+							font-size: 12px;
+							line-height: 18px;
+							font-weight: bold;
+						}
 					}
 					#u-caldr-hint-yellow {
-						float:left;
-						margin-left:10px;
-						width:50px;
-						height:50px;
-						border: 1px solid #EFC100;
-						border-radius: 25px;
-						background-color: #EFC100;
+						flex-direction: column;
+						margin-right: 30px;
+						.colorBlock {
+							display: inline-block;
+							width: 30px;
+							height: 18px;
+							text-indent: -9999px;
+							background-color: #EFC100;
+						}
+						.u-caldr-hint-text {
+							display: inline-block;
+							font-size: 12px;
+							line-height: 18px;
+							font-weight: bold;
+						}
 					}
-					.u-caldr-hint-text {
-						float:left;
-						min-width: 160px;
-						margin-left:10px;
-						text-align: center;
-						line-height: 50px;
-						font-family: 'Source Sans Pro';
-						font-size: 16px;
-						font-weight: bold;
-					}
-
 				}
 				.u-caldr-date {
 					display: flex;
 					height:40px;
-					border-top: 1px solid #999;
-					border-left: 1px solid #999;
-					border-right: 1px solid #999;
+					width:100%;
 					.u-caldr-body-hour {
-						display: inline-block;
+						flex-direction: column;
 						width: 4%;
 						height: 100%;
+						border-top: 1px solid #E9E0E0;
+						color: #B7ADAD;
+						text-align: center;
+						line-height: 40px;
 					}
 					.u-caldr-body-week {
-						display: inline-block;
+						flex-direction: column;
 						width: 96%;
 						height: 100%;
 						.weekday {
 							display: inline-block;
 							width: 14.285714%;
 							height: 40px;
+							border-left: 1px solid #E9E0E0;
+							border-top: 1px solid #E9E0E0;
+							color: #B7ADAD;
+							font-size: 14px;
 							text-align: center;
 							line-height: 40px;
+							background-color: #F7F5F5;
 						}
 					}
 				}
 				.u-caldr-body {
 					display: flex;
 					height:80px;
-					background-color: #ECECEC;
+					width:100%;
 					.u-caldr-body-hour {
-						display: inline-block;
+						flex-direction: column;
 						width: 4%;
 						height: 100%;
-						border-top: 1px solid #999;
-						border-left: 1px solid #999;
+						border-top: 1px solid #E9E0E0;
+						color:#B7ADAD;
+						font-size: 14px;
 						text-align: center;
 						line-height: 80px;
+						background-color: #F7F5F5;
 					}
 					.u-caldr-body-week {
-						display: inline-block;
+						flex-direction: column;
 						width: 96%;
 						height: 100%;
 						.weekday {
 							display: inline-block;
 							width: 14.285714%;
 							height: 80px;
-							border-top: 1px solid #999;
-							border-left: 1px solid #999;
+							padding-top: 30px;
+							border-top: 1px solid #E9E0E0;
+							border-left: 1px solid #E9E0E0;
+							text-align: center;
+							&.planned {
+								color: #fff;
+								background-color: #e91e63;
+							}
+							&.unplanned {
+								color: #fff;
+								background-color: #000;
+							}
+							&.release {
+								color: #fff;
+								background-color: #42b347;
+							}
+							&.demo {
+								color: #fff;
+								background-color: #03a9f4;
+							}
+							&.other {
+								color: #fff;
+								background-color: #EFC100;
+							}
 						}
 					}
 				}

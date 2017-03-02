@@ -8,78 +8,224 @@ const componentCalendar = {
 		return {
 			week: {
 				hour: "",
-				Mon: "Mon 27",
-				Tue: "Tue 28",
-				Wed: "Wed 1",
-				Thu: "Thu 2",
-				Fri: "Fri 3",
-				Sat: "Sat 4",
-				Sun: "Sun 5"
-
+				Mon: "Mon 27-Feb",
+				Tue: "Tue 28-Feb",
+				Wed: "Wed 1-Mar",
+				Thu: "Thu 2-Mar",
+				Fri: "Fri 3-Mar",
+				Sat: "Sat 4-Mar",
+				Sun: "Sun 5-Mar"
 			},
 			items: [{
 				hour: "12AM",
-				Mon: "",
-				Tue: "",
-				Wed: "",
-				Thu: "",
-				Fri: "",
-				Sat: "",
-				Sun: "",
+				Mon: {
+					text: "",
+					class: ""
+				},
+				Tue: {
+					text: "",
+					class: ""
+				},
+				Wed: {
+					text: "",
+					class: ""
+				},
+				Thu: {
+					text: "",
+					class: ""
+				},
+				Fri: {
+					text: "",
+					class: ""
+				},
+				Sat: {
+					text: "",
+					class: ""
+				},
+				Sun: {
+					text: "",
+					class: ""
+				},
 			}, {
 				hour: "1AM",
-				Mon: "",
-				Tue: "",
-				Wed: "",
-				Thu: "",
-				Fri: "",
-				Sat: "",
-				Sun: "",
+				Mon: {
+					text: "",
+					class: ""
+				},
+				Tue: {
+					text: "",
+					class: ""
+				},
+				Wed: {
+					text: "",
+					class: ""
+				},
+				Thu: {
+					text: "",
+					class: ""
+				},
+				Fri: {
+					text: "",
+					class: ""
+				},
+				Sat: {
+					text: "",
+					class: ""
+				},
+				Sun: {
+					text: "",
+					class: ""
+				},
 			}, {
 				hour: "2AM",
-				Mon: "",
-				Tue: "",
-				Wed: "",
-				Thu: "",
-				Fri: "",
-				Sat: "",
-				Sun: "",
+				Mon: {
+					text: "",
+					class: ""
+				},
+				Tue: {
+					text: "",
+					class: ""
+				},
+				Wed: {
+					text: "",
+					class: ""
+				},
+				Thu: {
+					text: "",
+					class: ""
+				},
+				Fri: {
+					text: "",
+					class: ""
+				},
+				Sat: {
+					text: "",
+					class: ""
+				},
+				Sun: {
+					text: "",
+					class: "other"
+				},
 			}, {
 				hour: "3AM",
-				Mon: "",
-				Tue: "",
-				Wed: "",
-				Thu: "",
-				Fri: "",
-				Sat: "",
-				Sun: "",
+				Mon: {
+					text: "CSA RoadShow HK",
+					class: "demo"
+				},
+				Tue: {
+					text: "",
+					class: ""
+				},
+				Wed: {
+					text: "",
+					class: ""
+				},
+				Thu: {
+					text: "investor relationship",
+					class: "demo"
+				},
+				Fri: {
+					text: "Framework Release",
+					class: "planned"
+				},
+				Sat: {
+					text: "",
+					class: ""
+				},
+				Sun: {
+					text: "DB2 Data backup",
+					class: "other"
+				},
 			}, {
 				hour: "4AM",
-				Mon: "",
-				Tue: "",
-				Wed: "",
-				Thu: "",
-				Fri: "",
-				Sat: "",
-				Sun: "",
+				Mon: {
+					text: "",
+					class: ""
+				},
+				Tue: {
+					text: "",
+					class: ""
+				},
+				Wed: {
+					text: "CSA RoadShow Beijing",
+					class: "demo"
+				},
+				Thu: {
+					text: "",
+					class: ""
+				},
+				Fri: {
+					text: "Learning Hub Release",
+					class: "release"
+				},
+				Sat: {
+					text: "",
+					class: ""
+				},
+				Sun: {
+					text: "",
+					class: "other"
+				},
 			}, {
 				hour: "5AM",
-				Mon: "",
-				Tue: "",
-				Wed: "",
-				Thu: "",
-				Fri: "",
-				Sat: "",
-				Sun: "",
+				Mon: {
+					text: "",
+					class: ""
+				},
+				Tue: {
+					text: "Page Manager quick fix",
+					class: "release"
+				},
+				Wed: {
+					text: "",
+					class: ""
+				},
+				Thu: {
+					text: "",
+					class: ""
+				},
+				Fri: {
+					text: "OneScore  Release",
+					class: "release"
+				},
+				Sat: {
+					text: "",
+					class: ""
+				},
+				Sun: {
+					text: "",
+					class: ""
+				},
 			}, {
 				hour: "6AM",
-				Mon: "",
-				Tue: "",
-				Wed: "",
-				Thu: "",
-				Fri: "",
-				Sat: "",
-				Sun: "",
+				Mon: {
+					text: "",
+					class: ""
+				},
+				Tue: {
+					text: "",
+					class: ""
+				},
+				Wed: {
+					text: "SSO outage",
+					class: "unplanned"
+				},
+				Thu: {
+					text: "",
+					class: ""
+				},
+				Fri: {
+					text: "",
+					class: ""
+				},
+				Sat: {
+					text: "",
+					class: ""
+				},
+				Sun: {
+					text: "",
+					class: ""
+				},
 			}, {
 				hour: "7AM",
 				Sun: "",
