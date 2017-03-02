@@ -8,28 +8,20 @@ const POSITION_FN = {
 	bottom: positionTooltipToBottom
 };
 
-const install = function (Vue, options) {
-	if (this.installed) {
-		return;
-	}
-	this.installed = true;
+Vue.directive('tooltip', function(el, binding){
+	const $body = document.querySelector('body');
+    let $tooltip = null;
 	
-	// Add global resources
-	Vue.directive('tooltip', function(el, binding){
-		const $body = document.querySelector('body');
-	    let $tooltip = null;
-		
-	    el.addEventListener('mouseenter', (e) => {
-	    	$tooltip = createTooltip($body, el, binding);
-	    	$tooltip.style.opacity = 1;
-		});
-	    
-	    el.addEventListener('mouseleave', (e) => {
-	    	$tooltip.style.display = 'none';
-	    	$tooltip.style.opacity = 0;
-		});
+    el.addEventListener('mouseenter', (e) => {
+    	$tooltip = createTooltip($body, el, binding);
+    	$tooltip.style.opacity = 1;
 	});
-};
+    
+    el.addEventListener('mouseleave', (e) => {
+    	$tooltip.style.display = 'none';
+    	$tooltip.style.opacity = 0;
+	});
+});
 
 function createTooltip($body, $el, binding){
 	const title = binding.value.title || '';
@@ -75,9 +67,3 @@ function positionTooltipToRight($el, $tooltip, binding){
 function positionTooltipToBottom($el, $tooltip, binding){
 	
 }
-
-const Tooltip = {
-	install
-};
-
-export { Tooltip };
