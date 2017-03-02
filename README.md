@@ -101,12 +101,13 @@ import {Tooltip} from '../plugins/tooltip';
 
 Exp:
 ``` html
-<m-tabs :tabsLabel="['Web前端', 'Web服务']">
+<m-tabs :tabsLabel="['Web Front-end deveploers', 'Web Services']">
   <m-tab>
-    <p>一段文字，<u v-tooltip="{title: '你好啊，欢迎使用', position: 'top'}">鼠标滑过</u>。</p>
+    <p>Diam ipsum quis eu curabitur rhoncus nostra consequat, varius urna nunc ligula iaculis tellus dolor egestas, auctor risus hac pharetra eros laoreet habitant placerat augue ultrices arcu cras duis phasellus sit commodo.</p>
   </m-tab>
   <m-tab>
-    <button v-on:click="showDialog">弹窗</button>
+    <h2>Class nisl convallis.</h2>
+    <p>Lorem ipsum aliquam quam imperdiet morbi suscipit lectus enim, diam tempor eleifend pellentesque condimentum donec eu ut donec, pharetra litora lectus id ut aenean class.</p>
   </m-tab>
 </m-tabs>
 ```
