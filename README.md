@@ -88,3 +88,29 @@ import {Tooltip} from '../plugins/tooltip';
 ``` html
 <p v-tooltip="{title: 'Lorem ipsum aliquam habitasse curae feugiat fames suscipit adipiscing senectus, orci non nec leo pharetra etiam metus libero lacus, taciti consequat class augue interdum aliquet integer id.'}">Lorem ipsum venenatis praesent maecenas mattis gravida.</p>
 ```
+
+### Tabs:
+#### APIs:
+-
+##### Props:
+| Option    | type   | Description             |
+| :-------  | :----  | :---                    |
+| tabsLabel | Array  |  Each tab's label name  |
+
+**Note:** add `m-tabs` as tabs root, each tab's content in `m-tab` component.
+
+Exp:
+``` html
+<m-tabs :tabsLabel="['Web前端', 'Web服务']">
+  <m-tab>
+    <p>一段文字，<u v-tooltip="{title: '你好啊，欢迎使用', position: 'top'}">鼠标滑过</u>。</p>
+  </m-tab>
+  <m-tab>
+    <button v-on:click="showDialog">弹窗</button>
+  </m-tab>
+</m-tabs>
+```
+
+``` javascript
+import '../plugins/tabs';
+```
