@@ -88,3 +88,30 @@ import {Tooltip} from '../plugins/tooltip';
 ``` html
 <p v-tooltip="{title: 'Lorem ipsum aliquam habitasse curae feugiat fames suscipit adipiscing senectus, orci non nec leo pharetra etiam metus libero lacus, taciti consequat class augue interdum aliquet integer id.'}">Lorem ipsum venenatis praesent maecenas mattis gravida.</p>
 ```
+
+### Tabs:
+#### APIs:
+-
+##### Props:
+| Option    | type   | Description             |
+| :-------  | :----  | :---                    |
+| tabsLabel | Array  |  Each tab's label name  |
+
+**Note:** add `m-tabs` as tabs root, each tab's content in `m-tab` component.
+
+Exp:
+``` html
+<m-tabs :tabsLabel="['Web Front-end deveploers', 'Web Services']">
+  <m-tab>
+    <p>Diam ipsum quis eu curabitur rhoncus nostra consequat, varius urna nunc ligula iaculis tellus dolor egestas, auctor risus hac pharetra eros laoreet habitant placerat augue ultrices arcu cras duis phasellus sit commodo.</p>
+  </m-tab>
+  <m-tab>
+    <h2>Class nisl convallis.</h2>
+    <p>Lorem ipsum aliquam quam imperdiet morbi suscipit lectus enim, diam tempor eleifend pellentesque condimentum donec eu ut donec, pharetra litora lectus id ut aenean class.</p>
+  </m-tab>
+</m-tabs>
+```
+
+``` javascript
+import '../plugins/tabs';
+```
