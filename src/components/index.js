@@ -469,6 +469,12 @@ const componentIndex = {
 		// el created and rendered to the page
 		console.info('Index router rendered');
 		this.renderChart();
+		services.getUser(function() {
+				console.log("success!");
+			},
+			function() {
+				console.log("failed!");
+			});
 	},
 	beforeDestroy: function() {
 		this.destroyChart();

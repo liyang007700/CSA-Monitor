@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro');
 @font-face {
 	font-family: "iconfont";
 	src: url('../style/font_c1pwkyigzr8me7b9/iconfont.eot'); /* IE9*/
@@ -462,34 +461,48 @@ body{
 						}
 					}
 				}
-				.u-caldr-body {
-					display: flex;
-					height:80px;
-					width:100%;
-					.u-caldr-body-hour {
-						flex-direction: column;
-						width: 4%;
-						height: 100%;
-						border-top: 1px solid #E9E0E0;
-						color:#B7ADAD;
-						font-size: 14px;
-						text-align: center;
-						line-height: 80px;
-						background-color: #F7F5F5;
-					}
-					.u-caldr-body-week {
-						flex-direction: column;
-						width: 96%;
-						height: 100%;
-						.weekday {
-							display: inline-block;
-							width: 14.285714%;
-							height: 80px;
-							padding-top: 30px;
+				.u-caldr-table {
+					position: relative;
+					width: 100%;
+					.u-caldr-body {
+						display: flex;
+						height:80px;
+						width:100%;
+						.u-caldr-body-hour {
+							flex-direction: column;
+							width: 4%;
+							height: 100%;
 							border-top: 1px solid #E9E0E0;
-							border-left: 1px solid #E9E0E0;
+							color:#B7ADAD;
+							font-size: 14px;
 							text-align: center;
-							&.planned {
+							line-height: 80px;
+							background-color: #F7F5F5;
+						}
+						.u-caldr-body-week {
+							flex-direction: column;
+							width: 96%;
+							height: 100%;
+							.weekday {
+								display: inline-block;
+								width: 14.285714%;
+								height: 80px;
+								border-top: 1px solid #E9E0E0;
+								border-left: 1px solid #E9E0E0;
+							}
+						}
+					}
+					.u-caldr-event {
+						position: absolute;
+						display: -webkit-flex;
+		                display: flex;
+						width: 175.94px;
+						z-index: 9999;
+						align-items: center;
+						justify-content: center;
+						border-radius: 5px;
+						text-align: center;
+						&.planned {
 								color: #fff;
 								background-color: #e91e63;
 							}
@@ -509,9 +522,9 @@ body{
 								color: #fff;
 								background-color: #EFC100;
 							}
-						}
 					}
 				}
+
 			}
 		}
 	}

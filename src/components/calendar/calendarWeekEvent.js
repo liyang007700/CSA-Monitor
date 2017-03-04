@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
-import template from '../../templates/calendar/calendarWeek.html';
+import template from '../../templates/calendar/calendarWeekEvent.html';
 
-Vue.component('caldr-table', {
+Vue.component('event-block', {
     props: ['item', 'date'],
     template: template,
     data: function() {
@@ -15,7 +15,8 @@ Vue.component('caldr-table', {
     },
     methods: {
         computeStyle: function() {
-            let widthContainer = this.$root;
+            let widthContainer = document.getElementById(
+                "containerTable");
             console.log(widthContainer);
             let totalMinute = 10080;
             let zeroTime = Date.parse(this.date[0]);

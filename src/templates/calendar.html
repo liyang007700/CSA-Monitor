@@ -41,20 +41,23 @@
 				<div class="u-caldr-hint-text">Other activities</div>
 			</div>
 		</div>
-		<div class="u-caldr-date" :week="week">
+		<div class="u-caldr-date" :date="date">
 			<div class="u-caldr-body-hour"><i class="iconfont icon">&#xe625;</i></div>
 			<div class="u-caldr-body-week">
 				<div class="pure-g">
-					<div class="weekday">{{ week.Mon }}</div>
-					<div class="weekday">{{ week.Tue }}</div>
-					<div class="weekday">{{ week.Wed }}</div>
-					<div class="weekday">{{ week.Thu }}</div>
-					<div class="weekday">{{ week.Fri }}</div>
-					<div class="weekday">{{ week.Sat }}</div>
-					<div class="weekday">{{ week.Sun }}</div>
+					<div class="weekday">Mon {{ date[0].substring(6, 10) }}</div>
+					<div class="weekday">Tue {{ date[1].substring(6, 10) }}</div>
+					<div class="weekday">Wed {{ date[2].substring(6, 10) }}</div>
+					<div class="weekday">Thu {{ date[3].substring(6, 10) }}</div>
+					<div class="weekday">Fri {{ date[4].substring(6, 10) }}</div>
+					<div class="weekday">Sat {{ date[5].substring(6, 10) }}</div>
+					<div class="weekday">Sun {{ date[6].substring(6, 10) }}</div>
 				</div>
 			</div>
 		</div>
-		<calendar-row :item="item" v-for="item in items"></calendar-row>
+		<div class="u-caldr-table" id="containerTable">
+			<calendar-row :item="item" v-for="item in hours"></calendar-row>
+			<event-block :item="item" :date="date" :class="item.type" v-for="item in events" ></event-block>
+		</div>
 	</div>
 </div>
