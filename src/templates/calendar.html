@@ -41,23 +41,58 @@
 				<div class="u-caldr-hint-text">Other activities</div>
 			</div>
 		</div>
-		<div class="u-caldr-date" :date="date">
+		<div class="u-caldr-date" :agenda="agenda">
 			<div class="u-caldr-body-hour"><i class="iconfont icon">&#xe625;</i></div>
 			<div class="u-caldr-body-week">
-				<div class="pure-g">
-					<div class="weekday">Mon {{ date[0].substring(6, 10) }}</div>
-					<div class="weekday">Tue {{ date[1].substring(6, 10) }}</div>
-					<div class="weekday">Wed {{ date[2].substring(6, 10) }}</div>
-					<div class="weekday">Thu {{ date[3].substring(6, 10) }}</div>
-					<div class="weekday">Fri {{ date[4].substring(6, 10) }}</div>
-					<div class="weekday">Sat {{ date[5].substring(6, 10) }}</div>
-					<div class="weekday">Sun {{ date[6].substring(6, 10) }}</div>
+				<div class="pure-g">					
+					<div class="weekday">Mon {{ agenda[0].events[0].date.substring(6, 10) }}</div>
+					<div class="weekday">Tue {{ agenda[1].events[0].date.substring(6, 10) }}</div>
+					<div class="weekday">Wed {{ agenda[2].events[0].date.substring(6, 10) }}</div>
+					<div class="weekday">Thu {{ agenda[3].events[0].date.substring(6, 10) }}</div>
+					<div class="weekday">Fri {{ agenda[4].events[0].date.substring(6, 10) }}</div>
+					<div class="weekday">Sat {{ agenda[5].events[0].date.substring(6, 10) }}</div>
+					<div class="weekday">Sun {{ agenda[6].events[0].date.substring(6, 10) }}</div>
 				</div>
 			</div>
 		</div>
-		<div class="u-caldr-table" id="containerTable">
-			<calendar-row :item="item" v-for="item in hours"></calendar-row>
-			<event-block :item="item" :date="date" :class="item.type" v-for="item in events" ></event-block>
+		<div class="u-caldr-body">
+	 		<div class="u-caldr-body-time">
+		   		<div class="u-caldr-body-hour">0AM</div>
+		        <div class="u-caldr-body-hour">1AM</div>
+		        <div class="u-caldr-body-hour">2AM</div>
+		        <div class="u-caldr-body-hour">3AM</div>
+		        <div class="u-caldr-body-hour">4AM</div>
+		        <div class="u-caldr-body-hour">5AM</div>
+		        <div class="u-caldr-body-hour">6AM</div>
+		        <div class="u-caldr-body-hour">7AM</div>
+		        <div class="u-caldr-body-hour">8AM</div>
+		        <div class="u-caldr-body-hour">9AM</div>
+		        <div class="u-caldr-body-hour">10AM</div>
+		        <div class="u-caldr-body-hour">11AM</div>
+		        <div class="u-caldr-body-hour">0PM</div>
+		        <div class="u-caldr-body-hour">1PM</div>
+		        <div class="u-caldr-body-hour">2PM</div>
+		        <div class="u-caldr-body-hour">3PM</div>
+		        <div class="u-caldr-body-hour">4PM</div>
+		        <div class="u-caldr-body-hour">5PM</div>
+		        <div class="u-caldr-body-hour">6PM</div>
+		        <div class="u-caldr-body-hour">7PM</div>
+		        <div class="u-caldr-body-hour">8PM</div>
+		        <div class="u-caldr-body-hour">9PM</div>
+		        <div class="u-caldr-body-hour">10PM</div>
+		        <div class="u-caldr-body-hour">11PM</div>
+		    </div>
+			<div class="u-caldr-body-week">
+				<div class="pure-g">
+					<div class="weekday"><event-block :item="item" v-for="item in agenda[0].events"></event-block></div>
+					<div class="weekday"><event-block :item="item" v-for="item in agenda[1].events"></event-block></div>
+					<div class="weekday"><event-block :item="item" v-for="item in agenda[2].events"></event-block></div>
+					<div class="weekday"><event-block :item="item" v-for="item in agenda[3].events"></event-block></div>
+					<div class="weekday"><event-block :item="item" v-for="item in agenda[4].events"></event-block></div>
+					<div class="weekday"><event-block :item="item" v-for="item in agenda[5].events"></event-block></div>
+					<div class="weekday"><event-block :item="item" v-for="item in agenda[6].events"></event-block></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
