@@ -8,8 +8,7 @@ services.getUser = (success, fail) => {
 	Vue.http.get(
 		'http://prdpcrdhydra01.w3-969.ibm.com:8000/w2w_restapi/test/').then(
 		response => {
-			console.log(response.body);
-			success();
+			success(response.body);
 		}, response => {
 			console.warn('Get user info service: [' + response.status + '] ' +
 				response.statusText);

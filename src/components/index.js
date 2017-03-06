@@ -125,7 +125,7 @@ const componentIndex = {
 							color: "rgba(0,0,0,1)"
 						}
 					},
-					data: this.month.time
+					data: this.month.timepoint
 				}],
 				yAxis: [{
 					offset: -5,
@@ -157,7 +157,7 @@ const componentIndex = {
 					symbolSize: 5,
 					showAllSymbol: true,
 					hoverAnimation: true,
-					data: this.month.dataRequest2XX,
+					data: this.month.Count_RC2,
 					itemStyle: {
 						normal: {
 							color: 'rgba(0, 113, 113, 1)'
@@ -186,7 +186,7 @@ const componentIndex = {
 					symbolSize: 5,
 					showAllSymbol: true,
 					hoverAnimation: true,
-					data: this.month.dataRequest3XX,
+					data: this.month.Count_RC3,
 					itemStyle: {
 						normal: {
 							color: 'rgba(18, 18, 18, 1)'
@@ -215,7 +215,7 @@ const componentIndex = {
 					symbolSize: 5,
 					showAllSymbol: true,
 					hoverAnimation: true,
-					data: this.month.dataRequest4XX,
+					data: this.month.Count_RC4,
 					itemStyle: {
 						normal: {
 							color: 'rgba(239, 193, 0, 1)'
@@ -245,7 +245,7 @@ const componentIndex = {
 					symbolSize: 5,
 					showAllSymbol: true,
 					hoverAnimation: true,
-					data: this.month.dataRequest5XX,
+					data: this.month.Count_RC5,
 					itemStyle: {
 						normal: {
 							color: 'rgba(255, 80, 3, 1)'
@@ -275,7 +275,7 @@ const componentIndex = {
 				legend: {
 					show: true,
 					itemGap: 20,
-					left: '20%',
+					left: '25%',
 					top: '5%',
 					data: ["AverageResponseTime", "ExceptionCount"]
 				},
@@ -350,10 +350,10 @@ const componentIndex = {
 							color: "rgba(0,0,0,1)"
 						}
 					},
-					data: this.month.time
+					data: this.month.timepoint
 				}],
 				yAxis: [{ // 平均响应时间的轴，位于左侧
-					offset: 0,
+					offset: -4,
 					//min: 0,
 					//max: 2000,
 					name: 'RequestDelay(ms)',
@@ -406,7 +406,7 @@ const componentIndex = {
 					symbol: 'circle',
 					symbolSize: 5,
 					hoverAnimation: true,
-					data: this.month.AverageResponseTime
+					data: this.month.AverageElapsed
 						/*
 						markLine: {
 							silent: true,
@@ -425,7 +425,7 @@ const componentIndex = {
 					symbol: 'circle',
 					symbolSize: 5,
 					hoverAnimation: true,
-					data: this.month.ExceptionCount,
+					data: this.month.Count_OverThreshold,
 					itemStyle: {
 						normal: {
 							color: 'rgba(38, 74, 96, 1)'
@@ -467,10 +467,11 @@ const componentIndex = {
 	},
 	mounted: function() {
 		// el created and rendered to the page
+		var _this = this;
 		console.info('Index router rendered');
-		this.renderChart();
-		services.getUser(function() {
-				console.log("success!");
+		services.getUser(function(data) {
+				_this.month = data;
+				_this.renderChart();
 			},
 			function() {
 				console.log("failed!");
