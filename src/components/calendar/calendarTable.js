@@ -57,11 +57,11 @@ Vue.component("week-day", {
                 _formattedLocalTimeStrEnd = _localTimeStrEnd.substring(
                     2) + " PM";
             }
-            this.$data.title = _todayStr + "  " +
+            this.title = _todayStr + "  " +
                 _formattedLocalTimeStrTop +
                 " - " +
                 _formattedLocalTimeStrEnd;
-            console.log(this.$data.title);
+            console.log(this.title);
 
             Dialog.show();
         },
