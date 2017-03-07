@@ -13,8 +13,7 @@ const componentIndex = {
 	template: template,
 	data: function() {
 		return {
-			message: '你好：',
-			month: month
+			message: '你好：'
 		};
 	},
 	methods: {
