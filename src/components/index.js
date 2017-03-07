@@ -7,7 +7,6 @@ from '../services';
 
 // import child components
 import '../components/counter';
-import month from '../data/month.json';
 //import {chart_config} from '../config/echart_config';
 
 const componentIndex = {

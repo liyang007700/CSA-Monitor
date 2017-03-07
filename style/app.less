@@ -461,40 +461,68 @@ body{
 						}
 					}
 				}
-					.u-caldr-body {
-						display: flex;
-						width:100%;
-						.u-caldr-body-time {
-							flex-direction: column;
-							width: 4%;
-							.u-caldr-body-hour{
+				.u-caldr-body {
+					display: flex;
+					width:100%;
+					.u-caldr-body-time {
+						flex-direction: column;
+						width: 4%;
+						.u-caldr-body-title{
+							width: 100%;
+							height: 40px;
+							border-top: 1px solid #E9E0E0;
+							color:#B7ADAD;
+							font-size: 14px;
+							text-align: center;
+							line-height: 40px;
+							background-color: #F7F5F5;
+						}
+						.u-caldr-body-hour{
+							width: 100%;
+							height: 80px;
+							border-top: 1px solid #E9E0E0;
+							color:#B7ADAD;
+							font-size: 14px;
+							text-align: center;
+							line-height: 80px;
+							background-color: #F7F5F5;
+						}
+					}
+					.u-caldr-body-week {
+						flex-direction: column;
+						width: 96%;
+						height: 100%;
+						.weekday {
+							position:relative;
+							display: inline-block;
+							width: 14.285714%;
+							height:1960px;
+							border-left: 1px solid #E9E0E0;
+							.u-caldr-weekDay-title {
 								width: 100%;
-								height: 80px;
+								height: 40px;
 								border-top: 1px solid #E9E0E0;
-								color:#B7ADAD;
+								color: #B7ADAD;
 								font-size: 14px;
 								text-align: center;
-								line-height: 80px;
+								line-height: 40px;
 								background-color: #F7F5F5;
 							}
-						}
-						.u-caldr-body-week {
-							flex-direction: column;
-							width: 96%;
-							height: 100%;
-							.weekday {
-								position:relative;
-								display: inline-block;
-								width: 14.285714%;
+							.u-caldr-weekDay-body {
 								height:1920px;
-								border-top: 1px solid #E9E0E0;
-								border-left: 1px solid #E9E0E0;
+								.u-caldr-weekDay-body-block{
+									height: 80px;
+									width: 100%;
+									border-top: 1px solid #E9E0E0;
+								}
+							}
+								/*
 								.u-caldr-body-event {
 									position: absolute;
 									left: 0;
 									display: -webkit-flex;
 		                			display: flex;
-									width:100%;
+									width:96%;
 									z-index: 9999;
 									align-items: center;
 									justify-content: center;
@@ -520,22 +548,10 @@ body{
 										color: #000;
 										background-color: #f9c902;
 									}
-
-								}
-							}
+								}*/
 						}
 					}
-					/*
-					.u-caldr-event {
-						position: absolute;
-
-						width: 175.94px;
-
-
-
-					}*/
-
-
+				}
 			}
 		}
 	}

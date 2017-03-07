@@ -5,28 +5,30 @@ let Dialog = {};
 Vue.component('m-dialog', {
 	props: ['title', 'body'],
 	template: template,
-	data: function () {
+	data: function() {
 		return {
 			showDialog: false
 		};
 	},
 	methods: {
-		close: function(){
+		close: function() {
 			this.$data.showDialog = false;
 		}
 	},
-	created: function(){
-		
+	created: function() {
+
 	},
-	mounted: function(){
+	mounted: function() {
 		Dialog.show = () => {
 			this.$data.showDialog = true;
 		};
-		
+
 		Dialog.hide = () => {
 			this.$data.showDialog = false;
 		};
 	}
 });
 
-export {Dialog};
+export {
+	Dialog
+};

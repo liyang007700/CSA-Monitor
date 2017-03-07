@@ -236,17 +236,6 @@ body #m-app #m-main.m-index .pure-u-1-2 p {
 body #m-app #m-main.m-index .pure-u-1-2 .chart {
   height: 400px;
 }
-body #m-app #m-main.m-calendar {
-  /*
-					.u-caldr-event {
-						position: absolute;
-
-						width: 175.94px;
-
-
-
-					}*/
-}
 body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-month {
   text-align: left;
   line-height: 78px;
@@ -437,6 +426,16 @@ body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-time {
   flex-direction: column;
   width: 4%;
 }
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-time .u-caldr-body-title {
+  width: 100%;
+  height: 40px;
+  border-top: 1px solid #E9E0E0;
+  color: #B7ADAD;
+  font-size: 14px;
+  text-align: center;
+  line-height: 40px;
+  background-color: #F7F5F5;
+}
 body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-time .u-caldr-body-hour {
   width: 100%;
   height: 80px;
@@ -456,41 +455,59 @@ body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday {
   position: relative;
   display: inline-block;
   width: 14.285714%;
-  height: 1920px;
-  border-top: 1px solid #E9E0E0;
+  height: 1960px;
   border-left: 1px solid #E9E0E0;
+  /*
+								.u-caldr-body-event {
+									position: absolute;
+									left: 0;
+									display: -webkit-flex;
+		                			display: flex;
+									width:96%;
+									z-index: 9999;
+									align-items: center;
+									justify-content: center;
+									border-radius: 5px;
+									text-align: center;
+									&.planned {
+										color: #fff;
+										background-color: #e91e63;
+									}
+									&.unplanned {
+										color: #fff;
+										background-color: #000;
+									}
+									&.release {
+										color: #fff;
+										background-color: #42b347;
+									}
+									&.demo {
+										color: #fff;
+										background-color: #03a9f4;
+									}
+									&.other {
+										color: #000;
+										background-color: #f9c902;
+									}
+								}*/
 }
-body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-body-event {
-  position: absolute;
-  left: 0;
-  display: -webkit-flex;
-  display: flex;
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-weekDay-title {
   width: 100%;
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
+  height: 40px;
+  border-top: 1px solid #E9E0E0;
+  color: #B7ADAD;
+  font-size: 14px;
   text-align: center;
+  line-height: 40px;
+  background-color: #F7F5F5;
 }
-body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-body-event.planned {
-  color: #fff;
-  background-color: #e91e63;
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-weekDay-body {
+  height: 1920px;
 }
-body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-body-event.unplanned {
-  color: #fff;
-  background-color: #000;
-}
-body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-body-event.release {
-  color: #fff;
-  background-color: #42b347;
-}
-body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-body-event.demo {
-  color: #fff;
-  background-color: #03a9f4;
-}
-body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-body-event.other {
-  color: #000;
-  background-color: #f9c902;
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-weekDay-body .u-caldr-weekDay-body-block {
+  height: 80px;
+  width: 100%;
+  border-top: 1px solid #E9E0E0;
 }
 /* ----- Dialog start ----- */
 .m-dialog {

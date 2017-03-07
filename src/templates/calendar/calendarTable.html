@@ -1,0 +1,31 @@
+<div class="weekday">
+    <div class="u-caldr-weekDay-title">{{ item.date.substring(6, 10) }}</div>
+    <div @click="showEvtDialog" class="u-caldr-weekDay-body">
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <div class="u-caldr-weekDay-body-block"></div>
+        <m-block :showBlock="ifShow" :style="styleBlock"></m-block>
+    </div>
+    <m-dialog :title="title" :body="body"></m-dialog>
+</div>
