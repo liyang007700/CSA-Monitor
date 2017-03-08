@@ -7,7 +7,7 @@ Vue.component('m-dialog', {
 	template: template,
 	data: function() {
 		return {
-			showDialog: false
+			showDialog: true
 		};
 	},
 	methods: {

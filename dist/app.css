@@ -447,6 +447,7 @@ body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-time .u-caldr-body-ho
   background-color: #F7F5F5;
 }
 body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week {
+  position: relative;
   flex-direction: column;
   width: 96%;
   height: 100%;
@@ -508,6 +509,109 @@ body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-cald
   height: 80px;
   width: 100%;
   border-top: 1px solid #E9E0E0;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .u-caldr-weekDay-body .shadowBlock {
+  position: absolute;
+  width: 96%;
+  height: 80px;
+  background-color: rgba(90, 170, 250, 0.5);
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-dialog-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  opacity: .95;
+  background: rgba(91, 147, 177, 0.2);
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content {
+  position: absolute;
+  z-index: 100;
+  width: 440px;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-header {
+  padding: 10px 20px;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-header {
+  background-color: #0774af;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-header h2 {
+  color: #FFFFFF;
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-header .close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: .8;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-header .close:hover {
+  opacity: 1;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body {
+  background-color: #FFFFFF;
+  font-size: 14px;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body .m-form {
+  padding: 10px 20px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body .m-form input {
+  width: 400px;
+  border: none;
+  outline: medium;
+  margin-bottom: 5px;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body .m-button {
+  padding: 6px 20px;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body .m-button button {
+  margin-left: 300px;
+  width: 50px;
+  height: 25px;
+  border: none;
+  color: white;
+  background-color: #0774af;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .eventBlock {
+  position: absolute;
+  left: 0;
+  display: -webkit-flex;
+  display: flex;
+  width: 96%;
+  z-index: 10;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-align: center;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .eventBlock.planned {
+  color: #fff;
+  background-color: #e91e63;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .eventBlock.unplanned {
+  color: #fff;
+  background-color: #000;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .eventBlock.release {
+  color: #fff;
+  background-color: #42b347;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .eventBlock.demo {
+  color: #fff;
+  background-color: #03a9f4;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .eventBlock.other {
+  color: #000;
+  background-color: #f9c902;
 }
 /* ----- Dialog start ----- */
 .m-dialog {

@@ -25,7 +25,29 @@
         <div class="u-caldr-weekDay-body-block"></div>
         <div class="u-caldr-weekDay-body-block"></div>
         <div class="u-caldr-weekDay-body-block"></div>
-        <m-block :showBlock="ifShow" :style="styleBlock"></m-block>
+        <m-block :showBlock="ifShowShadowBlock" :style="styleShadowBlock"></m-block>
     </div>
-    <m-dialog :title="title" :body="body"></m-dialog>
+    <!--<component :is="Dialog" @clear="clearDialog" @submit="" :options="options" :selected="dialogSelected" :styleDialog="styleDialog" :title="title" :message="input" :ifShowDialog="ifShowDialog">
+    </component>-->
+
+    <m-dialog @clear="clearDialog"
+              @submit="storeEvent"
+              :styleDialog="styleDialog"
+              :title="title"
+              :options="options"
+              :ifShowDialog="ifShowDialog">
+              <!--
+              <div slot="input">
+                  <input @keyup.esc="close" v-model="this.message" placeholder="Write something here..." autofocus/>
+              </div>
+              <div slot="options">
+                  <label for="event">Event Options</label>
+  				  <select  id="event" v-model="this.selected">
+    				  <option v-for="option in this.options" v-bind:value="option.value">
+      				  {{ option.text }}
+    				  </option>
+  				  </select>
+              </div>-->
+    </m-dialog>
+    <m-events :item="item" v-for="item in subjects"></m-events>
 </div>

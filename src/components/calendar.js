@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 import template from '../templates/calendar.html';
-import '../components/calendar/calendarTable';
+import '../components/calendar/weekDay';
 //import '../components/calendar/calendarWeekEvent';
 
 const componentCalendar = {

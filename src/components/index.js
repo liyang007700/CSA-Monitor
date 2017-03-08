@@ -13,8 +13,7 @@ const componentIndex = {
 	template: template,
 	data: function() {
 		return {
-			message: '你好：',
-			month: month
+			message: '你好：'
 		};
 	},
 	methods: {
@@ -274,7 +273,7 @@ const componentIndex = {
 				legend: {
 					show: true,
 					itemGap: 20,
-					left: '25%',
+					left: '30%',
 					top: '5%',
 					data: ["AverageResponseTime", "ExceptionCount"]
 				},
@@ -352,92 +351,96 @@ const componentIndex = {
 					data: this.month.timepoint
 				}],
 				yAxis: [{ // 平均响应时间的轴，位于左侧
-					offset: -4,
-					//min: 0,
-					//max: 2000,
-					name: 'RequestDelay(ms)',
-					nameGap: 20,
-					nameTextStyle: {
-						color: 'rgba(0, 0, 0, 1)',
-						fontSize: 12
-					},
-					type: 'value',
-					axisLine: {
-						show: false
-					},
-					axisTick: {
-						show: false
-					},
-					axisLabel: {
-						formatter: '{value} ms'
-					},
-					splitLine: {
-						show: false
+						offset: -4,
+						//min: 0,
+						//max: 2000,
+						name: 'RequestDelay(ms)',
+						nameGap: 20,
+						nameTextStyle: {
+							color: 'rgba(0, 0, 0, 1)',
+							fontSize: 12
+						},
+						type: 'value',
+						axisLine: {
+							show: false
+						},
+						axisTick: {
+							show: false
+						},
+						axisLabel: {
+							formatter: '{value} ms'
+						},
+						splitLine: {
+							show: true
+						}
 					}
-				}, { // 超过500ms次数的轴，位于右侧
-					position: 'right',
-					min: 0,
-					max: 50,
-					offset: 0,
-					name: 'ExceptionCount',
-					nameGap: 20,
-					nameTextStyle: {
-						color: 'rgba(0, 0, 0, 1)',
-						fontSize: 12
-					},
-					type: 'value',
-					axisLine: {
-						show: false
-					},
-					axisTick: {
-						show: false
-					},
-					axisLabel: {
-						formatter: '{value} times'
-					},
-					splitLine: {
-						show: false
-					}
-				}],
+					/*, { // 超过500ms次数的轴，位于右侧
+										position: 'right',
+										min: 0,
+										max: 50,
+										offset: 0,
+										name: 'ExceptionCount',
+										nameGap: 20,
+										nameTextStyle: {
+											color: 'rgba(0, 0, 0, 1)',
+											fontSize: 12
+										},
+										type: 'value',
+										axisLine: {
+											show: false
+										},
+										axisTick: {
+											show: false
+										},
+										axisLabel: {
+											formatter: '{value} times'
+										},
+										splitLine: {
+											show: false
+										}
+									}*/
+				],
 				series: [{
-					name: 'AverageResponseTime',
-					type: 'line',
-					symbol: 'circle',
-					symbolSize: 5,
-					hoverAnimation: true,
-					data: this.month.AverageElapsed
-						/*
-						markLine: {
-							silent: true,
-							lineStyle: {
-								normal: {
-									color: '#D74108',
-								}
-							},
-							data: [{
-								yAxis: 500
-							}]
-						}*/
-				}, {
-					name: 'ExceptionCount',
-					type: 'line',
-					symbol: 'circle',
-					symbolSize: 5,
-					hoverAnimation: true,
-					data: this.month.Count_OverThreshold,
-					itemStyle: {
-						normal: {
-							color: 'rgba(38, 74, 96, 1)'
-						}
-					},
-					lineStyle: {
-						normal: {
-							color: '#264A60',
-							shadowColor: 'rgba(38, 74, 96, 0.3)',
-							shadowBlur: 4
-						}
+						name: 'AverageResponseTime',
+						type: 'line',
+						symbol: 'circle',
+						symbolSize: 5,
+						hoverAnimation: true,
+						data: this.month.AverageElapsed
+							/*
+							markLine: {
+								silent: true,
+								lineStyle: {
+									normal: {
+										color: '#D74108',
+									}
+								},
+								data: [{
+									yAxis: 500
+								}]
+							}*/
 					}
-				}]
+					/*, {
+										name: 'ExceptionCount',
+										type: 'line',
+										symbol: 'circle',
+										symbolSize: 5,
+										hoverAnimation: true,
+										data: this.month.Count_OverThreshold,
+										itemStyle: {
+											normal: {
+												color: 'rgba(38, 74, 96, 1)'
+											}
+										},
+										lineStyle: {
+											normal: {
+												color: '#264A60',
+												shadowColor: 'rgba(38, 74, 96, 0.3)',
+												shadowBlur: 4
+											}
+										}
+									}*/
+				]
 			};
 
 			// render instance
@@ -455,6 +458,7 @@ const componentIndex = {
 			});
 		},
 		destroyChart: function() {
+
 			console.log("charts destroy");
 			//this.chart.myChart1.dispose();
 			//this.chart.myChart2.clear();
