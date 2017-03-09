@@ -1,0 +1,59 @@
+<div class="netAnalysis">
+    <h2>Network Analysis</h2>
+    <p class="url"><span class="m-name">Url:</span><span>{{ url }}</span><span class="m-name">Timepoint:</span><span>{{ timepoint }}</span></p>
+    <div class="m-timeBar">
+        <div class="m-timeBlock"><p class="m-title">100ms</p></div>
+        <div class="m-timeBlock"><p class="m-title">200ms</p></div>
+        <div class="m-timeBlock"><p class="m-title">300ms</p></div>
+        <div class="m-timeBlock"><p class="m-title">400ms</p></div>
+        <div class="m-timeBlock"><p class="m-title">500ms</p></div>
+        <div :style="styleWas" class="was-elapse" v-tooltip="{title: 'was-elapse:' + was + 'ms', position: 'top'}"></div>
+        <div :style="styleDB" class="db-elapse" v-tooltip="{title: 'DB-elapse:' + db + 'ms', position: 'top'}"></div>
+        <div :style="styleWeb" class="web-elapse" v-tooltip="{title: 'web-elapse:' + web + 'ms', position: 'top'}"></div>
+    </div>
+    <div class="m-info">
+        <div class="m-item m-item-odd">
+            <div class="m-item-name">
+                <span class="m-item-title">Name</span>
+            </div>
+            <div class="m-item-time">
+                <span class="m-item-title">Time</span>
+            </div>
+        </div>
+        <div class="m-item">
+            <div class="m-item-name">
+                <div class="m-colorBlock" id="was">.</div>
+                <div class="m-item-text">Was_elapse</div>
+            </div>
+            <div class="m-item-time">
+                {{ was }} ms
+            </div>
+        </div>
+        <div class="m-item m-item-odd">
+            <div class="m-item-name">
+                <span class="m-colorBlock" id="db">.</span>
+                <span class="m-item-text">DB_elapse</span>
+            </div>
+            <div class="m-item-time">
+                {{ db }} ms
+            </div>
+        </div>
+        <div class="m-item">
+            <div class="m-item-name">
+                <div class="m-colorBlock" id="web">.</div>
+                <div class="m-item-text">Web_elapse</div>
+            </div>
+            <div class="m-item-time">
+                {{ web }} ms
+            </div>
+        </div>
+        <div class="m-item m-item-odd">
+            <div class="m-item-name">
+                <div class="m-item-text m-item-total">Total Time</div>
+            </div>
+            <div class="m-item-time m-item-total">
+                {{ web+db+was }} ms
+            </div>
+        </div>
+    </div>
+</div>

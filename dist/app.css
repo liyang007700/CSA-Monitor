@@ -222,6 +222,131 @@ body #m-app #m-main.m-index .pure-u-1-1 .u-dashBtn .u-btnGroup .u-btn-unClicked 
   color: #464646;
   background-color: #E0E0E0;
 }
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis {
+  position: relative;
+  padding: 10px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .url {
+  margin: 0;
+  padding: 10px 0;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .url span {
+  width: auto;
+  padding: 0 5px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .url span.m-name {
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar {
+  position: relative;
+  /*******fix inline-block gap bug in browser*******/
+  display: flex;
+  overflow-x: auto;
+  border-left: 2px solid black;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+  border-right: 1px solid rgba(100, 100, 100, 0.2);
+  letter-spacing: -0.31em;
+  text-rendering: optimizeSpeed;
+  align-content: flex-start;
+  height: 100px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .m-timeBlock {
+  display: inline-block;
+  width: 20%;
+  border-right: 1px solid rgba(100, 100, 100, 0.2);
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .m-timeBlock .m-title {
+  margin: 5px 0px;
+  width: 100%;
+  height: 20px;
+  color: black;
+  text-align: right;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .was-elapse {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  height: 3px;
+  background-color: #8CD211;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .db-elapse {
+  position: absolute;
+  bottom: 13px;
+  height: 3px;
+  background-color: #E71D32;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .web-elapse {
+  position: absolute;
+  bottom: 16px;
+  height: 3px;
+  background-color: #412356;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info {
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-top: none;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+  letter-spacing: -0.31em;
+  text-rendering: optimizeSpeed;
+  align-content: flex-start;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item.m-item-odd {
+  background-color: rgba(100, 100, 100, 0.2);
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-name {
+  display: inline-block;
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-name .m-item-title {
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-name .m-colorBlock {
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  text-indent: -9999px;
+  line-height: 18px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-name .m-colorBlock#was {
+  background-color: #8CD211;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-name .m-colorBlock#db {
+  background-color: #E71D32;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-name .m-colorBlock#web {
+  background-color: #412356;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-name .m-item-text {
+  display: inline-block;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-total {
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-time {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  border-left: 1px solid rgba(100, 100, 100, 0.2);
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info .m-item .m-item-time .m-item-title {
+  font-weight: bold;
+}
 body #m-app #m-main.m-index .pure-u-1-2 h1 {
   margin: 15px 0px 2px 0px;
   font-size: 20px;
@@ -563,11 +688,24 @@ body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-cont
   padding: 10px 20px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
 }
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body .m-form label {
+  display: inline-block;
+  width: 120px;
+  height: 20px;
+  color: #0774af;
+  font-weight: bold;
+}
 body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body .m-form input {
+  display: inline-block;
+  height: 20px;
   width: 400px;
   border: none;
+  border-bottom: 1px solid #0774af;
   outline: medium;
   margin-bottom: 5px;
+}
+body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body .m-form input.time {
+  width: 275px;
 }
 body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-body .m-button {
   padding: 6px 20px;
@@ -587,7 +725,6 @@ body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .eventB
   display: flex;
   width: 96%;
   z-index: 10;
-  height: 80px;
   align-items: center;
   justify-content: center;
   border-radius: 5px;

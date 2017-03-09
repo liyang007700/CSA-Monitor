@@ -12,8 +12,5 @@ Vue.component('app-header', {
 	created: function() {
 
 	},
-	mounted: function() {
-		// el created and rendered to the page
-		console.info('Header rendered');
-	}
+	mounted: function() {}
 });

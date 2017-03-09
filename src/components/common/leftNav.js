@@ -1,20 +1,18 @@
 /*jshint esversion: 6 */
 import leftNavTemplate from '../../templates/common/leftNav.html';
-import {Tooltip} from '../../plugins/tooltip';
+import {
+	Tooltip
+}
+from '../../plugins/tooltip';
 
 Vue.component('app-left-nav', {
 	template: leftNavTemplate,
-	data: function () {
-		return {
-		};
+	data: function() {
+		return {};
 	},
 	methods: {
-		
+
 	},
-	created: function(){
-	},
-	mounted: function(){
-		// el created and rendered to the page
-		console.info('Left navigator rendered');
-	}
+	created: function() {},
+	mounted: function() {}
 });

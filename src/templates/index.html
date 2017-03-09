@@ -36,7 +36,7 @@
 	<div class="pure-u-1-2">
 		<div class="m-box">
 			<h1>THROUGHPUT</h1>
-			<p>How many requests were fulfilled per hour?</p>
+			<p>How many requests were fulfilled per minute?</p>
 			<div id="Dash1" class="chart" style="width:100%;height:400px;"></div>
 		</div>
 	</div>
@@ -46,5 +46,8 @@
 			<p>How long does it take for the service to respond?</p>
 			<div id="Dash2" class="chart" style="width:100%;height:400px;"></div>
 		</div>
+	</div>
+	<div  class="pure-u-1-1">
+		<netAnalysis :url="urlInfo.url" :was="urlInfo.was_elapse" :web="urlInfo.web_elapse" :db="urlInfo.db_elapse" :timepoint="urlInfo.timepoint"></netAnalysis>
 	</div>
 </div>

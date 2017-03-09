@@ -7,7 +7,11 @@
 		</div>
 		<div class="m-body">
 			<div class="m-form">
-				<input @keyup.esc="close" v-model="message" placeholder="Write something here..." autofocus/>
+				<input @keyup.esc="close" v-model="message" placeholder="Write Event here..." autofocus/>
+
+				<label for="time">Time Duration(hour)</label>
+				<input class="time" id="time" v-model="duration" placeholder="2 hours"/>
+
 				<label for="event">Event Options</label>
 				<select  id="event" v-model="selected">
 					<option v-for="option in this.options" v-bind:value="option.value">
