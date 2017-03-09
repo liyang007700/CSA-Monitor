@@ -277,13 +277,13 @@ body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .was-elapse {
 }
 body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .db-elapse {
   position: absolute;
-  top: 32px;
+  top: 30px;
   height: 2px;
   background-color: #E71D32;
 }
 body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .web-elapse {
   position: absolute;
-  top: 34px;
+  top: 30px;
   height: 2px;
   background-color: #412356;
 }
