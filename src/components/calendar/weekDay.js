@@ -45,8 +45,7 @@ Vue.component("week-day", {
             mouseUpY: 0,
             mousemoveY: 0,
             styleShadowBlock: {
-                top: "0px",
-                height: "0px"
+
             },
             styleDialog: {
 
@@ -233,7 +232,7 @@ Vue.component("week-day", {
         },
         showEvtDialog: function(evt) {
             let _this = this;
-            /******************compute dialog position***********************/
+            /******************compute dialog position**********************/
             this.setDialogPos(evt, _this);
             this.showShadowBlock(evt, _this);
             this.computeDate(evt, _this);
