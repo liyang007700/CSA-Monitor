@@ -243,49 +243,118 @@ body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .url span {
 body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .url span.m-name {
   font-weight: bold;
 }
-body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar {
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container {
+  position: relative;
+  border-bottom: 2px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0 20px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar-title {
+  height: 25px;
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar-title span {
+  padding-right: 10px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar {
   position: relative;
   /*******fix inline-block gap bug in browser*******/
   display: flex;
   overflow-x: auto;
-  border-left: 1px solid black;
-  border-bottom: 1px solid rgba(100, 100, 100, 0.2);
-  border-right: 1px solid rgba(100, 100, 100, 0.2);
-  letter-spacing: -0.31em;
   text-rendering: optimizeSpeed;
   align-content: flex-start;
-  height: 100px;
+  letter-spacing: -0.31em;
+  /*************************************************/
+  height: 30px;
 }
-body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .m-timeBlock {
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar .lineBlock {
   display: inline-block;
-  width: 20%;
-  border-right: 1px solid rgba(100, 100, 100, 0.2);
+  height: 25px;
 }
-body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .m-timeBlock .m-title {
-  margin: 5px 0px;
-  width: 100%;
-  height: 20px;
-  color: black;
-  text-align: right;
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar .lineBlock.NULL {
+  background-color: #fff;
 }
-body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .was-elapse {
-  position: absolute;
-  left: 0;
-  top: 30px;
-  height: 2px;
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar .lineBlock.HTTP {
   background-color: #8CD211;
 }
-body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .db-elapse {
-  position: absolute;
-  top: 30px;
-  height: 2px;
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar .lineBlock.Was {
   background-color: #E71D32;
 }
-body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar .web-elapse {
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar .lineBlock.DB {
+  background-color: #FDD600;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar .lineBlock.Cloudant {
+  background-color: #A6266E;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-timeBar .m-timeBar-total {
+  display: inline-block;
+  height: 25px;
+  margin-left: 20px;
+  line-height: 25px;
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-lineBlock {
   position: absolute;
-  top: 30px;
-  height: 2px;
-  background-color: #412356;
+  height: 100%;
+  width: 1px;
+  background-color: rgba(100, 100, 100, 0.3);
+  top: 0;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-left {
+  position: absolute;
+  top: 0px;
+  font-size: 20px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-right {
+  position: absolute;
+  right: 20px;
+  top: 0px;
+  font-size: 20px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-middle {
+  position: absolute;
+  top: 0px;
+  left: 25%;
+  font-size: 16px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-middle .m-item-name {
+  display: inline-block;
+  margin-right: 10px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-middle .m-item-name .m-item-text {
+  display: inline-block;
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-middle .m-item-name .m-colorBlock {
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  text-indent: -9999px;
+  line-height: 18px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-middle .m-item-name .m-colorBlock#was {
+  background-color: #E71D32;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-middle .m-item-name .m-colorBlock#db {
+  background-color: #FDD600;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-middle .m-item-name .m-colorBlock#http {
+  background-color: #8CD211;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeBar-container .m-info-middle .m-item-name .m-colorBlock#cloudant {
+  background-color: #A6266E;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeText {
+  position: relative;
+  height: 20px;
+  margin: 0 20px;
+}
+body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-timeText .m-axisText {
+  position: absolute;
+  top: 0;
+  height: 12px;
+  font-size: 12px;
 }
 body #m-app #m-main.m-index .pure-u-1-1 .netAnalysis .m-info {
   border: 1px solid rgba(100, 100, 100, 0.2);

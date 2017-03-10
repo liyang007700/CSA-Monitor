@@ -48,6 +48,35 @@
 		</div>
 	</div>
 	<div  class="pure-u-1-1">
-		<netAnalysis :url="urlInfo.url" :was="urlInfo.was_elapse" :web="urlInfo.web_elapse" :db="urlInfo.db_elapse" :timepoint="urlInfo.timepoint"></netAnalysis>
+		<div class="netAnalysis">
+		    <h2>Network Analysis</h2>
+		    <div class="m-timeBar-container">
+				<timeBar :item="item" v-for="item in events"></timebar>
+				<m-line :item="item" v-for="item in lineBlock"></m-line>
+				<div class="m-info-left">start</div>
+				<div class="m-info-right">end</div>
+				<div class="m-info-middle">
+					<div class="m-item-name">
+        				<div class="m-colorBlock" id="was">.</div>
+        				<div class="m-item-text">Was_elapse</div>
+    				</div>
+					<div class="m-item-name">
+        				<div class="m-colorBlock" id="http">.</div>
+        				<div class="m-item-text">HTTP_elapse</div>
+    				</div>
+					<div class="m-item-name">
+        				<div class="m-colorBlock" id="db">.</div>
+        				<div class="m-item-text">DB_elapse</div>
+    				</div>
+					<div class="m-item-name">
+        				<div class="m-colorBlock" id="cloudant">.</div>
+        				<div class="m-item-text">Cloudant_elapse</div>
+    				</div>
+				</div>
+			</div>
+			<div class="m-timeText">
+				<axisText :zeroTime="eventTime" :time="item" v-for="item in timeLine"></axisText>
+			</div>
+		</div>
 	</div>
 </div>

@@ -1,0 +1,14 @@
+<div>
+    <div class="m-timeBar-title" :style="this.styleObject"><span>module name:</span><span>{{ item.url }}</span></div>
+    <div class="m-timeBar" >
+        <div class="m-tab-block"></div>
+        <lineBlock :line="node" v-for="node in item.courses"></lineBlock>
+        <div class="m-timeBar-total">Total: {{ item.totalTime }} s</div>
+    </div>
+</div>
+
+<!--
+<div :style="styleWas" class="was-elapse" v-tooltip="{title: 'was-elapse:' + was + 'ms', position: 'top'}"></div>
+<div :style="styleDB" class="db-elapse" v-tooltip="{title: 'DB-elapse:' + db + 'ms', position: 'top'}"></div>
+<div :style="styleWeb" class="web-elapse" v-tooltip="{title: 'web-elapse:' + web + 'ms', position: 'top'}"></div>
+-->
