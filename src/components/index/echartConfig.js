@@ -1599,19 +1599,19 @@ var echartConfig = {
             }
         }],
         series: [{
-            name: 'Overall',
-            type: 'line',
-            symbol: 'circle',
-            symbolSize: 5,
-            hoverAnimation: true,
-            data: chart.AverageElapsed2
-        }, {
             name: 'Time > 5s',
             type: 'line',
             symbol: 'circle',
             symbolSize: 5,
             hoverAnimation: true,
             data: chart.AverageElapsed
+        }, {
+            name: 'Overall',
+            type: 'line',
+            symbol: 'circle',
+            symbolSize: 5,
+            hoverAnimation: true,
+            data: chart.AverageElapsed2
         }, {
             name: 'Time < 5s',
             type: 'line',
