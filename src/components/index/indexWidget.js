@@ -105,16 +105,16 @@ var widgetIndex = {
                     var totalTime = events[i].totalTime;
                     var totalText = "totalTime: " + events[i].totalTime +
                         "s";
-                    ctx.font = "14px sans-serif";
+                    ctx.font = "12px sans-serif";
                     ctx.fillText(
                         "module name :  " + events[i].url,
-                        60 + startSeconds * secondWidth, 80 + i *
+                        60 + startSeconds * secondWidth, 100 + i *
                         100);
                     ctx.fillText(
                         totalText,
                         60 + (startSeconds + totalTime) *
                         secondWidth + 20,
-                        113 + i * 100
+                        123 + i * 100
                     );
                 }
                 ctx.restore();
@@ -122,18 +122,18 @@ var widgetIndex = {
             createLegendText: function(ctx, width) {
                 ctx.fillText("HTTP", width * 0.35, 30);
                 ctx.fillText("Was", width * 0.35 + 100, 30);
-                ctx.fillText("DB", width * 0.35 + 200, 30);
+                ctx.fillText("DB2", width * 0.35 + 200, 30);
                 ctx.fillText("Cloudant", width * 0.35 + 300, 30);
                 ctx.restore();
             },
             createLegendBlock: function(ctx, width) {
-                ctx.fillStyle = "#61a0a8";
+                ctx.fillStyle = "#28CC9E"; //#90F6D7
                 ctx.fillRect(width * 0.35 - 50, 15, 40, 20);
-                ctx.fillStyle = "#d48265";
+                ctx.fillStyle = "#FEF2A0";
                 ctx.fillRect(width * 0.35 + 100 - 50, 15, 40, 20);
-                ctx.fillStyle = "#91c7ae";
+                ctx.fillStyle = "#0881A3";
                 ctx.fillRect(width * 0.35 + 200 - 50, 15, 40, 20);
-                ctx.fillStyle = "#c23531";
+                ctx.fillStyle = "#41506B";
                 ctx.fillRect(width * 0.35 + 300 - 50, 15, 40, 20);
                 ctx.restore();
             },
@@ -148,24 +148,24 @@ var widgetIndex = {
                     for (let j = 0; j < events[i].courses.length; j++) {
                         switch (events[i].courses[j].name) {
                             case "HTTP":
-                                ctx.fillStyle = "#61a0a8"; //HTTP
+                                ctx.fillStyle = "#28CC9E"; //HTTP#55A44E
                                 break;
                             case "Was":
-                                ctx.fillStyle = "#d48265"; //Was
+                                ctx.fillStyle = "#FEF2A0"; //Was #D7C37A
                                 break;
-                            case "DB":
-                                ctx.fillStyle = "#91c7ae"; //DB
+                            case "DB2":
+                                ctx.fillStyle = "#0881A3"; //DB
                                 break;
                             case "Cloudant":
-                                ctx.fillStyle = "#c23531"; //Cloudant
+                                ctx.fillStyle = "#41506B"; //Cloudant#263849
                                 break;
                         }
                         ctx.fillRect(
                             60 + startSeconds * secondWidth,
-                            90 + i * 100,
+                            110 + i * 100,
                             events[i].courses[j].duration *
                             secondWidth,
-                            40);
+                            20);
                         startSeconds += events[i].courses[j].duration;
                     }
                 }

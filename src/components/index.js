@@ -36,7 +36,7 @@ const componentIndex = {
 					time: "2017-02-26T00:34:15",
 					duration: 66
 				}, {
-					name: "DB",
+					name: "DB2",
 					time: "2017-02-26T00:34:45",
 					duration: 30
 				}, {
@@ -56,7 +56,7 @@ const componentIndex = {
 					name: "Was",
 					time: 116
 				}, {
-					name: "DB",
+					name: "DB2",
 					time: 30
 				}]
 			}, {
@@ -95,7 +95,7 @@ const componentIndex = {
 					time: "2017-02-26T00:33:44",
 					duration: 12
 				}, {
-					name: "DB",
+					name: "DB2",
 					time: "2017-02-26T00:35:04",
 					duration: 80
 				}, {
@@ -115,7 +115,7 @@ const componentIndex = {
 					name: "Was",
 					time: 28
 				}, {
-					name: "DB",
+					name: "DB2",
 					time: 80
 				}]
 			}],
