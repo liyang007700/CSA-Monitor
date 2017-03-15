@@ -32,7 +32,6 @@ var widgetIndex = {
                 } else {
                     this.ifShowTooltip = false;
                 }
-
             },
             mouseLeave: function() {
                 this.ifShowTooltip = false;
