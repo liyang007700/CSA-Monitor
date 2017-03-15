@@ -1,82 +1,55 @@
 <div class="pure-g">
-	<div class="pure-u-1-1" >
-		<div class="u-dashBtn">
-			<form>
-				<fieldset>
-					<label for="state">Current Monitoring Service</label>
-	        		<select id="state">
-						<option>Overview</option>
-						<option>Opportunities</option>
-						<option>Tech Expertise</option>
-						<optgroup label="Territory">
-    						<option>Clients</option>
-							<option>ProspectReach</option>
-							<option>Social Search</option>
-							<option>Crossbrand</option>
-  						</optgroup>
-						<optgroup label="Digital Me">
-							<option>My Rep Page</option>
-							<option>IBM OneScore</option>
-							<option>My Feeds</option>
-						</optgroup>
-						<optgroup label="Learning Hub">
-							<option>Digital Mastery</option>
-						</optgroup>
-	        		</select>
-				</fieldset>
-			</form>
-			<div class = "u-btnGroup">
-		    	<button class="u-btn-clicked">24 Hour</button>
-				<button class="u-btn-unClicked">7 Day</button>
-				<button class="u-btn-unClicked">15 Days</button>
-				<button class="u-btn-unClicked">30 Days</button>
-			</div>
+	<div class="pure-u-1-1 u-dashBtn" >
+		<form>
+			<fieldset>
+				<label for="state">Current Monitoring Service</label>
+	        	<select id="state">
+					<option>Overview</option>
+					<option>Opportunities</option>
+					<option>Tech Expertise</option>
+					<optgroup label="Territory">
+    					<option>Clients</option>
+						<option>ProspectReach</option>
+						<option>Social Search</option>
+						<option>Crossbrand</option>
+  					</optgroup>
+					<optgroup label="Digital Me">
+						<option>My Rep Page</option>
+						<option>IBM OneScore</option>
+						<option>My Feeds</option>
+					</optgroup>
+					<optgroup label="Learning Hub">
+						<option>Digital Mastery</option>
+					</optgroup>
+	        	</select>
+			</fieldset>
+		</form>
+		<div class = "u-btnGroup">
+		    <button class="u-btn-clicked">24 Hour</button>
+			<button class="u-btn-unClicked">7 Day</button>
+			<button class="u-btn-unClicked">15 Days</button>
+			<button class="u-btn-unClicked">30 Days</button>
 		</div>
 	</div>
 	<div class="pure-u-1-2">
 		<div class="m-box">
-			<h1>THROUGHPUT</h1>
+			<h2>THROUGHPUT</h2>
 			<p>How many requests were fulfilled per minute?</p>
 			<div id="Dash1" class="chart" style="width:100%;height:400px;"></div>
 		</div>
 	</div>
 	<div class="pure-u-1-2">
 		<div class="m-box">
-			<h1>RESPONSE TIME</h1>
+			<h2>RESPONSE TIME</h2>
 			<p>How long does it take for the service to respond?</p>
 			<div id="Dash2" class="chart" style="width:100%;height:400px;"></div>
 		</div>
 	</div>
-	<div  class="pure-u-1-1">
-		<div class="netAnalysis">
-		    <h2>Network Analysis</h2>
-		    <div class="m-timeBar-container">
-				<timeBar :item="item" v-for="item in events"></timebar>
-				<m-line :item="item" v-for="item in lineBlock"></m-line>
-				<div class="m-info-left">start</div>
-				<div class="m-info-right">end</div>
-				<div class="m-info-middle">
-					<div class="m-item-name">
-        				<div class="m-colorBlock" id="was">.</div>
-        				<div class="m-item-text">Was_elapse</div>
-    				</div>
-					<div class="m-item-name">
-        				<div class="m-colorBlock" id="http">.</div>
-        				<div class="m-item-text">HTTP_elapse</div>
-    				</div>
-					<div class="m-item-name">
-        				<div class="m-colorBlock" id="db">.</div>
-        				<div class="m-item-text">DB_elapse</div>
-    				</div>
-					<div class="m-item-name">
-        				<div class="m-colorBlock" id="cloudant">.</div>
-        				<div class="m-item-text">Cloudant_elapse</div>
-    				</div>
-				</div>
-			</div>
-			<div class="m-timeText">
-				<axisText :zeroTime="eventTime" :time="item" v-for="item in timeLine"></axisText>
-			</div>
+	<div  class="pure-u-1-1 analysis">
+		<div class="m-box">
+			<h2>Request Communication Analysis</h2>
+			<p>explaination</p>
+			<m-histogram :events="events" :timeLine="timeLine"></m-histogram>
 		</div>
 	</div>
 </div>

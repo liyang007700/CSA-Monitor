@@ -1,0 +1,7 @@
+<div class="histogram" @mousemove="hover" @mouseleave="mouseLeave">
+    <div id="histogramContainer" class="canvas_container" style="width:100%;height:420px">
+        <canvas id="u-histogram"></canvas>
+        <m-tooltip  v-if="ifShowTooltip" :event="eventObject" :style="styleTooltip">
+        </m-tooltip>
+    </div>
+</div>

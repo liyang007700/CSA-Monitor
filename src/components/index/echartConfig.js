@@ -36,6 +36,7 @@ var echartConfig = {
             borderWidth: 1,
             borderColor: '#008571'
         },
+
         dataZoom: [{
             type: 'inside',
             realtime: true,
