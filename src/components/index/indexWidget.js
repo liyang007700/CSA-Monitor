@@ -69,24 +69,25 @@ var widgetIndex = {
                 ctx.stroke();
                 ctx.restore();
             },
-            createXGrid: function(ctx, width, height, items) {
+            createXTick: function(ctx, width, height, items) {
                 var yAxisEnd = height - 60;
-                var gridWidth = (width - 120) / (items - 1);
+                var gridWidth = (width - 150) / (items - 1);
                 ctx.lineWidth = 1;
-                ctx.strokeStyle = '#ccc';
+                ctx.strokeStyle = '#333';
                 for (let i = 1; i < items; i++) {
                     let gridX = Math.round(i * gridWidth) + 60.5;
                     ctx.beginPath();
-                    ctx.moveTo(gridX, 60);
-                    ctx.lineTo(gridX, yAxisEnd);
+                    ctx.moveTo(gridX, yAxisEnd);
+                    ctx.lineTo(gridX, yAxisEnd + 7);
                     ctx.stroke();
                     console.log(gridX);
+
                 }
                 ctx.restore();
             },
             createXText: function(ctx, width, height, items, data) {
                 var yAxisEnd = height - 60 + 20;
-                var gridWidth = (width - 120) / (items - 1);
+                var gridWidth = (width - 150) / (items - 1);
                 ctx.font = "12px sans-serif";
                 for (let i = 0; i < items; i++) {
                     let gridX = Math.round(i * gridWidth) + 35;
@@ -96,7 +97,7 @@ var widgetIndex = {
             },
             createBarText: function(ctx, width, height, events) {
                 // the width pixels per second, total time 3minutes.
-                var secondWidth = Math.round((width - 120) / 180);
+                var secondWidth = Math.round((width - 150) / 180);
                 for (let i = 0; i < events.length; i++) {
                     var startSeconds = (Date.parse(events[i].startTime) -
                         Date.parse(events[
@@ -139,7 +140,7 @@ var widgetIndex = {
             createBarBlock: function(ctx, width, height, events) {
                 // the width pixels per second, total time 3minutes.
                 var barZone = {};
-                var secondWidth = Math.round((width - 120) / 180);
+                var secondWidth = Math.round((width - 150) / 180);
                 for (let i = 0; i < events.length; i++) {
                     var startSeconds = (Date.parse(events[i].startTime) -
                         Date.parse(events[
@@ -171,18 +172,23 @@ var widgetIndex = {
                 ctx.restore();
             },
             createCanvas: function() {
+                /* Parent DOM element use persentage-width to fit different screen
+                   So use parent Dom's offsetWidth and offsetHeight to set
+                   canvas tag's width and height
+                */
                 var container = document.getElementById(
                     "histogramContainer");
                 var canvas = document.getElementById("u-histogram");
                 canvas.width = container.offsetWidth;
                 canvas.height = container.offsetHeight;
 
+                // test if browser support canvas
                 if (canvas.getContext) {
                     var ctx = canvas.getContext("2d");
                     // time scale line
                     this.createYaxis(ctx, canvas.width, canvas.height);
                     this.createXaxis(ctx, canvas.width, canvas.height);
-                    this.createXGrid(ctx, canvas.width, canvas.height,
+                    this.createXTick(ctx, canvas.width, canvas.height,
                         4);
                     this.createXText(ctx, canvas.width, canvas.height,
                         4, this.timeLine);
@@ -192,6 +198,8 @@ var widgetIndex = {
                     this.createLegendBlock(ctx, canvas.width);
                     this.createBarBlock(ctx, canvas.width, canvas.height,
                         this.events);
+                    var ctz = canvas.getContext("2d");
+
                 }
             }
         },
