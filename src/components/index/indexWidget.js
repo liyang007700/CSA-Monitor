@@ -57,23 +57,25 @@ var widgetIndex = {
                 ctx.moveTo(53, 260.5);
                 ctx.lineTo(60, 260.5);
                 ctx.stroke();
-                ctx.restore();
             },
-            createXaxis: function(ctx, width, height) {
+            createXaxis: function(ctx, width, height, items, data) {
                 var xAxisEnd = width - 60;
+                var yAxisEnd = height - 60;
+                var xAxisTextHeight = height - 60 + 20;
+                var gridWidth = (width - 150) / (items - 1);
+                ctx.font = "12px sans-serif";
+                ctx.fillStyle = "#000";
+                for (let i = 0; i < items; i++) {
+                    let gridX = Math.round(i * gridWidth) + 35;
+                    ctx.fillText(data[i].slice(11), gridX,
+                        xAxisTextHeight);
+                }
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = '#333';
                 ctx.beginPath();
                 ctx.moveTo(60, 360.5);
                 ctx.lineTo(xAxisEnd, 360.5);
                 ctx.stroke();
-                ctx.restore();
-            },
-            createXTick: function(ctx, width, height, items) {
-                var yAxisEnd = height - 60;
-                var gridWidth = (width - 150) / (items - 1);
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = '#333';
                 for (let i = 1; i < items; i++) {
                     let gridX = Math.round(i * gridWidth) + 60.5;
                     ctx.beginPath();
@@ -81,21 +83,9 @@ var widgetIndex = {
                     ctx.lineTo(gridX, yAxisEnd + 7);
                     ctx.stroke();
                     console.log(gridX);
-
                 }
-                ctx.restore();
             },
-            createXText: function(ctx, width, height, items, data) {
-                var yAxisEnd = height - 60 + 20;
-                var gridWidth = (width - 150) / (items - 1);
-                ctx.font = "12px sans-serif";
-                for (let i = 0; i < items; i++) {
-                    let gridX = Math.round(i * gridWidth) + 35;
-                    ctx.fillText(data[i].slice(11), gridX, yAxisEnd);
-                }
-                ctx.restore();
-            },
-            createBarText: function(ctx, width, height, events) {
+            createBar: function(ctx, width, height, events) {
                 // the width pixels per second, total time 3minutes.
                 var secondWidth = Math.round((width - 150) / 180);
                 for (let i = 0; i < events.length; i++) {
@@ -105,7 +95,8 @@ var widgetIndex = {
                     var totalTime = events[i].totalTime;
                     var totalText = "totalTime: " + events[i].totalTime +
                         "s";
-                    ctx.font = "12px sans-serif";
+                    ctx.font = "14px sans-serif";
+                    ctx.fillStyle = "#000";
                     ctx.fillText(
                         "module name :  " + events[i].url,
                         60 + startSeconds * secondWidth, 100 + i *
@@ -116,35 +107,6 @@ var widgetIndex = {
                         secondWidth + 20,
                         123 + i * 100
                     );
-                }
-                ctx.restore();
-            },
-            createLegendText: function(ctx, width) {
-                ctx.fillText("HTTP", width * 0.35, 30);
-                ctx.fillText("Was", width * 0.35 + 100, 30);
-                ctx.fillText("DB2", width * 0.35 + 200, 30);
-                ctx.fillText("Cloudant", width * 0.35 + 300, 30);
-                ctx.restore();
-            },
-            createLegendBlock: function(ctx, width) {
-                ctx.fillStyle = "#28CC9E"; //#90F6D7
-                ctx.fillRect(width * 0.35 - 50, 15, 40, 20);
-                ctx.fillStyle = "#FEF2A0";
-                ctx.fillRect(width * 0.35 + 100 - 50, 15, 40, 20);
-                ctx.fillStyle = "#0881A3";
-                ctx.fillRect(width * 0.35 + 200 - 50, 15, 40, 20);
-                ctx.fillStyle = "#41506B";
-                ctx.fillRect(width * 0.35 + 300 - 50, 15, 40, 20);
-                ctx.restore();
-            },
-            createBarBlock: function(ctx, width, height, events) {
-                // the width pixels per second, total time 3minutes.
-                var barZone = {};
-                var secondWidth = Math.round((width - 150) / 180);
-                for (let i = 0; i < events.length; i++) {
-                    var startSeconds = (Date.parse(events[i].startTime) -
-                        Date.parse(events[
-                            i].startTime.slice(0, 16))) / 1000;
                     for (let j = 0; j < events[i].courses.length; j++) {
                         switch (events[i].courses[j].name) {
                             case "HTTP":
@@ -169,7 +131,22 @@ var widgetIndex = {
                         startSeconds += events[i].courses[j].duration;
                     }
                 }
-                ctx.restore();
+            },
+            createLegend: function(ctx, width) {
+                ctx.font = "12px sans-serif";
+                ctx.fillStyle = "#000";
+                ctx.fillText("HTTP", width * 0.35, 30);
+                ctx.fillText("Was", width * 0.35 + 100, 30);
+                ctx.fillText("DB2", width * 0.35 + 200, 30);
+                ctx.fillText("Cloudant", width * 0.35 + 300, 30);
+                ctx.fillStyle = "#28CC9E";
+                ctx.fillRect(width * 0.35 - 50, 15, 40, 20);
+                ctx.fillStyle = "#FEF2A0";
+                ctx.fillRect(width * 0.35 + 100 - 50, 15, 40, 20);
+                ctx.fillStyle = "#0881A3";
+                ctx.fillRect(width * 0.35 + 200 - 50, 15, 40, 20);
+                ctx.fillStyle = "#41506B";
+                ctx.fillRect(width * 0.35 + 300 - 50, 15, 40, 20);
             },
             createCanvas: function() {
                 /* Parent DOM element use persentage-width to fit different screen
@@ -187,19 +164,17 @@ var widgetIndex = {
                     var ctx = canvas.getContext("2d");
                     // time scale line
                     this.createYaxis(ctx, canvas.width, canvas.height);
-                    this.createXaxis(ctx, canvas.width, canvas.height);
-                    this.createXTick(ctx, canvas.width, canvas.height,
-                        4);
-                    this.createXText(ctx, canvas.width, canvas.height,
+                    this.createXaxis(ctx, canvas.width, canvas.height,
                         4, this.timeLine);
-                    this.createBarText(ctx, canvas.width, canvas.height,
+                    /*
+                    this.createXTick(ctx, canvas.width, canvas.height,
+                        4);*/
+                    this.createLegend(ctx, canvas.width);
+                    /*
+                    this.createXText(ctx, canvas.width, canvas.height,
+                        4, this.timeLine);*/
+                    this.createBar(ctx, canvas.width, canvas.height,
                         this.events);
-                    this.createLegendText(ctx, canvas.width);
-                    this.createLegendBlock(ctx, canvas.width);
-                    this.createBarBlock(ctx, canvas.width, canvas.height,
-                        this.events);
-                    var ctz = canvas.getContext("2d");
-
                 }
             }
         },
