@@ -192,38 +192,63 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn {
   /* select */
   /* date button */
 }
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn fieldset {
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form {
+  border-bottom: 1px solid #ccc;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form fieldset {
   border: none;
   margin: 0;
   padding: 10px 0px;
 }
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn fieldset label {
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form fieldset label {
   padding: 0 5px;
   border-left: 2px solid #00B4A0;
   font-size: 16px;
 }
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn fieldset select {
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form fieldset select {
   width: 200px;
   height: 36px;
 }
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn fieldset select optgroup {
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form fieldset select optgroup {
   padding-left: 10px;
   font-weight: bold;
 }
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup {
-  padding: 10px 0;
-}
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn-clicked {
-  padding: 5px 10px;
-  border: none;
-  color: white;
-  background-color: #323232;
-}
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn-unClicked {
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
   padding: 5px 10px;
   border: none;
   color: #464646;
   background-color: #E0E0E0;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn.u-btn-clicked {
+  color: white;
+  background-color: #323232;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  padding: 4px 12px 4px 12px;
+  border: 1px solid #ccc;
+  color: #464646;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .custom {
+  position: relative;
+  top: 0px;
+  font-size: 15px;
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-select {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  display: none;
+  width: 60px;
+  height: 60px;
+  border: 1px solid red;
 }
 body #m-app #m-main.m-index .pure-u-1-1.analysis h2 {
   margin: 15px 0px 2px 0px;
