@@ -36,11 +36,52 @@
 				<button class="u-btn">15 days</button>
 				<button class="u-btn">30 days</button>
 				<div class="u-icon">
-					<span class="glyphicon glyphicon-calendar"></span>
-					<span class="custom">custom</span>
-					<div class="u-select">
-						
-					</div>
+					<span class="glyphicon glyphicon-calendar" @click="toggleUSelect" @mouseenter="showCustom" @mouseleave="hideCustom"></span>
+					<span class="custom" v-show="ifShowCustom" @click="toggleUSelect" @mouseenter="showCustom" @mouseleave="hideCustom">Custom</span>
+					<transition name="slide-fade">
+						<div class="u-select" v-show="ifShowDateSelection">
+							<span class="close" title="close" @click="closeSelect">
+								<i class="icon iconfont">&#xe613;</i>
+							</span>
+							<div class="u-date-select u-date-start">
+								<div class="time-year">
+									<span>Start Time</span><span class="bold">:</span>
+									<input v-model="selectInput.startDate"/>
+								</div>
+								<div class="time-hour">
+									<input v-model="selectInput.startHour"/>
+									<span class="up glyphicon glyphicon-chevron-up" @click="addStartHour"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="minusStartHour"></span>
+								</div>
+								<span class="bold">:</span>
+								<div class="time-hour">
+									<input v-model="selectInput.startMinute"/>
+									<span class="up glyphicon glyphicon-chevron-up" @click="addStartMinute"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="minusStartMinute"></span>
+								</div>
+							</div>
+							<div class="u-date-select">
+								<div class="time-year">
+									<span>End Time</span><span class="bold">:</span>
+									<input v-model="selectInput.endDate"/>
+								</div>
+								<div class="time-hour">
+									<input v-model="selectInput.endHour"/>
+									<span class="up glyphicon glyphicon-chevron-up" @click="addEndHour"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="minusEndHour"></span>
+								</div>
+								<span class="bold">:</span>
+								<div class="time-hour">
+									<input v-model="selectInput.endMinute"/>
+									<span class="up glyphicon glyphicon-chevron-up" @click="addEndMinute"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="minusEndMinute"></span>
+								</div>
+							</div>
+							<div class="u-btn-save" @click="saveSelect">
+								save
+							</div>
+						</div>
+					</transition>
 				</div>
 			</div>
 		</div>

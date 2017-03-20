@@ -122,7 +122,17 @@ const componentIndex = {
 			timeLine: ["2017-02-26T00:33:00", "2017-02-26T00:34:00",
 				"2017-02-26T00:35:00",
 				"2017-02-26T00:36:00"
-			]
+			],
+			ifShowDateSelection: false,
+			ifShowCustom: false,
+			selectInput: {
+				startDate: "2017-03-20",
+				startHour: 0,
+				startMinute: 0,
+				endDate: "2017-03-20",
+				endHour: 0,
+				endMinute: 0
+			}
 		};
 	},
 	methods: {
@@ -136,11 +146,76 @@ const componentIndex = {
 			echarts.connect('group1');
 			chart1.setOption(echartConfig.Request);
 			chart2.setOption(echartConfig.Response);
+		},
+		toggleUSelect: function() {
+			this.ifShowDateSelection = !this.ifShowDateSelection;
+			this.getCurrentTime();
+		},
+		showCustom: function() {
+			this.ifShowCustom = true;
+		},
+		hideCustom: function() {
+			this.ifShowCustom = false;
+		},
+		closeSelect: function() {
+			this.ifShowDateSelection = false;
+		},
+		saveSelect: function() {
+			this.ifShowDateSelection = false;
+		},
+		getCurrentTime: function() {
+			// Date.now方法返回当前距离1970年1月1日 00:00:00 UTC的毫秒数（Unix时间戳乘以1000）。
+			var nowNum = Date.now();
+			// 当前时区与格林威治时间的毫秒差值
+			var timeZoneDiff = (new Date()).getTimezoneOffset() * 60000;
+			// 校正后的毫秒数
+			var localTimeNum = nowNum - timeZoneDiff;
+			var localTimeNumLastHour = nowNum - timeZoneDiff - 3600000;
+
+			var localTime = new Date(localTimeNum);
+			var localTimeStr = localTime.toJSON();
+
+			var localTimeLastHour = new Date(localTimeNumLastHour);
+			var localTimeStrLastHourStr = localTimeLastHour.toJSON();
+
+			this.selectInput.endDate = localTimeStr.slice(0, 10);
+			this.selectInput.endHour = parseInt(localTimeStr.slice(11, 14));
+			this.selectInput.endMinute = parseInt(localTimeStr.slice(14, 17));
+
+			this.selectInput.startDate = localTimeStrLastHourStr.slice(0, 10);
+			this.selectInput.startHour = parseInt(localTimeStrLastHourStr.slice(11, 14));
+			this.selectInput.startMinute = parseInt(localTimeStrLastHourStr.slice(14,
+				17));
+		},
+		addEndHour: function() {
+			this.selectInput.endHour += 1;
+		},
+		minusEndHour: function() {
+			this.selectInput.endHour -= 1;
+		},
+		addEndMinute: function() {
+			this.selectInput.endMinute += 1;
+		},
+		minusEndMinute: function() {
+			this.selectInput.endMinute -= 1;
+		},
+		addStartHour: function() {
+			this.selectInput.startHour += 1;
+		},
+		minusStartHour: function() {
+			this.selectInput.startHour -= 1;
+		},
+		addStartMinute: function() {
+			this.selectInput.startMinute += 1;
+		},
+		minusStartMinute: function() {
+			this.selectInput.startMinute -= 1;
 		}
 	},
 	mounted: function() {
 		let _this = this;
 		this.renderChart();
+		this.getCurrentTime();
 	},
 	components: {
 		"m-histogram": widgetIndex.mHistogram

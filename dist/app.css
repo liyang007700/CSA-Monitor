@@ -13,6 +13,28 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+.animation-trans {
+  transition: all 4s ease-in-out 1s;
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter,
+.slide-fade-leave-active {
+  transform: translateY(10px);
+  opacity: 0;
+}
 body {
   color: #333333;
   font-size: 15px;
@@ -230,25 +252,106 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn.u-btn-click
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon {
   position: relative;
   display: inline-block;
+  width: auto;
+  height: auto;
   font-size: 14px;
-  padding: 4px 12px 4px 12px;
+  padding: 5px 10px 4px 10px;
   border: 1px solid #ccc;
   color: #464646;
+  cursor: pointer;
 }
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .custom {
   position: relative;
-  top: 0px;
-  font-size: 15px;
-  font-weight: bold;
+  top: -1px;
+  font-size: 14px;
+  font-family: "serif";
 }
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-select {
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select {
   position: absolute;
   top: 40px;
-  left: 0px;
-  display: none;
-  width: 60px;
-  height: 60px;
-  border: 1px solid red;
+  left: -1px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .close {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  color: #000;
+  font-weight: bold;
+  opacity: .8;
+  cursor: pointer;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .close:hover {
+  opacity: 1;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select {
+  margin: 10px 20px 10px 15px;
+  width: 320px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-year {
+  display: inline-block;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-year .bold {
+  font-weight: bold;
+  width: 5px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-year span {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-year input {
+  display: inline-block;
+  padding: 2px 5px;
+  width: 95px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .bold {
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-hour {
+  position: relative;
+  display: inline-block;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-hour input {
+  padding: 2px 5px;
+  width: 50px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-hour .up {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 20px;
+  height: 50%;
+  color: #999;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-hour .down {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 20px;
+  height: 50%;
+  color: #999;
+  border-left: 1px solid #ccc;
+  text-align: center;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select.u-date-start {
+  margin-top: 30px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-btn-save {
+  width: 50px;
+  height: 24px;
+  margin-left: 269px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: #4178BE;
+  text-align: center;
+  line-height: 24px;
+  font-weight: bold;
+  cursor: pointer;
 }
 body #m-app #m-main.m-index .pure-u-1-1.analysis h2 {
   margin: 15px 0px 2px 0px;
@@ -602,8 +705,8 @@ body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-cont
 }
 body #m-app #m-main.m-calendar .u-caldr-body .u-caldr-body-week .weekday .m-content .m-header .close {
   position: absolute;
-  right: 12px;
-  top: 12px;
+  right: 6px;
+  top: 6px;
   color: #FFFFFF;
   font-weight: bold;
   cursor: pointer;
