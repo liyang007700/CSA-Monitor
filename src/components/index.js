@@ -126,15 +126,13 @@ const componentIndex = {
 			ifShowDateSelection: false,
 			ifShowCustom: false,
 			selectInput: {
-				startDate: "2017-03-20",
+				startDate: "",
 				startHour: 0,
 				startMinute: 0,
-				endDate: "2017-03-20",
+				endDate: "",
 				endHour: 0,
 				endMinute: 0
-			},
-			chart1: null,
-			chart2: null,
+			}
 		};
 	},
 	methods: {

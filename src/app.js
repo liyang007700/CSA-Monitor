@@ -14,7 +14,7 @@ const router = new VueRouter({
 	routes: routes
 });
 
-const app = new Vue({
+var vm = new Vue({
 	components: {
 		'app': {
 			template: appTemplate,
