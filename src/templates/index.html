@@ -26,15 +26,16 @@
 				</fieldset>
 			</form>
 			<div class = "u-btnGroup">
-			    <button class="u-btn u-btn-clicked">1 hour</button>
-				<button class="u-btn">3 hours</button>
-				<button class="u-btn">6 hours</button>
-				<button class="u-btn">12 hours</button>
-				<button class="u-btn">1 day</button>
-				<button class="u-btn">3 days</button>
-				<button class="u-btn">7 days</button>
-				<button class="u-btn">15 days</button>
-				<button class="u-btn">30 days</button>
+			    <button class="u-btn u-btn-clicked" @click="initChart">1 hour</button>
+				<button class="u-btn" @click="threeHourRender">3 hours</button>
+				<button class="u-btn" @click="sixHourRender">6 hours</button>
+				<button class="u-btn" @click="twelveHourRender">12 hours</button>
+				<button class="u-btn" @click="oneDayRender">1 day</button>
+				<button class="u-btn" @click="threeDayRender">3 days</button>
+				<button class="u-btn" @click="sevenDayRender">7 days</button>
+				<button class="u-btn" @click="fiftyDayRender">15 days</button>
+				<button class="u-btn" @click="oneMonthRender">30 days</button>
+				<!-- User Specify time interval to get data -->
 				<div class="u-icon">
 					<span class="glyphicon glyphicon-calendar" @click="toggleUSelect" @mouseenter="showCustom" @mouseleave="hideCustom"></span>
 					<span class="custom" v-show="ifShowCustom" @click="toggleUSelect" @mouseenter="showCustom" @mouseleave="hideCustom">Custom</span>

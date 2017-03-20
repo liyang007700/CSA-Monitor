@@ -132,11 +132,13 @@ const componentIndex = {
 				endDate: "2017-03-20",
 				endHour: 0,
 				endMinute: 0
-			}
+			},
+			chart1: null,
+			chart2: null,
 		};
 	},
 	methods: {
-		renderChart: function() {
+		initChart: function() {
 			var dash1 = document.getElementById('Dash1');
 			var chart1 = echarts.init(dash1);
 			var dash2 = document.getElementById('Dash2');
@@ -146,6 +148,33 @@ const componentIndex = {
 			echarts.connect('group1');
 			chart1.setOption(echartConfig.Request);
 			chart2.setOption(echartConfig.Response);
+		},
+		oneHourRender: function() {
+
+		},
+		threeHourRender: function() {
+
+		},
+		sixHourRender: function() {
+
+		},
+		twelveHourRender: function() {
+
+		},
+		oneDayRender: function() {
+
+		},
+		threeDayRender: function() {
+
+		},
+		sevenDayRender: function() {
+
+		},
+		fiftyDayRender: function() {
+
+		},
+		oneMonthRender: function() {
+
 		},
 		toggleUSelect: function() {
 			this.ifShowDateSelection = !this.ifShowDateSelection;
@@ -162,6 +191,9 @@ const componentIndex = {
 		},
 		saveSelect: function() {
 			this.ifShowDateSelection = false;
+
+
+
 		},
 		getCurrentTime: function() {
 			// Date.now方法返回当前距离1970年1月1日 00:00:00 UTC的毫秒数（Unix时间戳乘以1000）。
@@ -214,7 +246,7 @@ const componentIndex = {
 	},
 	mounted: function() {
 		let _this = this;
-		this.renderChart();
+		this.initChart();
 		this.getCurrentTime();
 	},
 	components: {
