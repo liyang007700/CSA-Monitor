@@ -245,7 +245,7 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn {
   color: #464646;
   background-color: #E0E0E0;
 }
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn.u-btn-clicked {
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn.clicked {
   color: white;
   background-color: #323232;
 }
@@ -352,6 +352,56 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select 
   line-height: 24px;
   font-weight: bold;
   cursor: pointer;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .auto-refresh {
+  width: auto;
+  display: inline-block;
+  margin-left: 10px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .auto-refresh .bold {
+  font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .auto-refresh .switch {
+  display: inline-block;
+  position: relative;
+  width: 56px;
+  height: 24px;
+  border-radius: 16px;
+  background: #ddd;
+  overflow: hidden;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .auto-refresh .switch.switchOff {
+  box-shadow: 0px 0px 2px #bbb inset;
+  background: #f5f5f5;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .auto-refresh .switch.switchOff .swt-cursor {
+  left: 5px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .auto-refresh .switch.switchOn {
+  background: #70e913;
+  box-shadow: 0 0 2px #70e913 inset;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .auto-refresh .switch.switchOn .swt-cursor {
+  left: 34px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .auto-refresh .switch .swt-cursor {
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  -webkit-transition: all .2s linear;
+  -ms-transition: all .2s linear;
+  transition: all .2s linear;
 }
 body #m-app #m-main.m-index .pure-u-1-1.analysis h2 {
   margin: 15px 0px 2px 0px;

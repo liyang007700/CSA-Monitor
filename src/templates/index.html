@@ -26,22 +26,22 @@
 				</fieldset>
 			</form>
 			<div class = "u-btnGroup">
-			    <button class="u-btn u-btn-clicked" @click="initChart">1 hour</button>
-				<button class="u-btn" @click="threeHourRender">3 hours</button>
-				<button class="u-btn" @click="sixHourRender">6 hours</button>
-				<button class="u-btn" @click="twelveHourRender">12 hours</button>
-				<button class="u-btn" @click="oneDayRender">1 day</button>
-				<button class="u-btn" @click="threeDayRender">3 days</button>
-				<button class="u-btn" @click="sevenDayRender">7 days</button>
-				<button class="u-btn" @click="fiftyDayRender">15 days</button>
-				<button class="u-btn" @click="oneMonthRender">30 days</button>
+			    <button class="u-btn" v-bind:class="oneHourObject" @click="oneHourRender">1 hour</button>
+				<button class="u-btn" v-bind:class="threeHourObject" @click="threeHourRender">3 hours</button>
+				<button class="u-btn" v-bind:class="sixHourObject" @click="sixHourRender">6 hours</button>
+				<button class="u-btn" v-bind:class="twelveHourObject" @click="twelveHourRender">12 hours</button>
+				<button class="u-btn" v-bind:class="oneDayObject" @click="oneDayRender">1 day</button>
+				<button class="u-btn" v-bind:class="threeDayObject" @click="threeDayRender">3 days</button>
+				<button class="u-btn" v-bind:class="sevenDayObject" @click="sevenDayRender">7 days</button>
+				<button class="u-btn" v-bind:class="fiftyDayObject" @click="fiftyDayRender">15 days</button>
+				<button class="u-btn" v-bind:class="monthClassObject" @click="oneMonthRender">30 days</button>
 				<!-- User Specify time interval to get data -->
 				<div class="u-icon">
-					<span class="glyphicon glyphicon-calendar" @click="toggleUSelect" @mouseenter="showCustom" @mouseleave="hideCustom"></span>
-					<span class="custom" v-show="ifShowCustom" @click="toggleUSelect" @mouseenter="showCustom" @mouseleave="hideCustom">Custom</span>
+					<span class="glyphicon glyphicon-calendar" @click="toggleUSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false"></span>
+					<span class="custom" v-show="ifShowCustom" @click="toggleUSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false">Custom</span>
 					<transition name="slide-fade">
 						<div class="u-select" v-show="ifShowDateSelection">
-							<span class="close" title="close" @click="closeSelect">
+							<span class="close" title="close" @click="ifShowDateSelection = false">
 								<i class="icon iconfont">&#xe613;</i>
 							</span>
 							<div class="u-date-select u-date-start">
@@ -51,14 +51,14 @@
 								</div>
 								<div class="time-hour">
 									<input v-model="selectInput.startHour"/>
-									<span class="up glyphicon glyphicon-chevron-up" @click="addStartHour"></span>
-									<span class="down glyphicon glyphicon-chevron-down" @click="minusStartHour"></span>
+									<span class="up glyphicon glyphicon-chevron-up" @click="selectInput.startHour += 1"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="selectInput.startHour -= 1"></span>
 								</div>
 								<span class="bold">:</span>
 								<div class="time-hour">
 									<input v-model="selectInput.startMinute"/>
-									<span class="up glyphicon glyphicon-chevron-up" @click="addStartMinute"></span>
-									<span class="down glyphicon glyphicon-chevron-down" @click="minusStartMinute"></span>
+									<span class="up glyphicon glyphicon-chevron-up" @click="selectInput.startMinute += 1"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="selectInput.startMinute -= 1"></span>
 								</div>
 							</div>
 							<div class="u-date-select">
@@ -68,14 +68,14 @@
 								</div>
 								<div class="time-hour">
 									<input v-model="selectInput.endHour"/>
-									<span class="up glyphicon glyphicon-chevron-up" @click="addEndHour"></span>
-									<span class="down glyphicon glyphicon-chevron-down" @click="minusEndHour"></span>
+									<span class="up glyphicon glyphicon-chevron-up" @click="selectInput.endHour += 1"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="selectInput.endHour -= 1"></span>
 								</div>
 								<span class="bold">:</span>
 								<div class="time-hour">
 									<input v-model="selectInput.endMinute"/>
-									<span class="up glyphicon glyphicon-chevron-up" @click="addEndMinute"></span>
-									<span class="down glyphicon glyphicon-chevron-down" @click="minusEndMinute"></span>
+									<span class="up glyphicon glyphicon-chevron-up" @click="selectInput.endMinute += 1"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="selectInput.endMinute -= 1"></span>
 								</div>
 							</div>
 							<div class="u-btn-save" @click="saveSelect">
@@ -83,6 +83,13 @@
 							</div>
 						</div>
 					</transition>
+				</div>
+				<div class="auto-refresh">
+					<span>Auto Refresh</span>
+					<span class="bold">:</span>
+					<div class="switch" v-bind:class="classObjectAuto" @click="toggleClassObject">
+						<div class="swt-cursor"></div>
+					</div>
 				</div>
 			</div>
 		</div>

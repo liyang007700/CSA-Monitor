@@ -16,6 +16,14 @@ import {
 }
 from '../plugins/tooltip';
 import {
+	oneHour
+}
+from "./index/_oneHour";
+import {
+	threeHour
+}
+from "./index/_threeHour";
+import {
 	echartConfig
 }
 from "./index/echartConfig";
@@ -132,7 +140,41 @@ const componentIndex = {
 				endDate: "",
 				endHour: 0,
 				endMinute: 0
-			}
+			},
+			isAutoSwitch: false,
+			classObjectAuto: {
+				'switchOff': true,
+				'switchOn': false
+			},
+			oneHourObject: {
+				"clicked": true
+			},
+			threeHourObject: {
+				"clicked": false
+			},
+			sixHourObject: {
+				"clicked": false
+			},
+			twelveHourObject: {
+				"clicked": false
+			},
+			oneDayObject: {
+				"clicked": false
+			},
+			threeDayObject: {
+				"clicked": false
+			},
+			sevenDayObject: {
+				"clicked": false
+			},
+			fiftyDayObject: {
+				"clicked": false
+			},
+			monthClassObject: {
+				"clicked": false
+			},
+			echartData: null
+
 		};
 	},
 	methods: {
@@ -144,54 +186,158 @@ const componentIndex = {
 			chart1.group = 'group1';
 			chart2.group = 'group1';
 			echarts.connect('group1');
+
+			echartConfig.Request.xAxis[0].data = oneHour.timepoint;
+			echartConfig.Request.series[0].data = oneHour.Count_RC2;
+			echartConfig.Request.series[1].data = oneHour.Count_RC3;
+			echartConfig.Request.series[2].data = oneHour.Count_RC4;
+			echartConfig.Request.series[3].data = oneHour.Count_RC5;
+			echartConfig.Response.xAxis[0].data = oneHour.timepoint;
+			echartConfig.Response.series[0].data = oneHour.AverageElapsed;
+			echartConfig.Response.series[1].data = oneHour.AverageElapsed2;
+			echartConfig.Response.series[2].data = oneHour.AverageElapsed1;
+
+			chart1.setOption(echartConfig.Request);
+			chart2.setOption(echartConfig.Response);
+			/*
+			chart1.setOption(echartConfig.RequestOneHour);
+			chart2.setOption(echartConfig.ResponseOneHour);*/
+
+		},
+		threeHourChart: function() {
+			var dash1 = document.getElementById('Dash1');
+			var chart1 = echarts.init(dash1);
+			var dash2 = document.getElementById('Dash2');
+			var chart2 = echarts.init(dash2);
+			chart1.group = 'group1';
+			chart2.group = 'group1';
+			echarts.connect('group1');
+
+			echartConfig.Request.xAxis[0].data = threeHour.timepoint;
+			echartConfig.Request.series[0].data = threeHour.Count_RC2;
+			echartConfig.Request.series[1].data = threeHour.Count_RC3;
+			echartConfig.Request.series[2].data = threeHour.Count_RC4;
+			echartConfig.Request.series[3].data = threeHour.Count_RC5;
+			echartConfig.Response.xAxis[0].data = threeHour.timepoint;
+			echartConfig.Response.series[0].data = threeHour.AverageElapsed;
+			echartConfig.Response.series[1].data = threeHour.AverageElapsed2;
+			echartConfig.Response.series[2].data = threeHour.AverageElapsed1;
+
 			chart1.setOption(echartConfig.Request);
 			chart2.setOption(echartConfig.Response);
 		},
 		oneHourRender: function() {
-
+			this.initChart();
+			this.oneHourObject.clicked = true;
+			this.threeHourObject.clicked = false;
+			this.sixHourObject.clicked = false;
+			this.twelveHourObject.clicked = false;
+			this.oneDayObject.clicked = false;
+			this.threeDayObject.clicked = false;
+			this.sevenDayObject.clicked = false;
+			this.fiftyDayObject.clicked = false;
+			this.monthClassObject.clicked = false;
 		},
 		threeHourRender: function() {
-
+			this.threeHourChart();
+			this.oneHourObject.clicked = false;
+			this.threeHourObject.clicked = true;
+			this.sixHourObject.clicked = false;
+			this.twelveHourObject.clicked = false;
+			this.oneDayObject.clicked = false;
+			this.threeDayObject.clicked = false;
+			this.sevenDayObject.clicked = false;
+			this.fiftyDayObject.clicked = false;
+			this.monthClassObject.clicked = false;
 		},
 		sixHourRender: function() {
-
+			this.oneHourObject.clicked = false;
+			this.threeHourObject.clicked = false;
+			this.sixHourObject.clicked = true;
+			this.twelveHourObject.clicked = false;
+			this.oneDayObject.clicked = false;
+			this.threeDayObject.clicked = false;
+			this.sevenDayObject.clicked = false;
+			this.fiftyDayObject.clicked = false;
+			this.monthClassObject.clicked = false;
 		},
 		twelveHourRender: function() {
-
+			this.oneHourObject.clicked = false;
+			this.threeHourObject.clicked = false;
+			this.sixHourObject.clicked = false;
+			this.twelveHourObject.clicked = true;
+			this.oneDayObject.clicked = false;
+			this.threeDayObject.clicked = false;
+			this.sevenDayObject.clicked = false;
+			this.fiftyDayObject.clicked = false;
+			this.monthClassObject.clicked = false;
 		},
 		oneDayRender: function() {
-
+			this.oneHourObject.clicked = false;
+			this.threeHourObject.clicked = false;
+			this.sixHourObject.clicked = false;
+			this.twelveHourObject.clicked = false;
+			this.oneDayObject.clicked = true;
+			this.threeDayObject.clicked = false;
+			this.sevenDayObject.clicked = false;
+			this.fiftyDayObject.clicked = false;
+			this.monthClassObject.clicked = false;
 		},
 		threeDayRender: function() {
-
+			this.oneHourObject.clicked = false;
+			this.threeHourObject.clicked = false;
+			this.sixHourObject.clicked = false;
+			this.twelveHourObject.clicked = false;
+			this.oneDayObject.clicked = false;
+			this.threeDayObject.clicked = true;
+			this.sevenDayObject.clicked = false;
+			this.fiftyDayObject.clicked = false;
+			this.monthClassObject.clicked = false;
 		},
 		sevenDayRender: function() {
-
+			this.oneHourObject.clicked = false;
+			this.threeHourObject.clicked = false;
+			this.sixHourObject.clicked = false;
+			this.twelveHourObject.clicked = false;
+			this.oneDayObject.clicked = false;
+			this.threeDayObject.clicked = false;
+			this.sevenDayObject.clicked = true;
+			this.fiftyDayObject.clicked = false;
+			this.monthClassObject.clicked = false;
 		},
 		fiftyDayRender: function() {
-
+			this.oneHourObject.clicked = false;
+			this.threeHourObject.clicked = false;
+			this.sixHourObject.clicked = false;
+			this.twelveHourObject.clicked = false;
+			this.oneDayObject.clicked = false;
+			this.threeDayObject.clicked = false;
+			this.sevenDayObject.clicked = false;
+			this.fiftyDayObject.clicked = true;
+			this.monthClassObject.clicked = false;
 		},
 		oneMonthRender: function() {
-
+			this.oneHourObject.clicked = false;
+			this.threeHourObject.clicked = false;
+			this.sixHourObject.clicked = false;
+			this.twelveHourObject.clicked = false;
+			this.oneDayObject.clicked = false;
+			this.threeDayObject.clicked = false;
+			this.sevenDayObject.clicked = false;
+			this.fiftyDayObject.clicked = false;
+			this.monthClassObject.clicked = true;
 		},
 		toggleUSelect: function() {
 			this.ifShowDateSelection = !this.ifShowDateSelection;
 			this.getCurrentTime();
 		},
-		showCustom: function() {
-			this.ifShowCustom = true;
-		},
-		hideCustom: function() {
-			this.ifShowCustom = false;
-		},
-		closeSelect: function() {
-			this.ifShowDateSelection = false;
-		},
 		saveSelect: function() {
 			this.ifShowDateSelection = false;
 
-
-
+		},
+		toggleClassObject: function() {
+			this.classObjectAuto.switchOff = !this.classObjectAuto.switchOff;
+			this.classObjectAuto.switchOn = !this.classObjectAuto.switchOn;
 		},
 		getCurrentTime: function() {
 			// Date.now方法返回当前距离1970年1月1日 00:00:00 UTC的毫秒数（Unix时间戳乘以1000）。
@@ -216,30 +362,6 @@ const componentIndex = {
 			this.selectInput.startHour = parseInt(localTimeStrLastHourStr.slice(11, 14));
 			this.selectInput.startMinute = parseInt(localTimeStrLastHourStr.slice(14,
 				17));
-		},
-		addEndHour: function() {
-			this.selectInput.endHour += 1;
-		},
-		minusEndHour: function() {
-			this.selectInput.endHour -= 1;
-		},
-		addEndMinute: function() {
-			this.selectInput.endMinute += 1;
-		},
-		minusEndMinute: function() {
-			this.selectInput.endMinute -= 1;
-		},
-		addStartHour: function() {
-			this.selectInput.startHour += 1;
-		},
-		minusStartHour: function() {
-			this.selectInput.startHour -= 1;
-		},
-		addStartMinute: function() {
-			this.selectInput.startMinute += 1;
-		},
-		minusStartMinute: function() {
-			this.selectInput.startMinute -= 1;
 		}
 	},
 	mounted: function() {
