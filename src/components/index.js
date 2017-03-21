@@ -32,6 +32,7 @@ const componentIndex = {
 	template: template,
 	data: function() {
 		return {
+			// fake data for "Current Monitoring Service"
 			events: [{
 				url: "https://csa.dst.ibm.com/sales/console/DM",
 				startTime: "2017-02-26T00:33:07",
@@ -42,7 +43,7 @@ const componentIndex = {
 				}, {
 					name: "Was",
 					time: "2017-02-26T00:34:15",
-					duration: 66
+					duration: 36
 				}, {
 					name: "DB2",
 					time: "2017-02-26T00:34:45",
@@ -50,7 +51,7 @@ const componentIndex = {
 				}, {
 					name: "Was",
 					time: "2017-02-26T00:35:35",
-					duration: 50
+					duration: 80
 				}, {
 					name: "HTTP",
 					time: "2017-02-26T00:35:40",
@@ -59,12 +60,18 @@ const componentIndex = {
 				totalTime: 153,
 				count: [{
 					name: "HTTP",
-					time: 7
+					time: 2
 				}, {
-					name: "Was",
-					time: 116
+					name: "Was(Before DB2)",
+					time: 36
 				}, {
 					name: "DB2",
+					time: 30
+				}, {
+					name: "Was(After DB2)",
+					time: 80
+				}, {
+					name: "HTTP",
 					time: 30
 				}]
 			}, {
@@ -86,10 +93,13 @@ const componentIndex = {
 				totalTime: 114,
 				count: [{
 					name: "HTTP",
-					time: 17
+					time: 13
 				}, {
 					name: "Cloudant",
 					time: 97
+				}, {
+					name: "HTTP",
+					time: 4
 				}]
 			}, {
 				url: "https://csa.dst.ibm.com/sales/console/OneScore",
@@ -118,21 +128,31 @@ const componentIndex = {
 				totalTime: 119,
 				count: [{
 					name: "HTTP",
-					time: 11
+					time: 3
 				}, {
-					name: "Was",
-					time: 28
+					name: "Was(Before DB2)",
+					time: 12
 				}, {
 					name: "DB2",
 					time: 80
+				}, {
+					name: "Was(After DB2)",
+					time: 16
+				}, {
+					name: "HTTP",
+					time: 8
 				}]
 			}],
+			// "Current Monitoring Service" widght timeline
 			timeLine: ["2017-02-26T00:33:00", "2017-02-26T00:34:00",
 				"2017-02-26T00:35:00",
 				"2017-02-26T00:36:00"
 			],
+			// default hide chart date selection
 			ifShowDateSelection: false,
+			// default hide chart date selection button "custom"
 			ifShowCustom: false,
+			// chart date select form v-model data
 			selectInput: {
 				startDate: "",
 				startHour: 0,
@@ -141,11 +161,12 @@ const componentIndex = {
 				endHour: 0,
 				endMinute: 0
 			},
-			isAutoSwitch: false,
+			// auto refresh UI class object
 			classObjectAuto: {
 				'switchOff': true,
 				'switchOn': false
 			},
+			// button UI class object
 			oneHourObject: {
 				"clicked": true
 			},
@@ -174,44 +195,38 @@ const componentIndex = {
 				"clicked": false
 			},
 			echartData: null
-
 		};
 	},
 	methods: {
+		// default chart data 1 hour
 		initChart: function() {
-			var dash1 = document.getElementById('Dash1');
-			var chart1 = echarts.init(dash1);
-			var dash2 = document.getElementById('Dash2');
-			var chart2 = echarts.init(dash2);
-			chart1.group = 'group1';
-			chart2.group = 'group1';
-			echarts.connect('group1');
+			//var dash1 = document.getElementById('Dash1');
+			//var chart1 = echarts.init(dash1);
+			//var dash2 = document.getElementById('Dash2');
+			//var chart2 = echarts.init(dash2);
+			var dash3 = document.getElementById('Dash3');
+			var chart3 = echarts.init(dash3);
+			//chart1.group = 'group1';
+			//chart2.group = 'group1';
+			//echarts.connect('group1');
 
-			echartConfig.Request.xAxis[0].data = oneHour.timepoint;
-			echartConfig.Request.series[0].data = oneHour.Count_RC2;
-			echartConfig.Request.series[1].data = oneHour.Count_RC3;
-			echartConfig.Request.series[2].data = oneHour.Count_RC4;
-			echartConfig.Request.series[3].data = oneHour.Count_RC5;
-			echartConfig.Response.xAxis[0].data = oneHour.timepoint;
-			echartConfig.Response.series[0].data = oneHour.AverageElapsed;
-			echartConfig.Response.series[1].data = oneHour.AverageElapsed2;
-			echartConfig.Response.series[2].data = oneHour.AverageElapsed1;
+			echartConfig.ReqAndRes.xAxis[0].data = oneHour.timepoint;
+			echartConfig.ReqAndRes.series[0].data = oneHour.Count_RC2;
+			echartConfig.ReqAndRes.series[1].data = oneHour.Count_RC3;
+			echartConfig.ReqAndRes.series[2].data = oneHour.Count_RC4;
+			echartConfig.ReqAndRes.series[3].data = oneHour.Count_RC5;
+			echartConfig.ReqAndRes.series[4].data = oneHour.AverageElapsed;
+			echartConfig.ReqAndRes.series[5].data = oneHour.AverageElapsed2;
+			echartConfig.ReqAndRes.series[6].data = oneHour.AverageElapsed1;
 
-			chart1.setOption(echartConfig.Request);
-			chart2.setOption(echartConfig.Response);
-			/*
-			chart1.setOption(echartConfig.RequestOneHour);
-			chart2.setOption(echartConfig.ResponseOneHour);*/
-
+			//chart1.setOption(echartConfig.Request);
+			//chart2.setOption(echartConfig.Response);
+			chart3.setOption(echartConfig.ReqAndRes);
 		},
+		// default chart data 3 hour
 		threeHourChart: function() {
-			var dash1 = document.getElementById('Dash1');
-			var chart1 = echarts.init(dash1);
-			var dash2 = document.getElementById('Dash2');
-			var chart2 = echarts.init(dash2);
-			chart1.group = 'group1';
-			chart2.group = 'group1';
-			echarts.connect('group1');
+			var dash3 = document.getElementById('Dash3');
+			var chart3 = echarts.init(dash3);
 
 			echartConfig.Request.xAxis[0].data = threeHour.timepoint;
 			echartConfig.Request.series[0].data = threeHour.Count_RC2;
@@ -223,8 +238,7 @@ const componentIndex = {
 			echartConfig.Response.series[1].data = threeHour.AverageElapsed2;
 			echartConfig.Response.series[2].data = threeHour.AverageElapsed1;
 
-			chart1.setOption(echartConfig.Request);
-			chart2.setOption(echartConfig.Response);
+			chart3.setOption(echartConfig.ReqAndRes);
 		},
 		oneHourRender: function() {
 			this.initChart();
@@ -333,7 +347,7 @@ const componentIndex = {
 		},
 		saveSelect: function() {
 			this.ifShowDateSelection = false;
-
+			this.initChart();
 		},
 		toggleClassObject: function() {
 			this.classObjectAuto.switchOff = !this.classObjectAuto.switchOff;
@@ -346,22 +360,26 @@ const componentIndex = {
 			var timeZoneDiff = (new Date()).getTimezoneOffset() * 60000;
 			// 校正后的毫秒数
 			var localTimeNum = nowNum - timeZoneDiff;
-			var localTimeNumLastHour = nowNum - timeZoneDiff - 3600000;
+			//var localTimeNumLastHour = nowNum - timeZoneDiff - 3600000;
 
 			var localTime = new Date(localTimeNum);
 			var localTimeStr = localTime.toJSON();
 
-			var localTimeLastHour = new Date(localTimeNumLastHour);
-			var localTimeStrLastHourStr = localTimeLastHour.toJSON();
+			// var localTimeLastHour = new Date(localTimeNumLastHour);
+			// var localTimeStrLastHourStr = localTimeLastHour.toJSON();
 
 			this.selectInput.endDate = localTimeStr.slice(0, 10);
 			this.selectInput.endHour = parseInt(localTimeStr.slice(11, 14));
 			this.selectInput.endMinute = parseInt(localTimeStr.slice(14, 17));
-
+			/* last hour data
 			this.selectInput.startDate = localTimeStrLastHourStr.slice(0, 10);
 			this.selectInput.startHour = parseInt(localTimeStrLastHourStr.slice(11, 14));
 			this.selectInput.startMinute = parseInt(localTimeStrLastHourStr.slice(14,
-				17));
+				17));*/
+			this.selectInput.startDate = this.selectInput.endDate;
+			this.selectInput.startHour = this.selectInput.endHour;
+			this.selectInput.startMinute = 0;
+
 		}
 	},
 	mounted: function() {
