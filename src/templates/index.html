@@ -27,14 +27,15 @@
 			</form>
 			<div class = "u-btnGroup">
 			    <button class="u-btn" v-bind:class="oneHourObject" @click="oneHourRender">1 hour</button>
+				<!--
 				<button class="u-btn" v-bind:class="threeHourObject" @click="threeHourRender">3 hours</button>
 				<button class="u-btn" v-bind:class="sixHourObject" @click="sixHourRender">6 hours</button>
-				<button class="u-btn" v-bind:class="twelveHourObject" @click="twelveHourRender">12 hours</button>
+				<button class="u-btn" v-bind:class="twelveHourObject" @click="twelveHourRender">12 hours</button>-->
 				<button class="u-btn" v-bind:class="oneDayObject" @click="oneDayRender">1 day</button>
-				<button class="u-btn" v-bind:class="threeDayObject" @click="threeDayRender">3 days</button>
-				<button class="u-btn" v-bind:class="sevenDayObject" @click="sevenDayRender">7 days</button>
-				<button class="u-btn" v-bind:class="fiftyDayObject" @click="fiftyDayRender">15 days</button>
-				<button class="u-btn" v-bind:class="monthClassObject" @click="oneMonthRender">30 days</button>
+				<!--<button class="u-btn" v-bind:class="threeDayObject" @click="threeDayRender">3 days</button>-->
+				<button class="u-btn" v-bind:class="sevenDayObject" @click="sevenDayRender">week</button>
+				<!--<button class="u-btn" v-bind:class="fiftyDayObject" @click="fiftyDayRender">15 days</button>-->
+				<button class="u-btn" v-bind:class="monthClassObject" @click="oneMonthRender">month</button>
 				<!-- User Specify time interval to get data -->
 				<div class="u-icon">
 					<span class="glyphicon glyphicon-calendar" @click="toggleUSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false"></span>
@@ -84,34 +85,41 @@
 						</div>
 					</transition>
 				</div>
+				<!--
 				<div class="auto-refresh">
 					<span>Auto Refresh</span>
 					<span class="bold">:</span>
 					<div class="switch" v-bind:class="classObjectAuto" @click="toggleClassObject">
 						<div class="swt-cursor"></div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</div>
 	</div>
+	<!--
 	<div class="pure-u-1-2">
 		<div class="m-box">
 			<h2>THROUGHPUT</h2>
 			<p>How many requests were fulfilled per minute?</p>
-			<div id="Dash1" class="chart" style="width:100%;height:400px;"></div>
+			<div id="Dash1" style="width:100%;height:400px;"></div>
 		</div>
 	</div>
 	<div class="pure-u-1-2">
 		<div class="m-box">
 			<h2>RESPONSE TIME</h2>
 			<p>How long does it take for the service to respond?</p>
-			<div id="Dash2" class="chart" style="width:100%;height:400px;"></div>
+			<div id="Dash2" style="width:100%;height:400px;"></div>
+		</div>
+	</div>-->
+	<div  class="pure-u-1-1 chart">
+		<div class="m-box">
+			<h2>THROUGHPUT AND RESPONSE</h2>
+			<div id="Dash3" style="width:100%;height:400px;"></div>
 		</div>
 	</div>
 	<div  class="pure-u-1-1 analysis">
 		<div class="m-box">
 			<h2>Request Communication Analysis</h2>
-			<p>explaination</p>
 			<m-histogram :events="events" :timeLine="timeLine"></m-histogram>
 		</div>
 	</div>

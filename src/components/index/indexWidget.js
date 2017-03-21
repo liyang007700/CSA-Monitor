@@ -84,6 +84,16 @@ var widgetIndex = {
                     ctx.stroke();
                     console.log(gridX);
                 }
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = '#ccc';
+                for (let i = 1; i < items; i++) {
+                    let gridX = Math.round(i * gridWidth) + 60.5;
+                    ctx.beginPath();
+                    ctx.moveTo(gridX, 60);
+                    ctx.lineTo(gridX, 360);
+                    ctx.stroke();
+                    console.log(gridX);
+                }
             },
             createBar: function(ctx, width, height, events) {
                 // the width pixels per second, total time 3minutes.
@@ -135,18 +145,18 @@ var widgetIndex = {
             createLegend: function(ctx, width) {
                 ctx.font = "12px sans-serif";
                 ctx.fillStyle = "#000";
-                ctx.fillText("HTTP", width * 0.35, 30);
-                ctx.fillText("Was", width * 0.35 + 100, 30);
-                ctx.fillText("DB2", width * 0.35 + 200, 30);
-                ctx.fillText("Cloudant", width * 0.35 + 300, 30);
+                ctx.fillText("HTTP", width * 0.35, 50);
+                ctx.fillText("Was", width * 0.35 + 100, 50);
+                ctx.fillText("DB2", width * 0.35 + 200, 50);
+                ctx.fillText("Cloudant", width * 0.35 + 300, 50);
                 ctx.fillStyle = "#28CC9E";
-                ctx.fillRect(width * 0.35 - 50, 15, 40, 20);
+                ctx.fillRect(width * 0.35 - 50, 35, 40, 20);
                 ctx.fillStyle = "#FEF2A0";
-                ctx.fillRect(width * 0.35 + 100 - 50, 15, 40, 20);
+                ctx.fillRect(width * 0.35 + 100 - 50, 35, 40, 20);
                 ctx.fillStyle = "#0881A3";
-                ctx.fillRect(width * 0.35 + 200 - 50, 15, 40, 20);
+                ctx.fillRect(width * 0.35 + 200 - 50, 35, 40, 20);
                 ctx.fillStyle = "#41506B";
-                ctx.fillRect(width * 0.35 + 300 - 50, 15, 40, 20);
+                ctx.fillRect(width * 0.35 + 300 - 50, 35, 40, 20);
             },
             createCanvas: function() {
                 /* Parent DOM element use persentage-width to fit different screen

@@ -119,13 +119,13 @@ body #m-app #m-left-nav ul {
 body #m-app #m-left-nav ul li a {
   display: block;
   padding: 12px 0;
-  color: #666666;
+  color: #999;
   text-decoration: none;
   text-align: center;
 }
 body #m-app #m-left-nav ul li a i.iconfont {
   font-size: 22px;
-  color: #666666;
+  color: #999;
 }
 body #m-app #m-left-nav ul li a:hover {
   background-color: #111111;
@@ -149,7 +149,7 @@ body #m-app #m-left-nav ul li a.router-link-active span {
 }
 body #m-app #m-left-nav ul li a span {
   display: block;
-  color: #666666;
+  color: #999;
   font-size: 12px;
   margin-top: 4px;
 }
@@ -271,7 +271,7 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select 
   top: 40px;
   left: -1px;
   border: 1px solid #ccc;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .close {
   position: absolute;
@@ -416,7 +416,6 @@ body #m-app #m-main.m-index .pure-u-1-1.analysis p {
 }
 body #m-app #m-main.m-index .pure-u-1-1.analysis .histogram .canvas_container {
   position: relative;
-  margin: 10px auto;
 }
 body #m-app #m-main.m-index .pure-u-1-1.analysis .histogram .canvas_container canvas {
   width: auto;
@@ -432,6 +431,14 @@ body #m-app #m-main.m-index .pure-u-1-1.analysis .histogram .canvas_container .i
 body #m-app #m-main.m-index .pure-u-1-1.analysis .histogram .canvas_container .index-tooltip span {
   padding: 5px 0;
 }
+body #m-app #m-main.m-index .pure-u-1-1.chart h2 {
+  margin: 15px 0px 2px 0px;
+  font-size: 20px;
+  font-weight: normal;
+}
+body #m-app #m-main.m-index .pure-u-1-1.chart #Dash3 {
+  margin-top: 20px;
+}
 body #m-app #m-main.m-index .pure-u-1-2 h2 {
   margin: 15px 0px 2px 0px;
   font-size: 20px;
@@ -442,9 +449,6 @@ body #m-app #m-main.m-index .pure-u-1-2 p {
   font-size: 16px;
   font-style: italic;
   color: rgba(0, 0, 0, 0.4);
-}
-body #m-app #m-main.m-index .pure-u-1-2 .chart {
-  height: 400px;
 }
 body #m-app #m-main.m-calendar .u-caldr-select .pure-u-1-3.u-caldr-select-month {
   text-align: left;

@@ -123,13 +123,13 @@ body{
     				a{
     					display: block;
     					padding: 12px 0;
-    					color: #666666;
+    					color: #999;
     					text-decoration: none;
     					text-align: center;
 
     					i.iconfont{
 	    					font-size: 22px;
-	    					color: #666666;
+	    					color: #999;
 	    				}
 
 	    				&:hover{
@@ -160,7 +160,7 @@ body{
 
 	    				span{
 	    					display: block;
-	    					color: #666666;
+	    					color: #999;
 	    					font-size: 12px;
 	    					margin-top: 4px;
 	    				}
@@ -292,7 +292,7 @@ body{
 									top: 40px;
 									left: -1px;
 									border: 1px solid #ccc;
-									background-color: #fff;
+									background-color: rgba(256,256,256,1);
 									.close{
 										position: absolute;
 									    right: 6px;
@@ -443,7 +443,6 @@ body{
 						.histogram {
 							.canvas_container {
 								position: relative;
-								margin: 10px auto;
 								canvas {
 									width:auto;
 									height:auto;
@@ -461,6 +460,16 @@ body{
 							}
 						}
  					}
+					&.chart {
+						h2 {
+							margin:15px 0px 2px 0px;
+							font-size: 20px;
+							font-weight: normal;
+						}
+						#Dash3 {
+							margin-top: 20px;
+						}
+					}
 				}
 				/*                      style for echarts                     */
 				/* ---------------------------------------------------------- */
@@ -475,9 +484,6 @@ body{
 						font-size: 16px;
 						font-style: italic;
 						color: rgba(0,0,0,.4);
-					}
-					.chart {
-						height:400px;
 					}
 				}
 			}
