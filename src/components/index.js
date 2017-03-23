@@ -170,25 +170,10 @@ const componentIndex = {
 			oneHourObject: {
 				"clicked": true
 			},
-			threeHourObject: {
-				"clicked": false
-			},
-			sixHourObject: {
-				"clicked": false
-			},
-			twelveHourObject: {
-				"clicked": false
-			},
 			oneDayObject: {
 				"clicked": false
 			},
-			threeDayObject: {
-				"clicked": false
-			},
 			sevenDayObject: {
-				"clicked": false
-			},
-			fiftyDayObject: {
 				"clicked": false
 			},
 			monthClassObject: {
@@ -218,7 +203,6 @@ const componentIndex = {
 			echartConfig.ReqAndRes.series[4].data = oneHour.AverageElapsed;
 			echartConfig.ReqAndRes.series[5].data = oneHour.AverageElapsed2;
 			echartConfig.ReqAndRes.series[6].data = oneHour.AverageElapsed1;
-
 			//chart1.setOption(echartConfig.Request);
 			//chart2.setOption(echartConfig.Response);
 			chart3.setOption(echartConfig.ReqAndRes);
@@ -237,7 +221,6 @@ const componentIndex = {
 			echartConfig.Response.series[0].data = threeHour.AverageElapsed;
 			echartConfig.Response.series[1].data = threeHour.AverageElapsed2;
 			echartConfig.Response.series[2].data = threeHour.AverageElapsed1;
-
 			chart3.setOption(echartConfig.ReqAndRes);
 		},
 		oneHourRender: function() {
@@ -246,40 +229,6 @@ const componentIndex = {
 			this.threeHourObject.clicked = false;
 			this.sixHourObject.clicked = false;
 			this.twelveHourObject.clicked = false;
-			this.oneDayObject.clicked = false;
-			this.threeDayObject.clicked = false;
-			this.sevenDayObject.clicked = false;
-			this.fiftyDayObject.clicked = false;
-			this.monthClassObject.clicked = false;
-		},
-		threeHourRender: function() {
-			this.threeHourChart();
-			this.oneHourObject.clicked = false;
-			this.threeHourObject.clicked = true;
-			this.sixHourObject.clicked = false;
-			this.twelveHourObject.clicked = false;
-			this.oneDayObject.clicked = false;
-			this.threeDayObject.clicked = false;
-			this.sevenDayObject.clicked = false;
-			this.fiftyDayObject.clicked = false;
-			this.monthClassObject.clicked = false;
-		},
-		sixHourRender: function() {
-			this.oneHourObject.clicked = false;
-			this.threeHourObject.clicked = false;
-			this.sixHourObject.clicked = true;
-			this.twelveHourObject.clicked = false;
-			this.oneDayObject.clicked = false;
-			this.threeDayObject.clicked = false;
-			this.sevenDayObject.clicked = false;
-			this.fiftyDayObject.clicked = false;
-			this.monthClassObject.clicked = false;
-		},
-		twelveHourRender: function() {
-			this.oneHourObject.clicked = false;
-			this.threeHourObject.clicked = false;
-			this.sixHourObject.clicked = false;
-			this.twelveHourObject.clicked = true;
 			this.oneDayObject.clicked = false;
 			this.threeDayObject.clicked = false;
 			this.sevenDayObject.clicked = false;
@@ -297,17 +246,6 @@ const componentIndex = {
 			this.fiftyDayObject.clicked = false;
 			this.monthClassObject.clicked = false;
 		},
-		threeDayRender: function() {
-			this.oneHourObject.clicked = false;
-			this.threeHourObject.clicked = false;
-			this.sixHourObject.clicked = false;
-			this.twelveHourObject.clicked = false;
-			this.oneDayObject.clicked = false;
-			this.threeDayObject.clicked = true;
-			this.sevenDayObject.clicked = false;
-			this.fiftyDayObject.clicked = false;
-			this.monthClassObject.clicked = false;
-		},
 		sevenDayRender: function() {
 			this.oneHourObject.clicked = false;
 			this.threeHourObject.clicked = false;
@@ -317,17 +255,6 @@ const componentIndex = {
 			this.threeDayObject.clicked = false;
 			this.sevenDayObject.clicked = true;
 			this.fiftyDayObject.clicked = false;
-			this.monthClassObject.clicked = false;
-		},
-		fiftyDayRender: function() {
-			this.oneHourObject.clicked = false;
-			this.threeHourObject.clicked = false;
-			this.sixHourObject.clicked = false;
-			this.twelveHourObject.clicked = false;
-			this.oneDayObject.clicked = false;
-			this.threeDayObject.clicked = false;
-			this.sevenDayObject.clicked = false;
-			this.fiftyDayObject.clicked = true;
 			this.monthClassObject.clicked = false;
 		},
 		oneMonthRender: function() {
@@ -341,7 +268,7 @@ const componentIndex = {
 			this.fiftyDayObject.clicked = false;
 			this.monthClassObject.clicked = true;
 		},
-		toggleUSelect: function() {
+		toggleTimeSelect: function() {
 			this.ifShowDateSelection = !this.ifShowDateSelection;
 			this.getCurrentTime();
 		},
@@ -349,10 +276,11 @@ const componentIndex = {
 			this.ifShowDateSelection = false;
 			this.initChart();
 		},
-		toggleClassObject: function() {
-			this.classObjectAuto.switchOff = !this.classObjectAuto.switchOff;
-			this.classObjectAuto.switchOn = !this.classObjectAuto.switchOn;
-		},
+		/*
+				toggleClassObject: function() {
+					this.classObjectAuto.switchOff = !this.classObjectAuto.switchOff;
+					this.classObjectAuto.switchOn = !this.classObjectAuto.switchOn;
+				},*/
 		getCurrentTime: function() {
 			// Date.now方法返回当前距离1970年1月1日 00:00:00 UTC的毫秒数（Unix时间戳乘以1000）。
 			var nowNum = Date.now();
@@ -379,7 +307,6 @@ const componentIndex = {
 			this.selectInput.startDate = this.selectInput.endDate;
 			this.selectInput.startHour = this.selectInput.endHour;
 			this.selectInput.startMinute = 0;
-
 		}
 	},
 	mounted: function() {

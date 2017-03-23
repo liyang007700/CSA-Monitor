@@ -27,19 +27,13 @@
 			</form>
 			<div class = "u-btnGroup">
 			    <button class="u-btn" v-bind:class="oneHourObject" @click="oneHourRender">1 hour</button>
-				<!--
-				<button class="u-btn" v-bind:class="threeHourObject" @click="threeHourRender">3 hours</button>
-				<button class="u-btn" v-bind:class="sixHourObject" @click="sixHourRender">6 hours</button>
-				<button class="u-btn" v-bind:class="twelveHourObject" @click="twelveHourRender">12 hours</button>-->
 				<button class="u-btn" v-bind:class="oneDayObject" @click="oneDayRender">1 day</button>
-				<!--<button class="u-btn" v-bind:class="threeDayObject" @click="threeDayRender">3 days</button>-->
 				<button class="u-btn" v-bind:class="sevenDayObject" @click="sevenDayRender">week</button>
-				<!--<button class="u-btn" v-bind:class="fiftyDayObject" @click="fiftyDayRender">15 days</button>-->
 				<button class="u-btn" v-bind:class="monthClassObject" @click="oneMonthRender">month</button>
 				<!-- User Specify time interval to get data -->
 				<div class="u-icon">
-					<span class="glyphicon glyphicon-calendar" @click="toggleUSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false"></span>
-					<span class="custom" v-show="ifShowCustom" @click="toggleUSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false">Custom</span>
+					<span class="glyphicon glyphicon-calendar" @click="toggleTimeSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false"></span>
+					<span class="custom" v-show="ifShowCustom" @click="toggleTimeSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false">Custom</span>
 					<transition name="slide-fade">
 						<div class="u-select" v-show="ifShowDateSelection">
 							<span class="close" title="close" @click="ifShowDateSelection = false">
