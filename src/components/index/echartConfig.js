@@ -5,6 +5,7 @@ import {
 from "./chartData";
 var echartConfig = {
     ReqAndRes: {
+        /*
         legend: {
             show: true,
             top: '6%',
@@ -26,7 +27,33 @@ var echartConfig = {
                 "Time < 5s",
                 "Time > 5s"
             ]
-        },
+        },*/
+        legend: [{
+            show: true,
+            top: '0%',
+            left: '5%',
+            itemGap: 20,
+            itemWidth: 25,
+            selected: {
+                "2XX": true,
+                "3XX": false,
+                "4XX": false,
+                "5XX": false
+            },
+            data: ["2XX", "3XX", "4XX", "5XX"]
+        }, {
+            show: true,
+            top: '0%',
+            right: '5%',
+            itemGap: 20,
+            itemWidth: 25,
+            selected: {
+                "Overall": false,
+                "Time > 5s": true,
+                "Time < 5s": false
+            },
+            data: ["Overall", "Time < 5s", "Time > 5s"]
+        }],
         tooltip: {
             show: true,
             trigger: 'axis',
@@ -198,7 +225,7 @@ var echartConfig = {
                 }
             }
         }, {
-            name: '5XX                                                ',
+            name: '5XX',
             type: 'line',
             symbol: 'circle',
             symbolSize: 5,

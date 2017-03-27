@@ -154,6 +154,7 @@ const componentIndex = {
 			ifShowCustom: false,
 			// chart date select form v-model data
 			selectInput: {
+				today: null, // data object of today
 				startDate: "",
 				startHour: 0,
 				startMinute: 0,
@@ -194,7 +195,6 @@ const componentIndex = {
 			//chart1.group = 'group1';
 			//chart2.group = 'group1';
 			//echarts.connect('group1');
-
 			echartConfig.ReqAndRes.xAxis[0].data = oneHour.timepoint;
 			echartConfig.ReqAndRes.series[0].data = oneHour.Count_RC2;
 			echartConfig.ReqAndRes.series[1].data = oneHour.Count_RC3;
@@ -203,6 +203,7 @@ const componentIndex = {
 			echartConfig.ReqAndRes.series[4].data = oneHour.AverageElapsed;
 			echartConfig.ReqAndRes.series[5].data = oneHour.AverageElapsed2;
 			echartConfig.ReqAndRes.series[6].data = oneHour.AverageElapsed1;
+
 			//chart1.setOption(echartConfig.Request);
 			//chart2.setOption(echartConfig.Response);
 			chart3.setOption(echartConfig.ReqAndRes);
@@ -211,7 +212,6 @@ const componentIndex = {
 		threeHourChart: function() {
 			var dash3 = document.getElementById('Dash3');
 			var chart3 = echarts.init(dash3);
-
 			echartConfig.Request.xAxis[0].data = threeHour.timepoint;
 			echartConfig.Request.series[0].data = threeHour.Count_RC2;
 			echartConfig.Request.series[1].data = threeHour.Count_RC3;
@@ -226,46 +226,26 @@ const componentIndex = {
 		oneHourRender: function() {
 			this.initChart();
 			this.oneHourObject.clicked = true;
-			this.threeHourObject.clicked = false;
-			this.sixHourObject.clicked = false;
-			this.twelveHourObject.clicked = false;
 			this.oneDayObject.clicked = false;
-			this.threeDayObject.clicked = false;
 			this.sevenDayObject.clicked = false;
-			this.fiftyDayObject.clicked = false;
 			this.monthClassObject.clicked = false;
 		},
 		oneDayRender: function() {
 			this.oneHourObject.clicked = false;
-			this.threeHourObject.clicked = false;
-			this.sixHourObject.clicked = false;
-			this.twelveHourObject.clicked = false;
 			this.oneDayObject.clicked = true;
-			this.threeDayObject.clicked = false;
 			this.sevenDayObject.clicked = false;
-			this.fiftyDayObject.clicked = false;
 			this.monthClassObject.clicked = false;
 		},
 		sevenDayRender: function() {
 			this.oneHourObject.clicked = false;
-			this.threeHourObject.clicked = false;
-			this.sixHourObject.clicked = false;
-			this.twelveHourObject.clicked = false;
 			this.oneDayObject.clicked = false;
-			this.threeDayObject.clicked = false;
 			this.sevenDayObject.clicked = true;
-			this.fiftyDayObject.clicked = false;
 			this.monthClassObject.clicked = false;
 		},
 		oneMonthRender: function() {
 			this.oneHourObject.clicked = false;
-			this.threeHourObject.clicked = false;
-			this.sixHourObject.clicked = false;
-			this.twelveHourObject.clicked = false;
 			this.oneDayObject.clicked = false;
-			this.threeDayObject.clicked = false;
 			this.sevenDayObject.clicked = false;
-			this.fiftyDayObject.clicked = false;
 			this.monthClassObject.clicked = true;
 		},
 		toggleTimeSelect: function() {
@@ -283,30 +263,32 @@ const componentIndex = {
 				},*/
 		getCurrentTime: function() {
 			// Date.now方法返回当前距离1970年1月1日 00:00:00 UTC的毫秒数（Unix时间戳乘以1000）。
-			var nowNum = Date.now();
+			var nowMilliseconds = Date.now();
 			// 当前时区与格林威治时间的毫秒差值
 			var timeZoneDiff = (new Date()).getTimezoneOffset() * 60000;
 			// 校正后的毫秒数
-			var localTimeNum = nowNum - timeZoneDiff;
+			var localMilliseconds = nowMilliseconds - timeZoneDiff;
 			//var localTimeNumLastHour = nowNum - timeZoneDiff - 3600000;
 
-			var localTime = new Date(localTimeNum);
-			var localTimeStr = localTime.toJSON();
-
+			var now = new Date(localMilliseconds); // localTime Date Object
+			var nowStr = now.toJSON();
+			console.log(nowStr);
+			console.log(this.selectInput);
 			// var localTimeLastHour = new Date(localTimeNumLastHour);
 			// var localTimeStrLastHourStr = localTimeLastHour.toJSON();
-
-			this.selectInput.endDate = localTimeStr.slice(0, 10);
-			this.selectInput.endHour = parseInt(localTimeStr.slice(11, 14));
-			this.selectInput.endMinute = parseInt(localTimeStr.slice(14, 17));
+			this.selectInput.today = now;
+			this.selectInput.endDate = nowStr.slice(0, 10);
+			this.selectInput.endHour = parseInt(nowStr.slice(11, 14));
+			this.selectInput.endMinute = parseInt(nowStr.slice(14, 17));
 			/* last hour data
 			this.selectInput.startDate = localTimeStrLastHourStr.slice(0, 10);
 			this.selectInput.startHour = parseInt(localTimeStrLastHourStr.slice(11, 14));
 			this.selectInput.startMinute = parseInt(localTimeStrLastHourStr.slice(14,
 				17));*/
-			this.selectInput.startDate = this.selectInput.endDate;
-			this.selectInput.startHour = this.selectInput.endHour;
+			this.selectInput.startDate = nowStr.slice(0, 10);
+			this.selectInput.startHour = parseInt(nowStr.slice(11, 14));
 			this.selectInput.startMinute = 0;
+
 		}
 	},
 	mounted: function() {
@@ -315,7 +297,8 @@ const componentIndex = {
 		this.getCurrentTime();
 	},
 	components: {
-		"m-histogram": widgetIndex.mHistogram
+		"m-histogram": widgetIndex.mHistogram,
+		"month-table": widgetIndex.monthTable
 	}
 };
 

@@ -42,7 +42,10 @@
 							<div class="u-date-select u-date-start">
 								<div class="time-year">
 									<span>Start Time</span><span class="bold">:</span>
-									<input v-model="selectInput.startDate"/>
+									<div class="date">
+										<input v-model="selectInput.startDate"/>
+										<month-table :date="selectInput.startDate"></month-table>
+									</div>
 								</div>
 								<div class="time-hour">
 									<input v-model="selectInput.startHour"/>
@@ -59,7 +62,10 @@
 							<div class="u-date-select">
 								<div class="time-year">
 									<span>End Time</span><span class="bold">:</span>
-									<input v-model="selectInput.endDate"/>
+									<div class="date">
+										<input v-model="selectInput.endDate"/>
+										<month-table :date="selectInput.endDate"></month-table>
+									</div>
 								</div>
 								<div class="time-hour">
 									<input v-model="selectInput.endHour"/>

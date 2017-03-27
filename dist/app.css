@@ -215,7 +215,8 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn {
   /* date button */
 }
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form {
-  border-bottom: 1px solid #ccc;
+  display: inline-block;
+  margin-right: 20px;
 }
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form fieldset {
   border: none;
@@ -234,6 +235,9 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form fieldset select {
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn form fieldset select optgroup {
   padding-left: 10px;
   font-weight: bold;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup {
+  display: inline-block;
 }
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-btn {
   display: inline-block;
@@ -268,6 +272,7 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .custom {
 }
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select {
   position: absolute;
+  z-index: 100;
   top: 40px;
   left: -1px;
   border: 1px solid #ccc;
@@ -301,10 +306,20 @@ body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select 
   width: 80px;
   text-align: right;
 }
-body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-year input {
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-year .date {
+  position: relative;
   display: inline-block;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-year .date input {
   padding: 2px 5px;
   width: 95px;
+}
+body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .time-year .date .monthTable {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  width: 50px;
+  height: 50px;
 }
 body #m-app #m-main.m-index .pure-u-1-1.u-dashBtn .u-btnGroup .u-icon .u-select .u-date-select .bold {
   font-weight: bold;

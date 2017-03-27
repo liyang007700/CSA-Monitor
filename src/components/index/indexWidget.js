@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import templateHistogram from '../../templates/index/Histogram.html';
+import templateMonthTable from '../../templates/index/monthTable.html';
 import templateTooltip from '../../templates/index/Tooltip.html';
 var widgetIndex = {
     "mHistogram": {
@@ -208,6 +209,10 @@ var widgetIndex = {
                 }
             }
         }
+    },
+    "monthTable": {
+        props: ["date"],
+        template: templateMonthTable
     }
 };
 export {

@@ -20,7 +20,6 @@
 .fade-enter, .fade-leave-active {
   opacity: 0
 }
-
 .animation-trans{
 	transition: all 4s ease-in-out 1s;
 }
@@ -235,7 +234,8 @@ body{
 						border-radius: 5px;
 						/* select */
 						form{
-							border-bottom: 1px solid #ccc;
+							display: inline-block;
+							margin-right: 20px;
 							fieldset {
 								border:none;
 								margin: 0;
@@ -257,6 +257,8 @@ body{
 						}
 						/* date button */
 						.u-btnGroup {
+							display: inline-block;
+
 							.u-btn {
 								display: inline-block;
 								margin-top: 20px;
@@ -289,6 +291,7 @@ body{
 								}
 								.u-select {
 									position: absolute;
+									z-index: 100;
 									top: 40px;
 									left: -1px;
 									border: 1px solid #ccc;
@@ -320,10 +323,20 @@ body{
 												width: 80px;
 												text-align: right;
 											}
-											input {
+											.date {
+												position: relative;
 												display: inline-block;
-												padding: 2px 5px;
-												width: 95px;
+												input {
+													padding: 2px 5px;
+													width: 95px;
+												}
+												.monthTable {
+													position: absolute;
+													top: 30px;
+													left: 0px;
+													width: 50px;
+													height: 50px;
+												}
 											}
 										}
 										.bold {
