@@ -43,8 +43,7 @@
 								<div class="time-year">
 									<span>Start Time</span><span class="bold">:</span>
 									<div class="date">
-										<input v-model="selectInput.startDate"/>
-										<month-table :date="selectInput.startDate"></month-table>
+										<input v-model="selectInput.startDate" id="dateStart"/>
 									</div>
 								</div>
 								<div class="time-hour">
@@ -63,8 +62,7 @@
 								<div class="time-year">
 									<span>End Time</span><span class="bold">:</span>
 									<div class="date">
-										<input v-model="selectInput.endDate"/>
-										<month-table :date="selectInput.endDate"></month-table>
+										<input v-model="selectInput.endDate" id="dateEnd"/>
 									</div>
 								</div>
 								<div class="time-hour">

@@ -272,8 +272,6 @@ const componentIndex = {
 
 			var now = new Date(localMilliseconds); // localTime Date Object
 			var nowStr = now.toJSON();
-			console.log(nowStr);
-			console.log(this.selectInput);
 			// var localTimeLastHour = new Date(localTimeNumLastHour);
 			// var localTimeStrLastHourStr = localTimeLastHour.toJSON();
 			this.selectInput.today = now;
@@ -292,6 +290,15 @@ const componentIndex = {
 		}
 	},
 	mounted: function() {
+		var pickerStart = new Pikaday({
+			field: document.getElementById('dateStart')
+		});
+		pickerStart.toString('YYYY-MM-DD');
+
+		var pickerEnd = new Pikaday({
+			field: document.getElementById('dateEnd')
+		});
+		pickerEnd.toString('YYYY-MM-DD');
 		let _this = this;
 		this.initChart();
 		this.getCurrentTime();

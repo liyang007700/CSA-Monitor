@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
 import templateHistogram from '../../templates/index/Histogram.html';
-import templateMonthTable from '../../templates/index/monthTable.html';
 import templateTooltip from '../../templates/index/Tooltip.html';
 var widgetIndex = {
     "mHistogram": {
@@ -14,13 +13,19 @@ var widgetIndex = {
                     top: 0
                 },
                 ifShowTooltip: false,
-                eventObject: this.events[0]
+                eventObject: this.events[0],
+                containerWidth: 0
             };
         },
         methods: {
             hover: function(evt) {
-                this.styleTooltip.left = evt.layerX + 20 + "px";
+                if (evt.layerX < (this.containerWidth * 0.5)) {
+                    this.styleTooltip.left = evt.layerX + 20 + "px";
+                } else if (evt.layerX > (this.containerWidth * 0.5)) {
+                    this.styleTooltip.left = evt.layerX - 320 + "px";
+                }
                 this.styleTooltip.top = evt.layerY + 20 + "px";
+
                 if (evt.layerY > 60 && evt.layerY < 160) {
                     this.eventObject = this.events[0];
                     this.ifShowTooltip = true;
@@ -83,7 +88,6 @@ var widgetIndex = {
                     ctx.moveTo(gridX, yAxisEnd);
                     ctx.lineTo(gridX, yAxisEnd + 7);
                     ctx.stroke();
-                    console.log(gridX);
                 }
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = '#ccc';
@@ -93,7 +97,6 @@ var widgetIndex = {
                     ctx.moveTo(gridX, 60);
                     ctx.lineTo(gridX, 360);
                     ctx.stroke();
-                    console.log(gridX);
                 }
             },
             createBar: function(ctx, width, height, events) {
@@ -167,24 +170,42 @@ var widgetIndex = {
                 var container = document.getElementById(
                     "histogramContainer");
                 var canvas = document.getElementById("u-histogram");
+                this.containerWidth = container.offsetWidth;
                 canvas.width = container.offsetWidth;
                 canvas.height = container.offsetHeight;
 
                 // test if browser support canvas
                 if (canvas.getContext) {
                     var ctx = canvas.getContext("2d");
+                    var ratio = (function() {
+                        var canvas = document.createElement(
+                                'canvas'),
+                            context = canvas.getContext('2d'),
+                            backingStore = context.backingStorePixelRatio ||
+                            context.webkitBackingStorePixelRatio ||
+                            context.mozBackingStorePixelRatio ||
+                            context.msBackingStorePixelRatio ||
+                            context.oBackingStorePixelRatio ||
+                            context.backingStorePixelRatio || 1;
+
+                        return (window.devicePixelRatio || 1) /
+                            backingStore;
+                    })();
+                    console.log("screen ration: " + ratio);
+                    var adjustWidth = canvas.width * ratio;
+                    var adjustHeight = canvas.height * ratio;
                     // time scale line
-                    this.createYaxis(ctx, canvas.width, canvas.height);
-                    this.createXaxis(ctx, canvas.width, canvas.height,
+                    this.createYaxis(ctx, adjustWidth, adjustHeight);
+                    this.createXaxis(ctx, adjustWidth, adjustHeight,
                         4, this.timeLine);
                     /*
                     this.createXTick(ctx, canvas.width, canvas.height,
                         4);*/
-                    this.createLegend(ctx, canvas.width);
+                    this.createLegend(ctx, adjustWidth);
                     /*
                     this.createXText(ctx, canvas.width, canvas.height,
                         4, this.timeLine);*/
-                    this.createBar(ctx, canvas.width, canvas.height,
+                    this.createBar(ctx, adjustWidth, adjustHeight,
                         this.events);
                 }
             }
@@ -195,24 +216,9 @@ var widgetIndex = {
         components: {
             "m-tooltip": {
                 props: ["event"],
-                template: templateTooltip,
-                data: function() {
-                    return {
-
-                    };
-                },
-                beforeDestroy: function() {
-                    console.log("m-tooltip beforeDestroy");
-                },
-                destroyed: function() {
-                    console.log("m-tooltip destroyed");
-                }
+                template: templateTooltip
             }
         }
-    },
-    "monthTable": {
-        props: ["date"],
-        template: templateMonthTable
     }
 };
 export {

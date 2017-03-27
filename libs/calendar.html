@@ -6,7 +6,7 @@
 <center>
 <script language="javascript" type="text/javascript">
 var day_of_week = new Array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
-var month_of_year = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+var month_of_year = new Array('Jan','Feb','Mar','Apr','May','June','July','Aug','Sep','Oct','Nov','Dec');
 
 //  DECLARE AND INITIALIZE VARIABLES
 var Calendar = new Date();
@@ -14,7 +14,7 @@ var Calendar = new Date();
 var year = Calendar.getFullYear();     // Returns year
 var month = Calendar.getMonth();    // Returns month (0-11)
 var today = Calendar.getDate();    // Returns day (1-31)
-var weekday = Calendar.getDay();    // Returns day (1-31)
+var weekday = Calendar.getDay();    // Returns weekday,which day
 
 var DAYS_OF_WEEK = 7;    // "constant" for number of days in a week
 var DAYS_OF_MONTH = 31;    // "constant" for number of days in a month
@@ -50,14 +50,13 @@ cal += TR_start;
 // LOOPS FOR EACH DAY OF WEEK
 for(index=0; index < DAYS_OF_WEEK; index++)
 {
+    // BOLD TODAY'S DAY OF WEEK
+    if(weekday == index)
+        cal += TD_start + '<B>' + day_of_week[index] + '</B>' + TD_end;
 
-// BOLD TODAY'S DAY OF WEEK
-if(weekday == index)
-cal += TD_start + '<B>' + day_of_week[index] + '</B>' + TD_end;
-
-// PRINTS DAY
-else
-cal += TD_start + day_of_week[index] + TD_end;
+    // PRINTS DAY
+    else
+        cal += TD_start + day_of_week[index] + TD_end;
 }
 
 cal += TD_end + TR_end;
