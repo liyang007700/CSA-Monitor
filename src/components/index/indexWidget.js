@@ -42,7 +42,7 @@ var widgetIndex = {
             mouseLeave: function() {
                 this.ifShowTooltip = false;
             },
-            createYaxis: function(ctx, width, height, ratio) {
+            createYaxis: function(ctx, width, height) {
                 var yAxisEnd = height - 60;
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = '#333';
@@ -64,7 +64,7 @@ var widgetIndex = {
                 ctx.lineTo(60, 260.5);
                 ctx.stroke();
             },
-            createXaxis: function(ctx, width, height, items, data, ratio) {
+            createXaxis: function(ctx, width, height, items, data) {
                 var xAxisEnd = width - 60;
                 var yAxisEnd = height - 60;
                 var xAxisTextHeight = height - 60 + 20;
@@ -99,7 +99,7 @@ var widgetIndex = {
                     ctx.stroke();
                 }
             },
-            createBar: function(ctx, width, height, events, ratio) {
+            createBar: function(ctx, width, height, events) {
                 // the width pixels per second, total time 3minutes.
                 var secondWidth = Math.round((width - 150) / 180);
                 for (let i = 0; i < events.length; i++) {
@@ -146,7 +146,7 @@ var widgetIndex = {
                     }
                 }
             },
-            createLegend: function(ctx, width, ratio) {
+            createLegend: function(ctx, width) {
                 ctx.font = "12px sans-serif";
                 ctx.fillStyle = "#000";
                 ctx.fillText("HTTP", width * 0.35, 50);
@@ -177,6 +177,7 @@ var widgetIndex = {
                 // test if browser support canvas
                 if (canvas.getContext) {
                     var ctx = canvas.getContext("2d");
+                    /*
                     var ratio = (function() {
                         var canvas = document.createElement(
                                 'canvas'),
@@ -191,21 +192,20 @@ var widgetIndex = {
                         return (window.devicePixelRatio || 1) /
                             backingStore;
                     })();
-                    console.log("screen ration: " + ratio);
+                    console.log("screen ration: " + ratio);*/
                     // time scale line
-                    this.createYaxis(ctx, canvas.width, canvas.height,
-                        ratio);
+                    this.createYaxis(ctx, canvas.width, canvas.height);
                     this.createXaxis(ctx, canvas.width, canvas.height,
-                        4, this.timeLine, ratio);
+                        4, this.timeLine);
                     /*
                     this.createXTick(ctx, canvas.width, canvas.height,
                         4);*/
-                    this.createLegend(ctx, canvas.width, ratio);
+                    this.createLegend(ctx, canvas.width);
                     /*
                     this.createXText(ctx, canvas.width, canvas.height,
                         4, this.timeLine);*/
                     this.createBar(ctx, canvas.width, canvas.height,
-                        this.events, ratio);
+                        this.events);
                 }
             }
         },
