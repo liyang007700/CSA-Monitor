@@ -304,8 +304,7 @@ const componentIndex = {
 		this.getCurrentTime();
 	},
 	components: {
-		"m-histogram": widgetIndex.mHistogram,
-		"month-table": widgetIndex.monthTable
+		"m-histogram": widgetIndex.mHistogram
 	}
 };
 

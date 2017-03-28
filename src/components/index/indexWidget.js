@@ -42,7 +42,7 @@ var widgetIndex = {
             mouseLeave: function() {
                 this.ifShowTooltip = false;
             },
-            createYaxis: function(ctx, width, height) {
+            createYaxis: function(ctx, width, height, ratio) {
                 var yAxisEnd = height - 60;
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = '#333';
@@ -64,7 +64,7 @@ var widgetIndex = {
                 ctx.lineTo(60, 260.5);
                 ctx.stroke();
             },
-            createXaxis: function(ctx, width, height, items, data) {
+            createXaxis: function(ctx, width, height, items, data, ratio) {
                 var xAxisEnd = width - 60;
                 var yAxisEnd = height - 60;
                 var xAxisTextHeight = height - 60 + 20;
@@ -99,7 +99,7 @@ var widgetIndex = {
                     ctx.stroke();
                 }
             },
-            createBar: function(ctx, width, height, events) {
+            createBar: function(ctx, width, height, events, ratio) {
                 // the width pixels per second, total time 3minutes.
                 var secondWidth = Math.round((width - 150) / 180);
                 for (let i = 0; i < events.length; i++) {
@@ -146,7 +146,7 @@ var widgetIndex = {
                     }
                 }
             },
-            createLegend: function(ctx, width) {
+            createLegend: function(ctx, width, ratio) {
                 ctx.font = "12px sans-serif";
                 ctx.fillStyle = "#000";
                 ctx.fillText("HTTP", width * 0.35, 50);
@@ -192,21 +192,20 @@ var widgetIndex = {
                             backingStore;
                     })();
                     console.log("screen ration: " + ratio);
-                    var adjustWidth = canvas.width * ratio;
-                    var adjustHeight = canvas.height * ratio;
                     // time scale line
-                    this.createYaxis(ctx, adjustWidth, adjustHeight);
-                    this.createXaxis(ctx, adjustWidth, adjustHeight,
-                        4, this.timeLine);
+                    this.createYaxis(ctx, canvas.width, canvas.height,
+                        ratio);
+                    this.createXaxis(ctx, canvas.width, canvas.height,
+                        4, this.timeLine, ratio);
                     /*
                     this.createXTick(ctx, canvas.width, canvas.height,
                         4);*/
-                    this.createLegend(ctx, adjustWidth);
+                    this.createLegend(ctx, canvas.width, ratio);
                     /*
                     this.createXText(ctx, canvas.width, canvas.height,
                         4, this.timeLine);*/
-                    this.createBar(ctx, adjustWidth, adjustHeight,
-                        this.events);
+                    this.createBar(ctx, canvas.width, canvas.height,
+                        this.events, ratio);
                 }
             }
         },
