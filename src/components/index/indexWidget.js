@@ -162,21 +162,45 @@ var widgetIndex = {
                 ctx.fillStyle = "#41506B";
                 ctx.fillRect(width * 0.35 + 300 - 50, 35, 40, 20);
             },
+            createHiDPICanvas: function(w, h, ratio) {
+                var can = document.getElementById("u-histogram");
+                can.width = w * ratio;
+                can.height = h * ratio;
+                can.style.width = w + "px";
+                can.style.height = h + "px";
+                can.getContext("2d").setTransform(ratio, 0, 0, ratio, 0,
+                    0);
+                return can;
+            },
             createCanvas: function() {
                 /* Parent DOM element use persentage-width to fit different screen
                    So use parent Dom's offsetWidth and offsetHeight to set
                    canvas tag's width and height
                 */
+                var ratio = (function() {
+                    var ctx = document.createElement("canvas").getContext(
+                            "2d"),
+                        dpr = window.devicePixelRatio || 1,
+                        bsr = ctx.webkitBackingStorePixelRatio ||
+                        ctx.mozBackingStorePixelRatio ||
+                        ctx.msBackingStorePixelRatio ||
+                        ctx.oBackingStorePixelRatio ||
+                        ctx.backingStorePixelRatio || 1;
+
+                    return dpr / bsr;
+                })();
                 var container = document.getElementById(
                     "histogramContainer");
-                var canvas = document.getElementById("u-histogram");
-                this.containerWidth = container.offsetWidth;
-                canvas.width = container.offsetWidth;
-                canvas.height = container.offsetHeight;
+                var can = this.createHiDPICanvas(container.offsetWidth,
+                    container.offsetHeight, ratio);
+
+                //var canvas = document.getElementById("u-histogram");
+                //canvas.width = container.offsetWidth;
+                //canvas.height = container.offsetHeight;
 
                 // test if browser support canvas
-                if (canvas.getContext) {
-                    var ctx = canvas.getContext("2d");
+                if (can.getContext) {
+                    var ctx = can.getContext("2d");
                     /*
                     var ratio = (function() {
                         var canvas = document.createElement(
@@ -194,17 +218,20 @@ var widgetIndex = {
                     })();
                     console.log("screen ration: " + ratio);*/
                     // time scale line
-                    this.createYaxis(ctx, canvas.width, canvas.height);
-                    this.createXaxis(ctx, canvas.width, canvas.height,
+                    this.createYaxis(ctx, container.offsetWidth,
+                        container.offsetHeight);
+                    this.createXaxis(ctx, container.offsetWidth,
+                        container.offsetHeight,
                         4, this.timeLine);
                     /*
                     this.createXTick(ctx, canvas.width, canvas.height,
                         4);*/
-                    this.createLegend(ctx, canvas.width);
+                    this.createLegend(ctx, container.offsetWidth);
                     /*
                     this.createXText(ctx, canvas.width, canvas.height,
                         4, this.timeLine);*/
-                    this.createBar(ctx, canvas.width, canvas.height,
+                    this.createBar(ctx, container.offsetWidth,
+                        container.offsetHeight,
                         this.events);
                 }
             }

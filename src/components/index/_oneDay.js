@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-var oneHour = {
+var threeHour = {
     "Count_RC5": [
         0,
         6,
@@ -489,6 +489,7 @@ var oneHour = {
         54
     ]
 };
+
 export {
-    oneHour
+    threeHour
 };

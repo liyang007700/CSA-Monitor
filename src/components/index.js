@@ -20,9 +20,9 @@ import {
 }
 from "./index/_oneHour";
 import {
-	threeHour
+	oneDay
 }
-from "./index/_threeHour";
+from "./index/_oneDay";
 import {
 	echartConfig
 }
@@ -200,49 +200,107 @@ const componentIndex = {
 			echartConfig.ReqAndRes.series[1].data = oneHour.Count_RC3;
 			echartConfig.ReqAndRes.series[2].data = oneHour.Count_RC4;
 			echartConfig.ReqAndRes.series[3].data = oneHour.Count_RC5;
-			echartConfig.ReqAndRes.series[4].data = oneHour.AverageElapsed;
-			echartConfig.ReqAndRes.series[5].data = oneHour.AverageElapsed2;
-			echartConfig.ReqAndRes.series[6].data = oneHour.AverageElapsed1;
-
+			echartConfig.ReqAndRes.series[4].data = oneHour.AverageElapsed_less5s;
+			echartConfig.ReqAndRes.series[5].data = oneHour.AverageElapsed_All;
+			echartConfig.ReqAndRes.series[6].data = oneHour.AverageElapsed_over5s;
 			//chart1.setOption(echartConfig.Request);
 			//chart2.setOption(echartConfig.Response);
 			chart3.setOption(echartConfig.ReqAndRes);
 		},
 		// default chart data 3 hour
-		threeHourChart: function() {
+		oneDayChart: function() {
 			var dash3 = document.getElementById('Dash3');
 			var chart3 = echarts.init(dash3);
-			echartConfig.Request.xAxis[0].data = threeHour.timepoint;
-			echartConfig.Request.series[0].data = threeHour.Count_RC2;
-			echartConfig.Request.series[1].data = threeHour.Count_RC3;
-			echartConfig.Request.series[2].data = threeHour.Count_RC4;
-			echartConfig.Request.series[3].data = threeHour.Count_RC5;
-			echartConfig.Response.xAxis[0].data = threeHour.timepoint;
-			echartConfig.Response.series[0].data = threeHour.AverageElapsed;
-			echartConfig.Response.series[1].data = threeHour.AverageElapsed2;
-			echartConfig.Response.series[2].data = threeHour.AverageElapsed1;
+			echartConfig.ReqAndRes.xAxis[0].data = oneDay.timepoint;
+			echartConfig.ReqAndRes.series[0].data = oneDay.Count_RC2;
+			echartConfig.ReqAndRes.series[1].data = oneDay.Count_RC3;
+			echartConfig.ReqAndRes.series[2].data = oneDay.Count_RC4;
+			echartConfig.ReqAndRes.series[3].data = oneDay.Count_RC5;
+			echartConfig.ReqAndRes.series[4].data = oneDay.AverageElapsed_less5s;
+			echartConfig.ReqAndRes.series[5].data = oneDay.AverageElapsed_All;
+			echartConfig.ReqAndRes.series[6].data = oneDay.AverageElapsed_over5s;
 			chart3.setOption(echartConfig.ReqAndRes);
 		},
 		oneHourRender: function() {
-			this.initChart();
+			services.getOneHour(function(data) {
+				console.log(data);
+				var dash3 = document.getElementById('Dash3');
+				var chart3 = echarts.init(dash3);
+				echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
+				echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
+				echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
+				echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
+				echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
+				echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
+				echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
+				echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
+				chart3.setOption(echartConfig.ReqAndRes);
+			}, function() {
+				console.log("fail");
+			});
 			this.oneHourObject.clicked = true;
 			this.oneDayObject.clicked = false;
 			this.sevenDayObject.clicked = false;
 			this.monthClassObject.clicked = false;
 		},
 		oneDayRender: function() {
+			services.getOneDay(function(data) {
+				var dash3 = document.getElementById('Dash3');
+				var chart3 = echarts.init(dash3);
+				echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
+				echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
+				echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
+				echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
+				echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
+				echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
+				echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
+				echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
+				chart3.setOption(echartConfig.ReqAndRes);
+			}, function() {
+				console.log("fail");
+			});
 			this.oneHourObject.clicked = false;
 			this.oneDayObject.clicked = true;
 			this.sevenDayObject.clicked = false;
 			this.monthClassObject.clicked = false;
 		},
 		sevenDayRender: function() {
+			services.getOneWeek(function(data) {
+				var dash3 = document.getElementById('Dash3');
+				var chart3 = echarts.init(dash3);
+				echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
+				echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
+				echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
+				echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
+				echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
+				echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
+				echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
+				echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
+				chart3.setOption(echartConfig.ReqAndRes);
+			}, function() {
+				console.log("fail");
+			});
 			this.oneHourObject.clicked = false;
 			this.oneDayObject.clicked = false;
 			this.sevenDayObject.clicked = true;
 			this.monthClassObject.clicked = false;
 		},
 		oneMonthRender: function() {
+			services.getOneMonth(function(data) {
+				var dash3 = document.getElementById('Dash3');
+				var chart3 = echarts.init(dash3);
+				echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
+				echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
+				echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
+				echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
+				echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
+				echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
+				echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
+				echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
+				chart3.setOption(echartConfig.ReqAndRes);
+			}, function() {
+				console.log("fail");
+			});
 			this.oneHourObject.clicked = false;
 			this.oneDayObject.clicked = false;
 			this.sevenDayObject.clicked = false;
