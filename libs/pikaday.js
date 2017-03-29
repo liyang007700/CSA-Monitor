@@ -427,8 +427,9 @@
         },
 
         renderTable = function(opts, data, randId) {
-            return '<table cellpadding="0" cellspacing="0" class="pika-table" role="grid" aria-labelledby="' +
-            randId + '">' + renderHead(opts) + renderBody(data) +
+            return '<table cellpadding="0" cellspacing="0" ' +
+                'class="pika-table" role="grid" aria-labelledby="' +
+                randId + '">' + renderHead(opts) + renderBody(data) +
                 '</table>';
         },
 

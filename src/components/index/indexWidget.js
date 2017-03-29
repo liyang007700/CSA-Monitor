@@ -22,7 +22,7 @@ var widgetIndex = {
                 if (evt.layerX < (this.containerWidth * 0.5)) {
                     this.styleTooltip.left = evt.layerX + 20 + "px";
                 } else if (evt.layerX > (this.containerWidth * 0.5)) {
-                    this.styleTooltip.left = evt.layerX - 320 + "px";
+                    this.styleTooltip.left = evt.layerX - 160 + "px";
                 }
                 this.styleTooltip.top = evt.layerY + 20 + "px";
 

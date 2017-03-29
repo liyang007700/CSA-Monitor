@@ -6162,7 +6162,6 @@ const componentIndex = {
 		}, function() {
 			console.log("fail");
 		});*/
-
 	},
 	components: {
 		"m-histogram": widgetIndex.mHistogram
