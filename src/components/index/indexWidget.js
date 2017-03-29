@@ -173,10 +173,7 @@ var widgetIndex = {
                 return can;
             },
             createCanvas: function() {
-                /* Parent DOM element use persentage-width to fit different screen
-                   So use parent Dom's offsetWidth and offsetHeight to set
-                   canvas tag's width and height
-                */
+                // computer
                 var ratio = (function() {
                     var ctx = document.createElement("canvas").getContext(
                             "2d"),
@@ -189,47 +186,24 @@ var widgetIndex = {
 
                     return dpr / bsr;
                 })();
+                /* Parent DOM element use persentage-width to fit different screen
+                   So use parent Dom's offsetWidth and offsetHeight to set
+                   canvas tag's width and height
+                */
                 var container = document.getElementById(
                     "histogramContainer");
                 var can = this.createHiDPICanvas(container.offsetWidth,
                     container.offsetHeight, ratio);
 
-                //var canvas = document.getElementById("u-histogram");
-                //canvas.width = container.offsetWidth;
-                //canvas.height = container.offsetHeight;
-
                 // test if browser support canvas
                 if (can.getContext) {
                     var ctx = can.getContext("2d");
-                    /*
-                    var ratio = (function() {
-                        var canvas = document.createElement(
-                                'canvas'),
-                            context = canvas.getContext('2d'),
-                            backingStore = context.backingStorePixelRatio ||
-                            context.webkitBackingStorePixelRatio ||
-                            context.mozBackingStorePixelRatio ||
-                            context.msBackingStorePixelRatio ||
-                            context.oBackingStorePixelRatio ||
-                            context.backingStorePixelRatio || 1;
-
-                        return (window.devicePixelRatio || 1) /
-                            backingStore;
-                    })();
-                    console.log("screen ration: " + ratio);*/
-                    // time scale line
                     this.createYaxis(ctx, container.offsetWidth,
                         container.offsetHeight);
                     this.createXaxis(ctx, container.offsetWidth,
                         container.offsetHeight,
                         4, this.timeLine);
-                    /*
-                    this.createXTick(ctx, canvas.width, canvas.height,
-                        4);*/
                     this.createLegend(ctx, container.offsetWidth);
-                    /*
-                    this.createXText(ctx, canvas.width, canvas.height,
-                        4, this.timeLine);*/
                     this.createBar(ctx, container.offsetWidth,
                         container.offsetHeight,
                         this.events);

@@ -225,6 +225,7 @@ var echartConfig = {
             symbol: 'circle',
             symbolSize: 5,
             yAxisIndex: 1,
+            showAllSymbol: true,
             hoverAnimation: true,
             itemStyle: {
                 normal: {
@@ -244,6 +245,7 @@ var echartConfig = {
             symbol: 'circle',
             symbolSize: 5,
             yAxisIndex: 1,
+            showAllSymbol: true,
             hoverAnimation: true,
             itemStyle: {
                 normal: {
@@ -263,6 +265,7 @@ var echartConfig = {
             symbol: 'circle',
             symbolSize: 5,
             yAxisIndex: 1,
+            showAllSymbol: true,
             hoverAnimation: true,
             itemStyle: {
                 normal: {

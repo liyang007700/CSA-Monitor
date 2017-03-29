@@ -16,14 +16,6 @@ import {
 }
 from '../plugins/tooltip';
 import {
-	oneHour
-}
-from "./index/_oneHour";
-import {
-	oneDay
-}
-from "./index/_oneDay";
-import {
 	echartConfig
 }
 from "./index/echartConfig";
@@ -185,56 +177,48 @@ const componentIndex = {
 	},
 	methods: {
 		// default chart data 1 hour
-		initChart: function() {
-			//var dash1 = document.getElementById('Dash1');
-			//var chart1 = echarts.init(dash1);
-			//var dash2 = document.getElementById('Dash2');
-			//var chart2 = echarts.init(dash2);
-			var dash3 = document.getElementById('Dash3');
-			var chart3 = echarts.init(dash3);
-			//chart1.group = 'group1';
-			//chart2.group = 'group1';
-			//echarts.connect('group1');
-			echartConfig.ReqAndRes.xAxis[0].data = oneHour.timepoint;
-			echartConfig.ReqAndRes.series[0].data = oneHour.Count_RC2;
-			echartConfig.ReqAndRes.series[1].data = oneHour.Count_RC3;
-			echartConfig.ReqAndRes.series[2].data = oneHour.Count_RC4;
-			echartConfig.ReqAndRes.series[3].data = oneHour.Count_RC5;
-			echartConfig.ReqAndRes.series[4].data = oneHour.AverageElapsed_less5s;
-			echartConfig.ReqAndRes.series[5].data = oneHour.AverageElapsed_All;
-			echartConfig.ReqAndRes.series[6].data = oneHour.AverageElapsed_over5s;
-			//chart1.setOption(echartConfig.Request);
-			//chart2.setOption(echartConfig.Response);
-			chart3.setOption(echartConfig.ReqAndRes);
+		renderChart: function(dom, data) {
+			var container = document.getElementById(dom);
+			var chart = echarts.init(container);
+			echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
+			echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
+			echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
+			echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
+			echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
+			echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
+			echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
+			echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
+			chart.setOption(echartConfig.ReqAndRes);
 		},
-		// default chart data 3 hour
-		oneDayChart: function() {
-			var dash3 = document.getElementById('Dash3');
-			var chart3 = echarts.init(dash3);
-			echartConfig.ReqAndRes.xAxis[0].data = oneDay.timepoint;
-			echartConfig.ReqAndRes.series[0].data = oneDay.Count_RC2;
-			echartConfig.ReqAndRes.series[1].data = oneDay.Count_RC3;
-			echartConfig.ReqAndRes.series[2].data = oneDay.Count_RC4;
-			echartConfig.ReqAndRes.series[3].data = oneDay.Count_RC5;
-			echartConfig.ReqAndRes.series[4].data = oneDay.AverageElapsed_less5s;
-			echartConfig.ReqAndRes.series[5].data = oneDay.AverageElapsed_All;
-			echartConfig.ReqAndRes.series[6].data = oneDay.AverageElapsed_over5s;
-			chart3.setOption(echartConfig.ReqAndRes);
-		},
+		/*
+				initChart: function() {
+					//var dash1 = document.getElementById('Dash1');
+					//var chart1 = echarts.init(dash1);
+					//var dash2 = document.getElementById('Dash2');
+					//var chart2 = echarts.init(dash2);
+					var dash3 = document.getElementById('Dash3');
+					var chart3 = echarts.init(dash3);
+					//chart1.group = 'group1';
+					//chart2.group = 'group1';
+					//echarts.connect('group1');
+					echartConfig.ReqAndRes.xAxis[0].data = oneHour.timepoint;
+					echartConfig.ReqAndRes.series[0].data = oneHour.Count_RC2;
+					echartConfig.ReqAndRes.series[1].data = oneHour.Count_RC3;
+					echartConfig.ReqAndRes.series[2].data = oneHour.Count_RC4;
+					echartConfig.ReqAndRes.series[3].data = oneHour.Count_RC5;
+					echartConfig.ReqAndRes.series[4].data = oneHour.AverageElapsed_less5s;
+					echartConfig.ReqAndRes.series[5].data = oneHour.AverageElapsed_All;
+					echartConfig.ReqAndRes.series[6].data = oneHour.AverageElapsed_over5s;
+					//chart1.setOption(echartConfig.Request);
+					//chart2.setOption(echartConfig.Response);
+					chart3.setOption(echartConfig.ReqAndRes);
+				},*/
 		oneHourRender: function() {
+			echartConfig.ReqAndRes.dataZoom[0].end = 100;
+			echartConfig.ReqAndRes.dataZoom[1].end = 100;
+			var _this = this;
 			services.getOneHour(function(data) {
-				console.log(data);
-				var dash3 = document.getElementById('Dash3');
-				var chart3 = echarts.init(dash3);
-				echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
-				echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
-				echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
-				echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
-				echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
-				echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
-				echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
-				echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
-				chart3.setOption(echartConfig.ReqAndRes);
+				_this.renderChart("Dash3", data);
 			}, function() {
 				console.log("fail");
 			});
@@ -244,18 +228,11 @@ const componentIndex = {
 			this.monthClassObject.clicked = false;
 		},
 		oneDayRender: function() {
+			echartConfig.ReqAndRes.dataZoom[0].end = 100;
+			echartConfig.ReqAndRes.dataZoom[1].end = 100;
+			var _this = this;
 			services.getOneDay(function(data) {
-				var dash3 = document.getElementById('Dash3');
-				var chart3 = echarts.init(dash3);
-				echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
-				echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
-				echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
-				echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
-				echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
-				echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
-				echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
-				echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
-				chart3.setOption(echartConfig.ReqAndRes);
+				_this.renderChart("Dash3", data);
 			}, function() {
 				console.log("fail");
 			});
@@ -265,18 +242,11 @@ const componentIndex = {
 			this.monthClassObject.clicked = false;
 		},
 		sevenDayRender: function() {
+			echartConfig.ReqAndRes.dataZoom[0].end = 25;
+			echartConfig.ReqAndRes.dataZoom[1].end = 25;
+			var _this = this;
 			services.getOneWeek(function(data) {
-				var dash3 = document.getElementById('Dash3');
-				var chart3 = echarts.init(dash3);
-				echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
-				echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
-				echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
-				echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
-				echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
-				echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
-				echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
-				echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
-				chart3.setOption(echartConfig.ReqAndRes);
+				_this.renderChart("Dash3", data);
 			}, function() {
 				console.log("fail");
 			});
@@ -286,18 +256,11 @@ const componentIndex = {
 			this.monthClassObject.clicked = false;
 		},
 		oneMonthRender: function() {
+			echartConfig.ReqAndRes.dataZoom[0].end = 25;
+			echartConfig.ReqAndRes.dataZoom[1].end = 25;
+			var _this = this;
 			services.getOneMonth(function(data) {
-				var dash3 = document.getElementById('Dash3');
-				var chart3 = echarts.init(dash3);
-				echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
-				echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
-				echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
-				echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
-				echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
-				echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
-				echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
-				echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
-				chart3.setOption(echartConfig.ReqAndRes);
+				_this.renderChart("Dash3", data);
 			}, function() {
 				console.log("fail");
 			});
@@ -308,18 +271,17 @@ const componentIndex = {
 		},
 		toggleTimeSelect: function() {
 			this.ifShowDateSelection = !this.ifShowDateSelection;
-			this.getCurrentTime();
+			this.initDatePicker();
 		},
 		saveSelect: function() {
 			this.ifShowDateSelection = false;
-			this.initChart();
 		},
 		/*
 				toggleClassObject: function() {
 					this.classObjectAuto.switchOff = !this.classObjectAuto.switchOff;
 					this.classObjectAuto.switchOn = !this.classObjectAuto.switchOn;
 				},*/
-		getCurrentTime: function() {
+		initDatePicker: function() {
 			// Date.now方法返回当前距离1970年1月1日 00:00:00 UTC的毫秒数（Unix时间戳乘以1000）。
 			var nowMilliseconds = Date.now();
 			// 当前时区与格林威治时间的毫秒差值
@@ -352,14 +314,19 @@ const componentIndex = {
 			field: document.getElementById('dateStart')
 		});
 		pickerStart.toString('YYYY-MM-DD');
-
 		var pickerEnd = new Pikaday({
 			field: document.getElementById('dateEnd')
 		});
 		pickerEnd.toString('YYYY-MM-DD');
+		this.initDatePicker();
+
 		let _this = this;
-		this.initChart();
-		this.getCurrentTime();
+		services.getOneHour(function(data) {
+			_this.renderChart("Dash3", data);
+		}, function() {
+			console.log("fail");
+		});
+
 	},
 	components: {
 		"m-histogram": widgetIndex.mHistogram
