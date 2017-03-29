@@ -26,7 +26,6 @@
             return factory(moment);
         });
     } else {
-        console.log("pikaday ready!");
         root.Pikaday = factory(root.moment);
     }
 }(this, function(moment) {
@@ -428,9 +427,8 @@
         },
 
         renderTable = function(opts, data, randId) {
-            return
-                '<table cellpadding="0" cellspacing="0" class="pika-table" role="grid" aria-labelledby="' +
-                randId + '">' + renderHead(opts) + renderBody(data) +
+            return '<table cellpadding="0" cellspacing="0" class="pika-table" role="grid" aria-labelledby="' +
+            randId + '">' + renderHead(opts) + renderBody(data) +
                 '</table>';
         },
 
