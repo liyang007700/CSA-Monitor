@@ -31,8 +31,6 @@ var vm = new Vue({
 			}
 		}
 	},
-	data: {
-
-	},
+	data: {},
 	router
 }).$mount('app');

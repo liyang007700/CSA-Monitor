@@ -20,6 +20,7 @@ import {
 }
 from "./index/echartConfig";
 
+
 const componentIndex = {
 	template: template,
 	data: function() {
@@ -180,15 +181,29 @@ const componentIndex = {
 		renderChart: function(dom, data) {
 			var container = document.getElementById(dom);
 			var chart = echarts.init(container);
-			echartConfig.ReqAndRes.xAxis[0].data = data.timepoint;
-			echartConfig.ReqAndRes.series[0].data = data.Count_RC2;
-			echartConfig.ReqAndRes.series[1].data = data.Count_RC3;
-			echartConfig.ReqAndRes.series[2].data = data.Count_RC4;
-			echartConfig.ReqAndRes.series[3].data = data.Count_RC5;
-			echartConfig.ReqAndRes.series[4].data = data.AverageElapsed_less5s;
-			echartConfig.ReqAndRes.series[5].data = data.AverageElapsed_All;
-			echartConfig.ReqAndRes.series[6].data = data.AverageElapsed_over5s;
-			chart.setOption(echartConfig.ReqAndRes);
+			echartConfig.oldVersion.xAxis[0].data = data.timepoint;
+			echartConfig.oldVersion.series[0].data = data.Count_RC2;
+			echartConfig.oldVersion.series[1].data = data.Count_RC3;
+			echartConfig.oldVersion.series[2].data = data.Count_RC4;
+			echartConfig.oldVersion.series[3].data = data.Count_RC5;
+			echartConfig.oldVersion.series[4].data = data.AverageElapsed_less5s;
+			echartConfig.oldVersion.series[5].data = data.AverageElapsed_All;
+			echartConfig.oldVersion.series[6].data = data.AverageElapsed_over5s;
+			chart.setOption(echartConfig.oldVersion);
+		},
+		renderChartNew: function(dom, timepoint, elapse, Count_2XX, Count_3XX,
+			Count_4XX, Count_5XX) {
+			var container = document.getElementById(dom);
+			console.log(container);
+
+			var chart = echarts.init(container);
+			echartConfig.newVersion.xAxis[0].data = timepoint;
+			echartConfig.newVersion.series[0].data = Count_2XX;
+			echartConfig.newVersion.series[1].data = Count_3XX;
+			echartConfig.newVersion.series[2].data = Count_4XX;
+			echartConfig.newVersion.series[3].data = Count_5XX;
+			echartConfig.newVersion.series[4].data = elapse;
+			chart.setOption(echartConfig.newVersion);
 		},
 		/*
 				initChart: function() {
@@ -6156,12 +6171,45 @@ const componentIndex = {
 			]
 		};
 		_this.renderChart("Dash3", data);
-		/*
-		services.getOneHour(function(data) {
-			_this.renderChart("Dash3", data);
+
+		let test_count = null;
+		let test_time = null;
+		let date_time = "2017-05-09";
+		let oneDayTimePoint = [];
+		let oneDayElapse = [];
+		let oneDay2XX = [];
+		let oneDay3XX = [];
+		let oneDay4XX = [];
+		let oneDay5XX = [];
+		services.getOneDayCount(function(test_count) {
+			console.log(test_count);
+			for (let i in test_count) {
+				oneDayTimePoint.push(test_count[i].timepoint);
+				oneDay2XX.push(test_count[i].count_2xx);
+				oneDay3XX.push(test_count[i].count_3xx);
+				oneDay4XX.push(test_count[i].count_4xx);
+				oneDay5XX.push(test_count[i].count_5xx);
+			}
+			services.getOneDayTime(function(test_time) {
+				console.log(test_time);
+				for (let i in test_time) {
+					oneDayElapse.push(test_time[i].average_elapsed);
+				}
+				console.log(oneDayTimePoint);
+				console.log(oneDayElapse);
+				console.log(oneDay2XX);
+				console.log(oneDay3XX);
+				console.log(oneDay4XX);
+				console.log(oneDay5XX);
+				_this.renderChartNew("Dash4", oneDayTimePoint, oneDayElapse,
+					oneDay2XX,
+					oneDay3XX, oneDay4XX, oneDay5XX);
+			}, function() {
+				console.log("fail");
+			}, date_time);
 		}, function() {
 			console.log("fail");
-		});*/
+		}, date_time);
 	},
 	components: {
 		"m-histogram": widgetIndex.mHistogram

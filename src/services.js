@@ -33,6 +33,38 @@ services.getOneDay = (success, fail) => {
             fail();
         });
 };
+services.getOneDayCount = (success, fail, date_time) => {
+    // http://prdpcrdhydra01.w3-969.ibm.com:8000/w2w_restapi/test/  chart数据
+    // url exception
+    Vue.http.get(
+        'http://prdpcrdhydra01.w3-969.ibm.com:8000/w2w_restapi/get_urltype/' +
+        date_time
+    ).then(
+        response => {
+            success(response.body);
+        }, response => {
+            console.warn('Get user info service: [' + response.status +
+                '] ' +
+                response.statusText);
+            fail();
+        });
+};
+services.getOneDayTime = (success, fail, date_time) => {
+    // http://prdpcrdhydra01.w3-969.ibm.com:8000/w2w_restapi/test/  chart数据
+    // url exception
+    Vue.http.get(
+        'http://prdpcrdhydra01.w3-969.ibm.com:8000/w2w_restapi/get_service/' +
+        date_time
+    ).then(
+        response => {
+            success(response.body);
+        }, response => {
+            console.warn('Get user info service: [' + response.status +
+                '] ' +
+                response.statusText);
+            fail();
+        });
+};
 services.getOneWeek = (success, fail) => {
     // http://prdpcrdhydra01.w3-969.ibm.com:8000/w2w_restapi/test/ chart数据
     // url exception
