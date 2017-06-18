@@ -173,8 +173,8 @@ var widgetIndex = {
                 return can;
             },
             createCanvas: function() {
-                // computer
-                var ratio = (function() {
+                // for this function pls see http://www.html5rocks.com/
+                var ratio = (function() { // On the iPad 3+, this ratio is 2
                     var ctx = document.createElement("canvas").getContext(
                             "2d"),
                         dpr = window.devicePixelRatio || 1,

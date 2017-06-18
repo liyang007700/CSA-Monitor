@@ -20,7 +20,6 @@ import {
 }
 from "./index/echartConfig";
 
-
 const componentIndex = {
 	template: template,
 	data: function() {

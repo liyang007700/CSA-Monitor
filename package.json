@@ -1,38 +1,42 @@
 {
-    "name": "csa-monitor",
-    "version": "1.0.0",
-    "description": "Javascript: 框架 - Vue.js, Chart - EChart",
-    "main": "app.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/wxyudl/CSA-Monitor.git"
-    },
-    "author": "wxyu@cn.ibm.com",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/wxyudl/CSA-Monitor/issues"
-    },
-    "homepage": "https://github.com/wxyudl/CSA-Monitor#readme",
-    "dependencies": {
-
-    },
-    "devDependencies": {
-        "babel": "^6.23.0",
-        "babel-core": "^6.23.1",
-        "babel-loader": "^6.3.1",
-        "babel-preset-es2015": "^6.22.0",
-        "grunt": "^1.0.1",
-        "grunt-contrib-jshint": "^1.1.0",
-        "grunt-contrib-less": "^1.4.0",
-        "grunt-contrib-watch": "^1.0.0",
-        "grunt-webpack": "^2.0.1",
-        "html-loader": "^0.4.4",
-        "less": "^2.7.2",
-        "less-loader": "^2.2.3",
-        "webpack": "^2.2.1",
-        "webpack-dev-server": "^2.3.0"
-    }
+  "name": "csa-monitor",
+  "version": "1.0.0",
+  "description": "Javascript: 框架 - Vue.js, Chart - EChart",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxyudl/CSA-Monitor.git"
+  },
+  "author": "wxyu@cn.ibm.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wxyudl/CSA-Monitor/issues"
+  },
+  "homepage": "https://github.com/wxyudl/CSA-Monitor#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.1",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-webpack": "^2.0.1",
+    "html-loader": "^0.4.4",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  }
 }
