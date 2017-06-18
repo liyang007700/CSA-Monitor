@@ -1,0 +1,8 @@
+<div class="m-tabs">
+	<ul class="m-tab">
+		<li v-for="(tab, idx) in tabsLabel" :class="idx === 0 ? 'active' : ''" v-on:click="changeTab">
+			{{ tab }}
+		</li>
+	</ul>
+	<slot></slot>
+</div>

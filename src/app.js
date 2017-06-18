@@ -1,6 +1,10 @@
 /*jshint esversion: 6 */
 
 // import child components
+import '../libs/pure-min.css';
+import '../libs/bootstrap.css';
+import '../libs/pikaday.css';
+import '../style/app.less';
 import './components/common/header';
 import './components/common/leftNav';
 import './components/common/footer';
@@ -14,7 +18,7 @@ const router = new VueRouter({
 	routes: routes
 });
 
-const app = new Vue({
+var vm = new Vue({
 	components: {
 		'app': {
 			template: appTemplate,
@@ -23,14 +27,14 @@ const app = new Vue({
 					mMainClass: 'm-' + this.$route.path.substring(1)
 				};
 			},
-			methods: {},
+			methods: {
+
+			},
 			beforeUpdate: function() {
 				this.$data.mMainClass = 'm-' + this.$route.path.substring(1);
 			}
 		}
 	},
-	data: {
-
-	},
+	data: {},
 	router
 }).$mount('app');

@@ -6,18 +6,17 @@ module.exports = function(grunt) {
 		jshint: {
 			all: ['./src/**/*.js']
 		},
-		
+
 		less: {
 			dev: {
 				options: {
 					paths: ["style"]
 				},
-			    files: {
-			    	'dist/app.css': 'style/app.less'
-			    }
+				files: {
+					'dist/app.css': 'style/app.less'
+				}
 			}
 		},
-
 		webpack: {
 			options: webpackConfig,
 			dev: {
@@ -26,15 +25,15 @@ module.exports = function(grunt) {
 			prod: {
 				devtool: '#source-map',
 				plugins: [
-			  		new webpack.optimize.UglifyJsPlugin({
-			  	  		compress: {
-			  	  			warnings: false,
-			  	  		},
-			  	  		output: {
-			  	  			comments: false,
-			  	  		},
-			  	  	})
-			  	]
+					new webpack.optimize.UglifyJsPlugin({
+						compress: {
+							warnings: false,
+						},
+						output: {
+							comments: false,
+						},
+					})
+				]
 			}
 		},
 

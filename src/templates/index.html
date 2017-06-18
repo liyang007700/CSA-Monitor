@@ -1,50 +1,131 @@
 <div class="pure-g">
-	<div class="pure-u-1-1" >
-		<div class="u-dashBtn">
+	<div class="pure-u-1-1 u-dashBtn">
+		<div class="m-box">
 			<form>
 				<fieldset>
-					<label for="state">Current Monitor Item</label>
-	        		<select id="state">
+					<label for="state">Current Monitoring Service</label>
+		        	<select id="state">
 						<option>Overview</option>
-						<optgroup label="Group 1">
-    						<option>Opportunities</option>
-							<option>Clients</option>
-  						</optgroup>
-						<optgroup label="Group 2">
+						<option>Opportunities</option>
+						<option>Tech Expertise</option>
+						<optgroup label="Territory">
+	    					<option>Clients</option>
 							<option>ProspectReach</option>
-							<option>Social search</option>
+							<option>Social Search</option>
+							<option>CrossBrand</option>
+	  					</optgroup>
+						<optgroup label="Digital Me">
+							<option>My Rep Page</option>
+							<option>IBM OneScore</option>
+							<option>My Feeds</option>
 						</optgroup>
-						<optgroup label="Group 3">
-							<option>Cross Brand Advisor</option>
-							<option>Tech Expertise</option>
+						<optgroup label="Learning Hub">
+							<option>Digital Mastery</option>
 						</optgroup>
-						<optgroup label="Group 4">
-							<option>My rep page</option>
-							<option>OneScore</option>
-						</optgroup>
-	        		</select>
+		        	</select>
 				</fieldset>
 			</form>
 			<div class = "u-btnGroup">
-		    	<button class="u-btn-clicked">24 Hour</button>
-				<button class="u-btn-unClicked">7 Day</button>
-				<button class="u-btn-unClicked">15 Days</button>
-				<button class="u-btn-unClicked">30 Days</button>
+			    <button class="u-btn" v-bind:class="oneHourObject" @click="oneHourRender">1 hour</button>
+				<button class="u-btn" v-bind:class="oneDayObject" @click="oneDayRender">1 day</button>
+				<button class="u-btn" v-bind:class="sevenDayObject" @click="sevenDayRender">week</button>
+				<button class="u-btn" v-bind:class="monthClassObject" @click="oneMonthRender">month</button>
+				<!-- User Specify time interval to get data -->
+				<div class="u-icon">
+					<span class="glyphicon glyphicon-calendar" @click="toggleTimeSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false"></span>
+					<span class="custom" v-show="ifShowCustom" @click="toggleTimeSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false">Custom</span>
+					<transition name="slide-fade">
+						<div class="u-select" v-show="ifShowDateSelection">
+							<span class="close" title="close" @click="ifShowDateSelection = false">
+								<i class="icon iconfont">&#xe613;</i>
+							</span>
+							<div class="u-date-select u-date-start">
+								<div class="time-year">
+									<span>Start Time</span><span class="bold">:</span>
+									<div class="date">
+										<input v-model="selectInput.startDate" id="dateStart"/>
+									</div>
+								</div>
+								<div class="time-hour">
+									<input v-model="selectInput.startHour"/>
+									<span class="up glyphicon glyphicon-chevron-up" @click="selectInput.startHour += 1"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="selectInput.startHour -= 1"></span>
+								</div>
+								<span class="bold">:</span>
+								<div class="time-hour">
+									<input v-model="selectInput.startMinute"/>
+									<span class="up glyphicon glyphicon-chevron-up" @click="selectInput.startMinute += 1"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="selectInput.startMinute -= 1"></span>
+								</div>
+							</div>
+							<div class="u-date-select">
+								<div class="time-year">
+									<span>End Time</span><span class="bold">:</span>
+									<div class="date">
+										<input v-model="selectInput.endDate" id="dateEnd"/>
+									</div>
+								</div>
+								<div class="time-hour">
+									<input v-model="selectInput.endHour"/>
+									<span class="up glyphicon glyphicon-chevron-up" @click="selectInput.endHour += 1"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="selectInput.endHour -= 1"></span>
+								</div>
+								<span class="bold">:</span>
+								<div class="time-hour">
+									<input v-model="selectInput.endMinute"/>
+									<span class="up glyphicon glyphicon-chevron-up" @click="selectInput.endMinute += 1"></span>
+									<span class="down glyphicon glyphicon-chevron-down" @click="selectInput.endMinute -= 1"></span>
+								</div>
+							</div>
+							<div class="u-btn-save" @click="saveSelect">
+								save
+							</div>
+						</div>
+					</transition>
+				</div>
+				<!--
+				<div class="auto-refresh">
+					<span>Auto Refresh</span>
+					<span class="bold">:</span>
+					<div class="switch" v-bind:class="classObjectAuto" @click="toggleClassObject">
+						<div class="swt-cursor"></div>
+					</div>
+				</div>
+				-->
 			</div>
 		</div>
 	</div>
+	<!--
 	<div class="pure-u-1-2">
 		<div class="m-box">
-			<h1>THROUGHPUT</h1>
-			<p>How many requests were fulfilled per hour?</p>
-			<div id="Dash1" class="chart" style="width:100%;height:400px;"></div>
+			<h2>THROUGHPUT</h2>
+			<p>How many requests were fulfilled per minute?</p>
+			<div id="Dash1" style="width:100%;height:400px;"></div>
 		</div>
 	</div>
 	<div class="pure-u-1-2">
 		<div class="m-box">
-			<h1>RESPONSE TIME</h1>
+			<h2>RESPONSE TIME</h2>
 			<p>How long does it take for the service to respond?</p>
-			<div id="Dash2" class="chart" style="width:100%;height:400px;"></div>
+			<div id="Dash2" style="width:100%;height:400px;"></div>
+		</div>
+	</div>-->
+	<div  class="pure-u-1-1 chart">
+		<div class="m-box">
+			<h2>THROUGHPUT AND RESPONSE</h2>
+			<div id="Dash3" style="width:100%;height:400px;"></div>
+		</div>
+	</div>
+	<div  class="pure-u-1-1 chart">
+		<div class="m-box">
+			<h2>THROUGHPUT AND RESPONSE</h2>
+			<div id="Dash4" style="width:100%;height:400px;"></div>
+		</div>
+	</div>
+	<div  class="pure-u-1-1 analysis">
+		<div class="m-box">
+			<h2>Request Communication Analysis</h2>
+			<m-histogram :events="events" :timeLine="timeLine"></m-histogram>
 		</div>
 	</div>
 </div>

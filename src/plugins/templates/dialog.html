@@ -1,11 +1,13 @@
-<div class="m-dialog" v-if="showDialog">
+<div class="m-dialog" v-show="showDialog">
 	<div class="m-dialog-mask"></div>
 	<div class="m-comtent">
 		<div class="m-header">
-			<h2>{{title}}</h2>
+			<h2>{{ title }}</h2>
 			<span class="close" title="close" v-on:click="close"><i class="icon iconfont">&#xe613;</i></span>
 		</div>
-		<div class="m-body" v-html="body">
+		<div class="m-body">
+			<!--<slot name="body"><p v-html="body"></p></slot>-->
+			<p v-html="body"></p>
 		</div>
 	</div>
 </div>

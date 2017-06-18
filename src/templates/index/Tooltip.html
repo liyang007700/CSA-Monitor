@@ -1,0 +1,8 @@
+<div class="index-tooltip" id="barTooltip">
+    <span>{{ event.url }}</span>
+    <br />
+    <div :item="item" v-for="item in event.count">
+        <span >{{ item.name }}： </span>
+        <span>{{ item.time }}s</span>
+    </div>
+</div>

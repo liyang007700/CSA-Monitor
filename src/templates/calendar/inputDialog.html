@@ -1,0 +1,26 @@
+<div v-if="ifShowDialog">
+	<div class="m-dialog-mask"></div>
+	<div class="m-content" :style="styleDialog">
+		<div class="m-header">
+			<h2>{{ title }}</h2>
+			<span class="close" title="close" @click="close"><i class="icon iconfont">&#xe613;</i></span>
+		</div>
+		<div class="m-body">
+			<div class="m-form">
+				<input @keyup.esc="close" v-model="message" placeholder="Write Event here..." autofocus/>
+				<label for="time">Time Duration(hour)</label>
+				<input class="time" id="time" v-model="duration" placeholder="2 hours"/>
+
+				<label for="event">Event Options</label>
+				<select  id="event" v-model="selected">
+					<option v-for="option in this.options" v-bind:value="option.value">
+					{{ option.text }}
+					</option>
+				</select>
+			</div>
+			<div class="m-button">
+				<button @click="submitEvent">Save</button>
+			</div>
+		</div>
+	</div>
+</div>

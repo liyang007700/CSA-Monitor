@@ -1,0 +1,7 @@
+<div class="histogram" @mousemove="hover" @mouseleave="mouseLeave">
+    <div id="histogramContainer" class="canvas_container" style="width:100%;height:420px">
+        <canvas id="u-histogram">Your browser does not support the HTML5 canvas tag.Consider update your IE or use chrome/Firefox instead!</canvas>
+        <m-tooltip  v-if="ifShowTooltip" :event="eventObject" :style="styleTooltip">
+        </m-tooltip>
+    </div>
+</div>
