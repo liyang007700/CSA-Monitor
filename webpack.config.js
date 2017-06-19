@@ -2,11 +2,16 @@ const webpack = require('webpack');
 const path = require('path');
 const env = process.env.NODE_ENV
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractLess = new ExtractTextPlugin({
+	filename: "[name].[contenthash].css",
+	disable: process.env.NODE_ENV === "development"
+});
+
 module.exports = {
 	entry: './src/app.js',
 	output: {
-		path: path.resolve(__dirname, "dist"),
+		path: path.resolve(__dirname),
 		filename: 'app.bundle.js'
 	},
 	module: {
@@ -42,11 +47,18 @@ module.exports = {
 			}],
 		}, {
 			test: /\.less$/,
-			use: env === 'production' ?
-				ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: ['css-loader', 'less-loader']
-				}) : ['style-loader', 'css-loader', 'less-loader']
+			use: extractLess.extract({
+				use: [{
+					loader: "css-loader"
+				}, {
+					loader: "less-loader"
+				}],
+				// use style-loader in development
+				fallback: "style-loader"
+			})
+		}, {
+			test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+			loader: "file-loader"
 		}, {
 			test: /\.css$/,
 			use: env === 'production' ?
@@ -54,12 +66,6 @@ module.exports = {
 					fallback: 'style-loader',
 					use: ['css-loader']
 				}) : ['style-loader', 'css-loader']
-		}, {
-			test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-			loader: 'url-loader',
-			options: {
-				limit: 10000
-			}
 		}]
 	},
 	plugins: env === 'production' ? [

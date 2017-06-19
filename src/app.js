@@ -1,9 +1,9 @@
 /*jshint esversion: 6 */
 
 // import child components
-import '../libs/pure-min.css';
-import '../libs/bootstrap.css';
-import '../libs/pikaday.css';
+//import '../libs/pure-min.css';
+//import '../libs/bootstrap.css';
+//import '../libs/pikaday.css';
 import '../style/app.less';
 import './components/common/header';
 import './components/common/leftNav';
