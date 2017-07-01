@@ -1,12 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
-const env = process.env.NODE_ENV
 
+/*const env = process.env.NODE_ENV
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractLess = new ExtractTextPlugin({
 	filename: "[name].[contenthash].css",
 	disable: process.env.NODE_ENV === "development"
 });
+console.log(process.env.NODE_ENV);*/
 
 module.exports = {
 	entry: './src/app.js',
@@ -41,36 +42,54 @@ module.exports = {
 			test: /\.html$/,
 			use: [{
 				loader: 'html-loader',
+				/*,不能minimize,否则把component的tag的“”都给干掉了，直接父元素到子元素的prop断掉!
 				options: {
-					minimize: true
-				}
+					minimize: true,
+					removeAttributeQuotes: false,
+					collapseWhitespace: false,
+					removeScriptTypeAttributes: false,
+					collapseWhitespace: false,
+					conservativeCollapse: false,
+					useShortDoctype: false,
+					minifyJS: false,
+					minifyCSS: false,
+					removeStyleTypeAttributes: false,
+					keepClosingSlash: false,
+					removeCDATASectionsFromCDATA: false,
+					removeCommentsFromCDATA: false
+				}*/
 			}],
 		}, {
 			test: /\.less$/,
-			use: extractLess.extract({
-				use: [{
-					loader: "css-loader"
-				}, {
-					loader: "less-loader"
-				}],
-				// use style-loader in development
-				fallback: "style-loader"
-			})
+			use: ['style-loader', 'css-loader', 'less-loader']
+				/*
+				use: extractLess.extract({
+					use: [{
+						loader: "css-loader"
+					}, {
+						loader: "less-loader"
+					}],
+					// use style-loader in development
+					fallback: "style-loader"
+				})*/
 		}, {
 			test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
 			loader: "file-loader"
 		}, {
 			test: /\.css$/,
+			/*
 			use: env === 'production' ?
 				ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: ['css-loader']
-				}) : ['style-loader', 'css-loader']
+				}) : ['style-loader', 'css-loader']*/
+			use: ['style-loader', 'css-loader']
 		}]
-	},
+	}
+	/*,
 	plugins: env === 'production' ? [
 		new ExtractTextPlugin({
 			filename: '[name].css'
 		})
-	] : []
+	] : []*/
 }

@@ -6,9 +6,6 @@ var widgetIndex = {
         props: ["events", "timeLine"],
         template: templateHistogram,
         data: function() {
-            console.log("------------------");
-            console.log(this.timeLine);
-            console.log("------------------");
             return {
                 styleTooltip: {
                     position: "absolute",
@@ -204,21 +201,17 @@ var widgetIndex = {
                     this.createYaxis(ctx, container.offsetWidth,
                         container.offsetHeight);
                     this.createLegend(ctx, container.offsetWidth);
-                    /*
                     this.createXaxis(ctx, container.offsetWidth,
                         container.offsetHeight,
                         4, this.timeLine);
 
                     this.createBar(ctx, container.offsetWidth,
                         container.offsetHeight,
-                        this.events);*/
+                        this.events);
                 }
             }
         },
         mounted: function() {
-            console.log("------------------");
-            console.log(this.timeLine);
-            console.log("------------------");
             this.createCanvas();
         },
         components: {
