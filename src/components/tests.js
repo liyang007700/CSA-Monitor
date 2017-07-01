@@ -109,6 +109,7 @@ const componentTests = {
 			}
 		},
 		dialog1: {
+
 			template: '<b>弹窗1</b>'
 		},
 		dialog2: {
