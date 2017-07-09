@@ -1,4 +1,4 @@
 node_modules/
 dist/
 .gitignore
-.css
+app.bundle.js

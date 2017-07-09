@@ -4,7 +4,6 @@
 //import '../libs/pure-min.css';
 //import '../libs/bootstrap.css';
 //import '../libs/pikaday.css';
-var echarts = require('echarts');
 
 import '../style/app.less';
 import './components/common/header';

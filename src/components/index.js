@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+var echarts = require('echarts');
 import template from '../templates/index.html';
 // async data request api based on vue-source
 import {
