@@ -26,10 +26,10 @@
 				</fieldset>
 			</form>
 			<div class = "u-btnGroup">
-			    <button class="u-btn" v-bind:class="oneHourObject" @click="oneHourRender">1 hour</button>
-				<button class="u-btn" v-bind:class="oneDayObject" @click="oneDayRender">1 day</button>
-				<button class="u-btn" v-bind:class="sevenDayObject" @click="sevenDayRender">week</button>
-				<button class="u-btn" v-bind:class="monthClassObject" @click="oneMonthRender">month</button>
+			    <button class="u-btn" v-bind:class="oneHourObject">1 hour</button>
+				<button class="u-btn" v-bind:class="oneDayObject">1 day</button>
+				<button class="u-btn" v-bind:class="sevenDayObject">week</button>
+				<button class="u-btn" v-bind:class="monthClassObject">month</button>
 				<!-- User Specify time interval to get data -->
 				<div class="u-icon">
 					<span class="glyphicon glyphicon-calendar" @click="toggleTimeSelect" @mouseenter="ifShowCustom = true" @mouseleave="ifShowCustom = false"></span>
@@ -114,12 +114,6 @@
 		<div class="m-box">
 			<h2>THROUGHPUT AND RESPONSE</h2>
 			<div id="Dash3" style="width:100%;height:400px;"></div>
-		</div>
-	</div>
-	<div  class="pure-u-1-1 chart">
-		<div class="m-box">
-			<h2>THROUGHPUT AND RESPONSE</h2>
-			<div id="Dash4" style="width:100%;height:400px;"></div>
 		</div>
 	</div>
 	<div  class="pure-u-1-1 analysis">

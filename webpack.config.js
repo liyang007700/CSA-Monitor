@@ -44,19 +44,7 @@ module.exports = {
 				loader: 'html-loader',
 				/*,不能minimize,否则把component的tag的“”都给干掉了，直接父元素到子元素的prop断掉!
 				options: {
-					minimize: true,
-					removeAttributeQuotes: false,
-					collapseWhitespace: false,
-					removeScriptTypeAttributes: false,
-					collapseWhitespace: false,
-					conservativeCollapse: false,
-					useShortDoctype: false,
-					minifyJS: false,
-					minifyCSS: false,
-					removeStyleTypeAttributes: false,
-					keepClosingSlash: false,
-					removeCDATASectionsFromCDATA: false,
-					removeCommentsFromCDATA: false
+					minimize: true
 				}*/
 			}],
 		}, {
@@ -84,6 +72,9 @@ module.exports = {
 					use: ['css-loader']
 				}) : ['style-loader', 'css-loader']*/
 			use: ['style-loader', 'css-loader']
+		}, {
+			test: /\.json$/,
+			use: ['json-loader']
 		}]
 	}
 	/*,
